@@ -1,0 +1,21 @@
+/*left section*/
+.top-header__left-section{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.top-header__message-icon{
+    width: 25px;
+    height: 20px;
+    margin-right: 15px;
+}
+.top-header__text{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #003767;
+    margin-right: 15px;
+}
+.top-header__text:last-child{
+    margin-right: 0;
+}

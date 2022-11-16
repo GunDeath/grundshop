@@ -1,0 +1,6 @@
+.bottom_header__section{
+    display: flex;
+    height: 56px;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,20 @@
+/*right section*/
+.top-header__right-section{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.top-header__phone-icon{
+    width: 25px;
+    height: 25px;
+}
+.top-header__phone-text{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #003767;
+    margin-left: 15px;
+}
+.top-header__phone-span{
+    font-weight: 400;
+}

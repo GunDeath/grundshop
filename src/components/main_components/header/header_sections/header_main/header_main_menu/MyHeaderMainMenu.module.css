@@ -1,0 +1,29 @@
+.main_header__menu_block{
+    display: flex;
+    align-items: center;
+}
+.main-header__menu-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.active_menu_element{
+    padding: 4px 12px;
+    border-radius: 4px;
+    background-color: #ff4822;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 500;
+    margin-right: 30px;
+}
+.catalog_icon{
+    margin-right: 10px;
+}
+.no_active_menu_element{
+    margin-right: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #003767;
+}

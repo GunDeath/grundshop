@@ -1,0 +1,13 @@
+.bottom_header__right_section{
+    display: flex;
+}
+.bottom_header__right_elements{
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #003767;
+}
+.bottom_header__right_elements:last-child{
+    margin-right: 0;
+}

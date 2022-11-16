@@ -1,0 +1,24 @@
+.main_header__product_cart{
+    display: flex;
+    height: 41px;
+}
+.main_header__cart_text{
+    display: flex;
+    flex-direction: column;
+}
+.cart_icon{
+    margin-right: 10px;
+}
+.cart_span{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.01em;
+    color: #003767;
+}
+.cart_count{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #003767;
+}
