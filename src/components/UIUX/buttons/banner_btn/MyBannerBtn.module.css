@@ -1,0 +1,10 @@
+.top_banner__link_button{
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 150%;
+    background-color: #ff4822;
+    box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    padding: 13px 37px;
+}

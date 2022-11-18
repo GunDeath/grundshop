@@ -30,6 +30,20 @@ code {
     monospace;
 }
 
-.header_icons{
-
+/*slider*/
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom, .swiper-pagination-fraction{
+  width: 80% !important;
+  left: 10% !important;
+}
+.swiper-pagination-bullet{
+  background: transparent !important;
+  width: 10px !important;
+  height: 10px !important;
+  border: 2px solid #003767 !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #003767 !important;
 }

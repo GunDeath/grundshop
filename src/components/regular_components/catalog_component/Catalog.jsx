@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import classes from './MyCatalog.module.css'
 import {useEffect} from "@types/react";
 import {api} from "../../../woocommerce_api";
-import MainPostComponent from "../posts_component/MainPostComponent";
+import MainPostComponent from "../posts_component/main_post_component/MainPostComponent";
 import ProductCatalog from "../../catalog_of_products/ProductCatalog";
 
 

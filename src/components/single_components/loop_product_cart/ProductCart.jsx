@@ -3,6 +3,7 @@ import classes from './MyProductCart.module.css'
 import rating_icons from '../../../assets/icons/product-cart__rating.svg'
 import wishlist_icons from '../../../assets/icons/header_icons/main-header__wishlist-icon.svg'
 import compare_icon from '../../../assets/icons/header_icons/main-header__compare-icon.svg'
+import CatalogBtn from "../../UIUX/buttons/catalog_btn/CatalogBtn";
 
 
 
@@ -53,7 +54,7 @@ const ProductCart = ({product}) => {
                             </div>
                         </div>
                     }
-                    <div className={classes.product_cart__button}>В корзину</div>
+                    <CatalogBtn />
                 </div>
             </div>
         </div>
