@@ -13,7 +13,7 @@ const CategoriesList = () => {
                             <img src={category.image.src} alt="" className={classes.category_img}/>
                         </div>
                         <div className={classes.category_title_block}>
-                            <a href='#' className={classes.category_title}>{category.name}</a>
+                            <span className={classes.category_title}>{category.name}</span>
                         </div>
                     </li>
                 )}

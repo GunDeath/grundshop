@@ -2,7 +2,7 @@ import axios from "axios";
 import {useState, useEffect} from "react";
 
 export const usePosts = (id) => {
-    const siteURI = 'http://mybackend.rusgetter.store/wp-json/wp/v2'
+    const siteURI = 'https://mybackend.rusgetter.store/wp-json/wp/v2'
     const [mainPost, setMainPost] = useState([]);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export const usePosts = (id) => {
 }
 
 export const useCategoriesMedia = () => {
-    const siteURI = 'http://mybackend.rusgetter.store/wp-json/wp/v2'
+    const siteURI = 'https://mybackend.rusgetter.store/wp-json/wp/v2'
     const [mainMedia, setMainMedia] = useState([]);
 
     useEffect(() => {
@@ -42,7 +42,7 @@ export const useCategoriesMedia = () => {
 }
 
 export const usePostCategories = (id) => {
-    const siteURI = 'http://mybackend.rusgetter.store/wp-json/wp/v2'
+    const siteURI = 'https://mybackend.rusgetter.store/wp-json/wp/v2'
     const [mainCategory, setMainCategory] = useState([]);
 
     useEffect(() => {

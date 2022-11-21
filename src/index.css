@@ -30,7 +30,7 @@ code {
     monospace;
 }
 
-/*slider*/
+/*slider custom styles*/
 .swiper-horizontal>.swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom, .swiper-pagination-fraction{
@@ -46,4 +46,13 @@ code {
 }
 .swiper-pagination-bullet-active {
   background-color: #003767 !important;
+}
+.swiper-pointer-events.swiper-vertical{
+  height: 100%;
+}
+/*yandex maps styles*/
+.map-widget-toponym-content-view__nearest-stops,
+.map-widget-toponym-content-view__button-wrapper,
+.map-widget-toponym-content-view__button-wrapper{
+  display: none !important;
 }

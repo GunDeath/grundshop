@@ -1,0 +1,12 @@
+.catalog_main__layout{
+    display: flex;
+    max-width: 1290px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.aside_catalog__block{
+    width: 300px;
+    margin-right: 30px;
+}
+

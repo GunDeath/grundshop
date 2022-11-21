@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './MyTopSlider.module.css'
 import bc_img from '../../../../assets/img/main_background_slider.png'
-import SliderReact from "../../../slider_react/main_top_slider/SliderReact";
+import SliderReact from "../../main_top_slider/SliderReact";
 
 const TopSlider = () => {
 

@@ -17,6 +17,10 @@
     font-weight: 500;
     margin-right: 30px;
 }
+.header_link{
+    display: flex;
+    align-items: center;
+}
 .catalog_icon{
     margin-right: 10px;
 }

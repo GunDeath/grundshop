@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './MyMainPostComponent.module.css'
-import {usePosts} from "../usePosts";
+import {usePosts} from "../../../../usePosts";
 import BannerBtn from "../../../UIUX/buttons/banner_btn/BannerBtn";
 
 const MainPostComponent = () => {

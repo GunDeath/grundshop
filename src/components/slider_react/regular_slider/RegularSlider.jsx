@@ -36,8 +36,6 @@ const RegularSlider = () => {
                 loop={true}
                 pagination={{clickable: true}}
                 autoplay={{delay: 10000}}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
             >
                 {products.map(product =>
                     <SwiperSlide key={product.id}>

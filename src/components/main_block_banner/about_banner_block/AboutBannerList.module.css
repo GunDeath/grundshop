@@ -1,0 +1,5 @@
+.about_banner_layout_block{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-gap: 25px;
+}

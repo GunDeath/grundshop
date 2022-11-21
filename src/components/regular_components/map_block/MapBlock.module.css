@@ -1,0 +1,22 @@
+.main_map_styles{
+    margin-top: 100px;
+    position:relative;
+    overflow:hidden;
+}
+.map_city{
+    color:#eee;
+    font-size:12px;
+    position:absolute;
+    top:0;
+}
+.map_marker{
+    color:#eee;
+    font-size:12px;
+    position:absolute;
+    top:14px;
+}
+.map_iframe{
+    width: 100%;
+    height: 419px;
+    position: relative;
+}

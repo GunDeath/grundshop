@@ -1,13 +1,19 @@
 import React from "react";
-import Header from "./components/main_components/header/Header";
 import HomePage from "./components/regular_components/HomePage";
+import {Route, Routes} from "react-router-dom";
+import Layout from "./router_layout/Layout";
+import Catalog from "./components/catalog_of_products/Catalog";
 
 function App() {
 
   return (
     <div className="App">
-        <Header />
-            <HomePage />
+        <Routes>
+            <Route path='/' element={<Layout/>}>
+                <Route index element={<HomePage/>} />
+                <Route path='catalog' element={<Catalog/>} />
+            </Route>
+        </Routes>
     </div>
   );
 }
