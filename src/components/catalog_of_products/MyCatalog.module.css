@@ -1,5 +1,6 @@
 .catalog_main__layout{
-    display: flex;
+    display: grid;
+    grid-template-columns: 0.25fr 0.75fr;
     max-width: 1290px;
     margin: 0 auto;
     padding-top: 50px;

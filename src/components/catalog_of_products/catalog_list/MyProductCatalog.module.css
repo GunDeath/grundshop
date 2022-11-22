@@ -1,5 +1,5 @@
 .catalog_main__section{
-    max-width: 960px;
+    width: 960px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap: 30px;

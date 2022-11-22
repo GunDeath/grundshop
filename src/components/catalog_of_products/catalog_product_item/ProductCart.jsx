@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 
 
 const ProductCart = ({product}) => {
-    let product_title = product.categories[0].name + " насос " + product.name;
+    // let product_title = product.categories[0].name + " насос " + product.name;
     let sale_label_proc = 100 - ((product.sale_price * 100) / product.regular_price)
     return (
         <div className={classes.product_cart__catalog_loop__single} key={product.id}>
@@ -27,7 +27,7 @@ const ProductCart = ({product}) => {
             </div>
             <div className={classes.product_cart__information_block}>
                 <div className={classes.product_cart__title_element}>
-                    <Link to={`/product/${product.id}`} state={{product}}>{product_title}</Link>
+                    <Link to={`/product/${product.id}`} state={{product}}>{product.name}</Link>
                 </div>
                 <div className={classes.product_cart__rating_element}>
                     <img src={rating_icons} alt=""/>

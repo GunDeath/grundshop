@@ -66,3 +66,14 @@ export const footerPhones = [
     {id: 2, title: 'Отдел продаж Санкт-Петербург', phone: '8 (812) 748-22-35'},
     {id: 3, title: 'Сервисный центр', phone: '8 (499) 288-74-79'}
 ]
+
+export const categoriesList = [
+    {id: 1, title: 'Все товары', catId: 29},
+    {id: 2, title: 'Циркуляционные', catId: 16},
+    {id: 3, title: 'Погружные скважинные насосы', catId: 20},
+    {id: 4, title: 'Канализационные установки', catId: 19},
+    {id: 5, title: 'Насосные станции', catId: 23},
+    {id: 6, title: 'Промышленные', catId: 26},
+    {id: 7, title: 'Дренажные', catId: 17},
+    {id: 8, title: 'Комплектующие', catId: 24}
+]

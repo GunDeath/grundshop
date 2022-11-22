@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import classes from './MyCatalog.module.css'
 import {api} from "../../woocommerce_api";
 import ProductCatalog from "./catalog_list/ProductCatalog";
+import CatalogAside from "../CatalogAside/CatalogAside";
 
 
 const Catalog = () => {
@@ -13,13 +14,16 @@ const Catalog = () => {
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 
-    useEffect(()=>{
-        axiosProducts();
-    }, [])
+    const [categoryID, setCategoryID] = useState(16)
 
-    let axiosProducts = () => {
+
+    useEffect(()=>{
+        axiosProducts(categoryID);
+    }, [categoryID])
+
+    let axiosProducts = (categoryID) => {
         api
-            .get('products?category=16')
+            .get(`products?category=${categoryID}`)
             .then((response) => {
                 if(response.status === 200){
                     setCategoryProducts(response.data)
@@ -29,13 +33,14 @@ const Catalog = () => {
             .catch((error) => {});
     }
 
+    const changeCategory = (newID) => {setCategoryID(newID)}
+
+
     const currentRecords = categoryProducts.slice(indexOfFirstRecord, indexOfLastRecord);
     const nPages = Math.ceil(categoryProducts.length / recordsPerPage)
     return (
         <div className={classes.catalog_main__layout}>
-            <aside className={classes.aside_catalog__block}>
-                Some Filter Block
-            </aside>
+            <CatalogAside change={changeCategory}/>
             <ProductCatalog
                 currentRecords={currentRecords}
                 loading={loading}
