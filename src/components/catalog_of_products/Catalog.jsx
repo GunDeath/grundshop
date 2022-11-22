@@ -31,7 +31,6 @@ const Catalog = () => {
 
     const currentRecords = categoryProducts.slice(indexOfFirstRecord, indexOfLastRecord);
     const nPages = Math.ceil(categoryProducts.length / recordsPerPage)
-
     return (
         <div className={classes.catalog_main__layout}>
             <aside className={classes.aside_catalog__block}>

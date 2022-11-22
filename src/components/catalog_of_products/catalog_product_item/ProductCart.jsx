@@ -4,6 +4,7 @@ import rating_icons from '../../../assets/icons/product-cart__rating.svg'
 import wishlist_icons from '../../../assets/icons/header_icons/main-header__wishlist-icon.svg'
 import compare_icon from '../../../assets/icons/header_icons/main-header__compare-icon.svg'
 import CatalogBtn from "../../UIUX/buttons/catalog_btn/CatalogBtn";
+import {Link} from "react-router-dom";
 
 
 
@@ -26,7 +27,7 @@ const ProductCart = ({product}) => {
             </div>
             <div className={classes.product_cart__information_block}>
                 <div className={classes.product_cart__title_element}>
-                    {product_title}
+                    <Link to={`/product/${product.id}`} state={{product}}>{product_title}</Link>
                 </div>
                 <div className={classes.product_cart__rating_element}>
                     <img src={rating_icons} alt=""/>
