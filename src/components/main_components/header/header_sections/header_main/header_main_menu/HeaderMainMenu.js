@@ -21,7 +21,11 @@ const HeaderMainMenu = () => {
                     </NavLink>
                 </li>
                 <li className={classes.no_active_menu_element}>Контакты</li>
-                <li className={classes.no_active_menu_element}>Доставка</li>
+                <li className={classes.no_active_menu_element}>
+                    <NavLink to='/dostavka' className={classes.header_link}>
+                        Доставка
+                    </NavLink>
+                </li>
                 <li className={classes.no_active_menu_element}>Оплата</li>
             </ul>
         </div>
