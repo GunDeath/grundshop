@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import AboutBannerList from "./about_banner_block/AboutBannerList";
 import classes from './MainAboutBlock.module.css'
 import AboutBannerInfo from "./about_banner_info/AboutBannerInfo";
-import {titleArray, bannerElement} from "../../dataArrays";
+import {titleArray, bannerElement} from "../../../dataArrays";
 
 const MainAboutBlock = () => {
 

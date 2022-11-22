@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './AboutBannerInfo.module.css'
-import {ReactComponent as PrevArrow} from "../../../assets/icons/about_banner/slider_about_arrow_prev.svg";
-import {ReactComponent as NextArrow} from "../../../assets/icons/about_banner/slider_about_arrow_next.svg";
+import {ReactComponent as PrevArrow} from "../../../../assets/icons/about_banner/slider_about_arrow_prev.svg";
+import {ReactComponent as NextArrow} from "../../../../assets/icons/about_banner/slider_about_arrow_next.svg";
 
 const AboutBannerInfo = ({banner, buttonClickPrev, buttonClickNext}) => {
 
