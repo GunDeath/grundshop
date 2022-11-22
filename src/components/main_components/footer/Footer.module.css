@@ -1,0 +1,17 @@
+.footer_main{
+    margin-top: 120px;
+    height: 380px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(89.89deg, #383937 -0.47%, #383937 106%);
+}
+.footer_wrapper{
+    max-width: 1290px;
+    height: inherit;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-column-gap: 100px;
+}

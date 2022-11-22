@@ -6,9 +6,9 @@ import DeliveryBottom from "./DeliveryBottom/DeliveryBottom";
 import PopularGoods from "../HomePage/popular_goods/PopularGoods";
 
 const Delivery = () => {
-    return (
+        return (
         <div className={classes.main_container}>
-            <DeliveryTopPost />
+            <DeliveryTopPost/>
             <DeliveryMiddlePost />
             <DeliveryBottom/>
             <PopularGoods/>

@@ -1,22 +1,21 @@
-import React from 'react';
-import {usePosts} from "../../HomePage/posts_component/usePosts";
+import React, {useEffect, useState} from 'react';
 import TitleBlock from "../../../UIUX/titles/block_title/TitleBlock";
 import {ReactComponent as ListLogo} from "../../../../assets/icons/delivery_icons/dostavka-icon-spisok.svg";
 import {ReactComponent as MoneyLogo} from "../../../../assets/icons/delivery_icons/dostavka-icon-dengi.svg";
 import {ReactComponent as DeliveryLogo} from "../../../../assets/icons/delivery_icons/dostavka-icon-dostavka.svg";
 import classes from './DeliveryTopPost.module.css'
+import img from '../../../../assets/img/dostavka-001.png'
 import RegularText from "../../../UIUX/body/RegularText";
 
+
 const DeliveryTopPost = () => {
-    const post = usePosts(755)[0]
-    console.log(post)
     return (
         <div className={classes.top_post}>
             <div className={classes.top_post_info}>
                 <div className={classes.top_post_info_text}>
-                    <TitleBlock title={post.title.rendered}/>
+                    <TitleBlock title={'Доставка'}/>
                     <RegularText>
-                        {post.content.rendered}
+                        Курьерская доставка продукции осуществляется по Москве и Московской области, а также Санкт-Петербургу. Средний срок исполнения заказа - 1-2 дня. Для доставки Вы можете выбрать любой день, но время согласуется отделом доставки за день до отправки товара. В случае, если по каким-либо причинам Вы отказываетесь от наших услуг или хотите что-то поменять – сообщите, пожалуйста, нам за день до предварительной даты исполнения заказа.
                     </RegularText>
                 </div>
                 <div className={classes.top_post_info_icon}>
@@ -26,7 +25,7 @@ const DeliveryTopPost = () => {
                 </div>
             </div>
             <div className={classes.img_block}>
-                <img src={post.fimg_url} alt="" className={classes.post_img}/>
+                <img src={img} alt="" className={classes.post_img}/>
             </div>
         </div>
     );

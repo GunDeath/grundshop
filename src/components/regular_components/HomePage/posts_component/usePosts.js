@@ -9,8 +9,8 @@ export const usePosts = (id) => {
         getPostsAxios();
     }, [])
 
-    let getPostsAxios = async () => {
-        await axios.get(siteURI+`/posts?include[]=${id}`)
+    let getPostsAxios = () => {
+        axios.get(siteURI+`/posts?include[]=${id}`)
             .then(response => {
                 if(response.status === 200){
                     setMainPost(response.data)
