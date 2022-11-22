@@ -23,6 +23,8 @@
 }
 .catalog_icon{
     margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
 .no_active_menu_element{
     margin-right: 30px;
