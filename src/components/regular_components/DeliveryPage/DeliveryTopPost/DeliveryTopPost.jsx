@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import TitleBlock from "../../../UIUX/titles/block_title/TitleBlock";
 import {ReactComponent as ListLogo} from "../../../../assets/icons/delivery_icons/dostavka-icon-spisok.svg";
 import {ReactComponent as MoneyLogo} from "../../../../assets/icons/delivery_icons/dostavka-icon-dengi.svg";

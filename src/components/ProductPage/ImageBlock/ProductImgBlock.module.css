@@ -1,0 +1,6 @@
+.carouselBlock{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-column-gap: 30px;
+    grid-row-gap: 16px;
+}

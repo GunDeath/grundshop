@@ -1,0 +1,9 @@
+.muBuyNowButton{
+    padding: 8px 16px;
+    background-color: #003767;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff;
+}

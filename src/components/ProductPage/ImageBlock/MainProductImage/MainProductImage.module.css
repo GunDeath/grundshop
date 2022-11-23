@@ -1,0 +1,11 @@
+.mainProductImageBlock{
+    height: 273px;
+    width: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    height: 280px;
+}
