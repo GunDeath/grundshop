@@ -26,3 +26,22 @@
     line-height: 150%;
     color: #003767;
 }
+
+/*rating and compare buttons*/
+.ratingCompareBlock{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.compareButtonsBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.actionButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

@@ -3,6 +3,7 @@ import classes from './MyCatalog.module.css'
 import {api} from "../../woocommerce_api";
 import ProductCatalog from "./catalog_list/ProductCatalog";
 import CatalogAside from "../CatalogAside/CatalogAside";
+import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
 
 
 const Catalog = () => {
@@ -40,14 +41,19 @@ const Catalog = () => {
     const nPages = Math.ceil(categoryProducts.length / recordsPerPage)
     return (
         <div className={classes.catalog_main__layout}>
-            <CatalogAside change={changeCategory}/>
-            <ProductCatalog
-                currentRecords={currentRecords}
-                loading={loading}
-                nPages={nPages}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-            />
+            <div className={classes.catalogWrapper}>
+                <CatalogAside change={changeCategory}/>
+                <div className={classes.catalogMainContent}>
+                    <CatalogTopMenu />
+                    <ProductCatalog
+                        currentRecords={currentRecords}
+                        loading={loading}
+                        nPages={nPages}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

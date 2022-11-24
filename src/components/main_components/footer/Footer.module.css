@@ -1,10 +1,10 @@
 .footer_main{
     margin-top: 120px;
     height: 380px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
     background: linear-gradient(89.89deg, #383937 -0.47%, #383937 106%);
 }
 .footer_wrapper{

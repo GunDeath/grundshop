@@ -12,6 +12,12 @@ import MyQuantity from "../UIUX/quantity/MyQuantity";
 import MyAddToCart from "../UIUX/buttons/product_page/AddToCart/MyAddToCart";
 import MyBuyNow from "../UIUX/buttons/product_page/BuyNow/MyBuyNow";
 import ProductImgBlock from "./ImageBlock/ProductImgBlock";
+import RegularText from "../UIUX/body/RegularText";
+import CompareButtonsBlock from "./CompareButtonsBlock/CompareButtonsBlock";
+import ProductTitle from "./ProductTitle/ProductTitle";
+import AttributeBlock from "./AttributeBlock/AttributeBlock";
+import PriceBlock from "./PriceBlock/PriceBlock";
+import QuantityButtonBlock from "./QuantityButtonBlock/QuantityButtonBlock";
 
 const ProductPage = (props) => {
     const params = useParams()
@@ -49,42 +55,16 @@ const ProductPage = (props) => {
                     )}
                 </div>
                 <div>
-                    <div>
-                        <MyBlogTitle title={singleProduct.name}/>
-                    </div>
-                    <div>
+                    <ProductTitle title={singleProduct.name}/>
+                    <div className={classes.ratingCompareBlock}>
                         <div>
                             <img src={rating_icons} alt=""/>
                         </div>
-                        <div>
-                            <img src={compare_icon} alt=""/>
-                            <img src={wishlist_icons} alt=""/>
-                        </div>
+                        <CompareButtonsBlock/>
                     </div>
-                    <div>
-                        <div>
-                            <div>Артикул:</div>
-                            <div>{singleProduct.sku}</div>
-                        </div>
-                        {singleProduct.attributes.map(attr =>
-                            <div key={attr.id}>
-                                <div>{attr.name}</div>
-                                <div>{attr.options[0]}</div>
-                            </div>
-                        )}
-                    </div>
-                    <div>
-                        <MyLowTitle>{singleProduct.price}</MyLowTitle>
-                    </div>
-                    <div>
-                        <div>
-                            <MyQuantity quantity={quantity}/>
-                        </div>
-                        <div>
-                            <MyAddToCart>В корзину</MyAddToCart>
-                            <MyBuyNow>Купить в 1 клик</MyBuyNow>
-                        </div>
-                    </div>
+                    <AttributeBlock singleProduct={singleProduct}/>
+                    <PriceBlock regularPrice={singleProduct.price}/>
+                    <QuantityButtonBlock quantity={quantity} />
                 </div>
             </div>
 

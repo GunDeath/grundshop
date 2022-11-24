@@ -1,0 +1,29 @@
+
+/*sorting section*/
+.sortingSection{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding-inline: 2px;
+    margin-top: 35px;
+}
+.sortingLeftSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*layout buttons*/
+.catalogLayoutButtons{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+/*BreadCrumbs*/
+.breadcrumbs{}
+/*sorting right block*/
+.sortingRightSection{
+    display: grid;
+    align-items: center;
+    justify-content: flex-end;
+}
+/*query*/
+@media only screen and (max-width: 768px) {  .breadcrumbs{display: none}  }
