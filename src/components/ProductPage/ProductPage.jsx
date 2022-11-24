@@ -37,7 +37,6 @@ const ProductPage = (props) => {
                     <ProductImgSection singleProduct={singleProduct}/>
                     <ProductInfoBlock singleProduct={singleProduct} quantity={quantity}/>
                 </div>
-
             </div>
 
 
