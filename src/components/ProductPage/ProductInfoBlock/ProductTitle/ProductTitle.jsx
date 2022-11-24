@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './ProductTitle.module.css'
-import MyBlogTitle from "../../UIUX/titles/blog_title/MyBlogTitle";
+import MyBlogTitle from "../../../UIUX/titles/blog_title/MyBlogTitle";
 
 const ProductTitle = ({title}) => {
     return (

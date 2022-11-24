@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "../CompareButton/CompareButton.module.css";
-import {ReactComponent as WishlistIcon} from "../../../../assets/icons/header_icons/main-header__wishlist-icon.svg";
+import {ReactComponent as WishlistIcon} from "../../../../../assets/icons/header_icons/main-header__wishlist-icon.svg";
 
 const WishlistButton = () => {
     return (

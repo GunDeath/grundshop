@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as CompareIcon} from "../../../../assets/icons/header_icons/main-header__compare-icon.svg";
+import {ReactComponent as CompareIcon} from "../../../../../assets/icons/header_icons/main-header__compare-icon.svg";
 import classes from './CompareButton.module.css'
 
 const CompareButton = () => {
