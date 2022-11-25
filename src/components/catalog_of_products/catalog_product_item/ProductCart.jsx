@@ -27,7 +27,7 @@ const ProductCart = ({product}) => {
             </div>
             <div className={classes.product_cart__information_block}>
                 <div className={classes.product_cart__title_element}>
-                    <Link to={`/product/${product.id}`} state={{product}}>{product.name}</Link>
+                    <Link to={`/product/${product.slug}`} state={{product}}>{product.name}</Link>
                 </div>
                 <div className={classes.product_cart__rating_element}>
                     <img src={rating_icons} alt=""/>

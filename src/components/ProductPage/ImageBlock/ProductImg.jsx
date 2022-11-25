@@ -9,7 +9,7 @@ const ProductImg = ({singleProduct, firstImg}) => {
         <div className={classes.productImgBlock}>
             <MainProductImage img={firstImg} />
             <div className={classes.productCarousel}>
-                {singleProduct.map((img, index) =>
+                {singleProduct.map(img =>
                     <ProductImgCarousel img={img} key={img.id} />
                 )}
             </div>

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import parse from 'html-react-parser'
 import {useLocation, useParams} from "react-router-dom";
 import classes from './ProductPage.module.css'
 import CatalogAside from "../CatalogAside/CatalogAside";
@@ -21,21 +22,24 @@ const ProductPage = (props) => {
     const [quantity, setQuantity] = useState(1);
     /*product price*/
     const [productPrice, setProductPrice] = useState(10000);
-
+    /*loading*/
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (location.state !== null) {
             const {product} = location.state
             setSingleProduct(product)
-            setRelatedID(product.upsell_ids)
+            setRelatedID(product.related_ids)
             setProductPrice(product.price)
+            setLoading(false)
         } else {
-            api.get(`products/${params.id}`)
+            api.get(`products?slug=${params.slug}`)
                 .then(response => {
                     if (response.status === 200) {
-                        setSingleProduct(response.data)
-                        setRelatedID(response.data.upsell_ids)
-                        setProductPrice(response.data.price)
+                        setSingleProduct(response.data[0])
+                        setRelatedID(response.data[0].related_ids)
+                        setProductPrice(response.data[0].price)
+                        setLoading(false)
                     }
                 })
                 .catch(error => {
@@ -44,21 +48,27 @@ const ProductPage = (props) => {
     }, [])
 
     useEffect(() => {
-        api.get(`products?include=${relatedID[0]}, ${relatedID[1]}`)
-            .then(response => {
-                if (response.status === 200) {
-                    setRelated(response.data)
-                }
-            })
-            .catch(error => {
-            })
+        if(!loading){
+            api.get(`products?include=${relatedID[0]}, ${relatedID[1]}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        setRelated(response.data)
+                        console.log(related)
+                    }
+                })
+                .catch(error => {
+                })
+        }
     }, [relatedID])
 
-
+    /*get quantity counter*/
     const getQuantity = (quantity) => {
         setQuantity(quantity);
     }
+
+    /*change price if we want more one product*/
     let totalPrice = productPrice * quantity;
+
     return (
         <div className={classes.product_main__layout}>
             <CatalogAside/>
@@ -69,16 +79,10 @@ const ProductPage = (props) => {
                         singleProduct={singleProduct}
                         price={totalPrice}
                         getQuantity={getQuantity}
+                        related={related}
                     />
                 </div>
             </div>
-
-
-            {/*{singleProduct.description*/}
-            {/*    ? <div className={classes.description}>{parse(singleProduct.description)}</div>*/}
-            {/*    : <></>*/}
-            {/*}*/}
-
         </div>
     )
         ;
