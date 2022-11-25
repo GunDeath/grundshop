@@ -16,34 +16,3 @@
     align-content: center;
     z-index: 1000;
 }
-.category_list_single_item{
-    max-width: 190px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
-.category_item_img_block{
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.category_img{
-    width: 100px;
-    height: 100px;
-}
-.category_title_block{}
-.category_title{
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 150%;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #003767;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-}

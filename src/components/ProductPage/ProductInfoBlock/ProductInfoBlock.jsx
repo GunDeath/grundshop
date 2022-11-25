@@ -6,8 +6,9 @@ import CompareButtonsBlock from "./CompareButtonsBlock/CompareButtonsBlock";
 import AttributeBlock from "./AttributeBlock/AttributeBlock";
 import PriceBlock from "./PriceBlock/PriceBlock";
 import QuantityButtonBlock from "./QuantityButtonBlock/QuantityButtonBlock";
+import RelatedProducts from "./RelatedProducts/RelatedProducts";
 
-const ProductInfoBlock = ({singleProduct, quantity}) => {
+const ProductInfoBlock = ({singleProduct, quantity, price, getQuantity}) => {
     return (
         <div>
             <ProductTitle title={singleProduct.name}/>
@@ -18,8 +19,9 @@ const ProductInfoBlock = ({singleProduct, quantity}) => {
                 <CompareButtonsBlock/>
             </div>
             <AttributeBlock singleProduct={singleProduct}/>
-            <PriceBlock regularPrice={singleProduct.price}/>
-            <QuantityButtonBlock quantity={quantity}/>
+            <PriceBlock regularPrice={price}/>
+            <QuantityButtonBlock quantity={quantity} getQuantity={getQuantity}/>
+            <RelatedProducts product={singleProduct} />
         </div>
     );
 };

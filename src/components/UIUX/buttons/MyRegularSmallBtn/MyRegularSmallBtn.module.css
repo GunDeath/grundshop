@@ -1,0 +1,10 @@
+.myRegularSmallBtn{
+    padding: 5px 25px;
+    background-color: #ffffff;
+    border: 1px solid #003767;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #003767;
+}

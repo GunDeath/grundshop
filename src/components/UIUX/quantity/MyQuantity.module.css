@@ -18,4 +18,11 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
+    cursor: pointer;
+    background-color: transparent;
+    user-select: none;
+}
+
+.disable{
+    background-color: #eeeeee;
 }

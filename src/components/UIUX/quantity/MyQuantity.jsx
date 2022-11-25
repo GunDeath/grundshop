@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './MyQuantity.module.css'
 
-const MyQuantity = ({quantity = 1}) => {
+const MyQuantity = ({getQuantity}) => {
+    const [counter, setCounter] = useState(1)
+    getQuantity(counter)
     return (
         <div className={classes.mainMyQuantityBlock}>
-            <div className={`${classes.myQuantitySingleBlock}`}>-</div>
-            <div className={`${classes.myQuantitySingleBlock}`}>{quantity}</div>
-            <div className={`${classes.myQuantitySingleBlock}`}>+</div>
+            <button
+                className={
+                    counter > 1
+                        ? `${classes.myQuantitySingleBlock}`
+                        : `${classes.myQuantitySingleBlock} ${classes.disable}`
+                }
+                onClick={() => setCounter(counter - 1)}
+                disabled={counter <= 1}
+            >-
+            </button>
+            <div className={`${classes.myQuantitySingleBlock}`}>{counter}</div>
+            <button
+                className={`${classes.myQuantitySingleBlock}`}
+                onClick={() => setCounter(counter + 1)}
+            >+
+            </button>
         </div>
     );
 };

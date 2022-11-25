@@ -12,7 +12,7 @@ import PopularGoods from "./popular_goods/PopularGoods";
 const HomePage = () => {
 
     return (
-        <div className={classes.footer_margin}>
+        <div>
             <TopSlider />
             <div className={classes.main_container}>
                 <CategoriesList />

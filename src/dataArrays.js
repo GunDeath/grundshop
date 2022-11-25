@@ -70,7 +70,7 @@ export const footerPhones = [
 export const categoriesList = [
     {id: 1, title: 'Все товары', catId: 29},
     {id: 2, title: 'Циркуляционные', catId: 16},
-    {id: 3, title: 'Погружные скважинные насосы', catId: 20},
+    {id: 3, title: 'Cкважинные насосы', catId: 20},
     {id: 4, title: 'Канализационные установки', catId: 19},
     {id: 5, title: 'Насосные станции', catId: 23},
     {id: 6, title: 'Промышленные', catId: 26},
