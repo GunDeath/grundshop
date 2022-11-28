@@ -1,0 +1,18 @@
+.productLoaderItem{
+    max-width: 300px;
+    height: 440px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.06);
+    border-right: 2px;
+    display: grid;
+    grid-template-rows: 250px 1fr;
+    animation-name: blink;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

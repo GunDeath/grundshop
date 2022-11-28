@@ -1,0 +1,36 @@
+/*information block price-cart*/
+.productCartPriceCart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.productCartPriceBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.productCartRegularPrice{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    color: #000000;
+}
+.productCartSalePrice{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    color: #ff4822;
+}
+.saleStyles{
+    text-decoration: line-through;
+    margin-right: 10px;
+    font-size: 16px;
+}
+@media screen and (max-width: 1200px) {
+    .productCartPriceCart{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(99px, 101px));
+        justify-content: space-between;
+        grid-row-gap: 10px;
+    }
+}

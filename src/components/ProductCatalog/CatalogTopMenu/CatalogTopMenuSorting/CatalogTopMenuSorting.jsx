@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from './CatalogSortingSection.module.css'
+import classes from './CatalogTopMenuSorting.module.css'
 import {ReactComponent as ListBtn} from "../../../../assets/icons/catalog/row-layout.svg";
 import {ReactComponent as GridBtn} from "../../../../assets/icons/catalog/grid-layout.svg";
 
-const CatalogSortingSection = () => {
+const CatalogTopMenuSorting = () => {
     return (
         <div className={classes.sortingSection}>
             <div className={classes.sortingLeftSection}>
@@ -18,4 +18,4 @@ const CatalogSortingSection = () => {
     );
 };
 
-export default CatalogSortingSection;
+export default CatalogTopMenuSorting;

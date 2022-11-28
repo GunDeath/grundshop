@@ -1,4 +1,4 @@
-.catalog_main__layout{
+.catalogMainLayout{
     display: grid;
     max-width: 1290px;
     margin: 0 auto;
@@ -12,5 +12,5 @@
 .catalogMainContent{width: 930px;}
 
 /*query*/
-@media screen and (max-width: 1200px) { .catalog_main__layout{margin: 0;}  .catalogMainContent{width: 100%;}  }
+@media screen and (max-width: 1200px) { .catalogMainLayout{margin: 0;}  .catalogMainContent{width: 100%;}  }
 @media only screen and (max-width: 768px) {  .catalogWrapper{display: flex; flex-direction: column;}  }

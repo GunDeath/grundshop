@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './MyHomePage.module.css'
 import MainPostComponent from "./posts_component/main_post_component/MainPostComponent";
 import TopSlider from "./posts_component/main_top_slider/TopSlider";

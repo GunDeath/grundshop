@@ -4,8 +4,8 @@ import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/swiper-bundle.min.css'
 
-import ProductCart from "../../../catalog_of_products/catalog_product_item/ProductCart";
 import TitleBlock from "../../titles/block_title/TitleBlock";
+import CatalogSingleProduct from "../../../ProductCatalog/CatalogItemsLoop/CatalogSingleProduct/CatalogSingleProduct";
 
 const SimpleSlider = ({title, goods}) => {
     const navigationPrevRef = useRef(null)
@@ -32,7 +32,7 @@ const SimpleSlider = ({title, goods}) => {
             >
                 {goods.map(product =>
                     <SwiperSlide key={product.id}>
-                        <ProductCart product={product}/>
+                        <CatalogSingleProduct product={product}/>
                     </SwiperSlide>
                 )}
                 <div className={classes.slider_arrow_section}>

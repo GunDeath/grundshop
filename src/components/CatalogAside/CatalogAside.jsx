@@ -5,7 +5,7 @@ import {categoriesList} from "../../dataArrays";
 import MyTitleFilter from "../UIUX/titles/MyTitleFilter/MyTitleFilter";
 import MyRegularText from "../UIUX/Text/MyRegularText";
 
-const CatalogAside = ({change}) => {
+const CatalogAside = (props) => {
     const [active, setActive] = useState(2)
     const changeActive = (newActive) => {setActive(newActive)}
     return (
@@ -20,8 +20,9 @@ const CatalogAside = ({change}) => {
                     {categoriesList.map(category =>
                         <li
                             onClick={()=>{
-                                change(category.catId)
+                                props.change(category.catId)
                                 changeActive(category.id)
+                                props.setLoading(true)
                             }}
                             key={category.id}
                             className={

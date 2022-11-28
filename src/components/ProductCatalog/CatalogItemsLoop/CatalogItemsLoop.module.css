@@ -1,0 +1,20 @@
+.catalogMainSection{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    margin-top: 16px;
+}
+/*query*/
+@media screen and (max-width: 1200px) {
+    .catalogMainSection{grid-column-gap: 15px; grid-row-gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));}
+}
+@media screen and (max-width: 992px) {
+    .catalogMainSection{grid-column-gap: 20px; grid-row-gap: 40px;}
+}
+@media screen and (max-width: 576px) {
+    .catalogMainSection{grid-column-gap: 10px; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));}
+}
+@media screen and (max-width: 400px) {
+    .catalogMainSection{grid-column-gap: 10px; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));}
+}

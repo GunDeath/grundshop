@@ -1,51 +1,45 @@
 import React, {useState, useEffect} from 'react';
-import classes from './MyCatalog.module.css'
 import {api} from "../../woocommerce_api";
-import ProductCatalog from "./catalog_list/ProductCatalog";
+import classes from "./ProductCatalog.module.css";
 import CatalogAside from "../CatalogAside/CatalogAside";
 import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
+import {singleCategory, subCategoryFunction} from "../../customFunctions";
+import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
 
-
-const Catalog = () => {
-    const [categoryProducts, setCategoryProducts] = useState([]);
+const ProductCatalog = () => {
+    const [productsByCategory, setProductsByCategory] = useState([]);
+    const [categoryID, setCategoryID] = useState(16)
     const [loading, setLoading] = useState(true)
-
     const [currentPage, setCurrentPage] = useState(1)
+    const [subCategory, setSubCategory] = useState([])
     const [recordsPerPage] = useState(9)
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 
-    const [categoryID, setCategoryID] = useState(16)
-
-
     useEffect(()=>{
-        axiosProducts(categoryID);
-    }, [categoryID])
-
-    let axiosProducts = (categoryID) => {
         api
             .get(`products?category=${categoryID}`)
             .then((response) => {
                 if(response.status === 200){
-                    setCategoryProducts(response.data)
+                    setProductsByCategory(response.data)
                     setLoading(false)
                 }
             })
             .catch((error) => {});
-    }
+        subCategoryFunction(categoryID, setSubCategory);
+    }, [categoryID])
 
     const changeCategory = (newID) => {setCategoryID(newID)}
+    const currentRecords = productsByCategory.slice(indexOfFirstRecord, indexOfLastRecord);
+    const nPages = Math.ceil(productsByCategory.length / recordsPerPage)
 
-
-    const currentRecords = categoryProducts.slice(indexOfFirstRecord, indexOfLastRecord);
-    const nPages = Math.ceil(categoryProducts.length / recordsPerPage)
     return (
-        <div className={classes.catalog_main__layout}>
+        <div className={classes.catalogMainLayout}>
             <div className={classes.catalogWrapper}>
-                <CatalogAside change={changeCategory}/>
+                <CatalogAside change={changeCategory} loading={loading} setLoading={setLoading}/>
                 <div className={classes.catalogMainContent}>
-                    <CatalogTopMenu />
-                    <ProductCatalog
+                    <CatalogTopMenu subCategory={subCategory} />
+                    <CatalogItemsLoop
                         currentRecords={currentRecords}
                         loading={loading}
                         nPages={nPages}
@@ -58,4 +52,4 @@ const Catalog = () => {
     );
 };
 
-export default Catalog;
+export default ProductCatalog;
