@@ -1,6 +1,6 @@
 .mainProductImageBlock{
     height: 273px;
-    width: auto;
+    width: 300px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -8,4 +8,6 @@
 }
 .img{
     height: 280px;
+    width: 300px;
+    object-fit: contain;
 }

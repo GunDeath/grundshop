@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './RelatedSmallBlock.module.css';
+import {Link} from "react-router-dom";
 
 const RelatedSmallBlock = ({product}) => {
     return (
@@ -8,7 +9,7 @@ const RelatedSmallBlock = ({product}) => {
                 <img src={product.images[0].src} alt="" className={classes.singleRelatedImg}/>
             </div>
             <div className={classes.relatedProductInfo}>
-                <div className={classes.relatedProductTitle}>{product.name}</div>
+                <Link to={`/catalog/product/${product.slug}`} state={{product}} className={classes.relatedProductTitle}>{product.name}</Link>
                 <div className={classes.relatedProductPriceCart}>
                     <div className={classes.relatedProductPrice}>
                         {Math.round(product.price)} руб.

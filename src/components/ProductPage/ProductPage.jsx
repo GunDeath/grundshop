@@ -6,6 +6,8 @@ import CatalogAside from "../CatalogAside/CatalogAside";
 import {api} from "../../woocommerce_api";
 import ProductInfoBlock from "./ProductInfoBlock/ProductInfoBlock";
 import ProductImg from "./ImageBlock/ProductImg";
+import DescriptionTab from "./ProductTabs/DescriptionTab/DescriptionTab";
+import MyNormalRegularBtn from "../UIUX/buttons/MyNormalRegularBtn/MyNormalRegularBtn";
 
 const ProductPage = (props) => {
     /*get product id by url*/
@@ -24,6 +26,8 @@ const ProductPage = (props) => {
     const [productPrice, setProductPrice] = useState(10000);
     /*loading*/
     const [loading, setLoading] = useState(true)
+    /*main img*/
+    const [imgIndex, setImgIndex] = useState(0)
 
     useEffect(() => {
         if (location.state !== null) {
@@ -45,7 +49,7 @@ const ProductPage = (props) => {
                 .catch(error => {
                 })
         }
-    }, [])
+    }, [params.slug])
 
     useEffect(() => {
         if(!loading){
@@ -74,13 +78,24 @@ const ProductPage = (props) => {
             <CatalogAside/>
             <div className={classes.product_cart_main}>
                 <div className={classes.productMainWrapper}>
-                    <ProductImg singleProduct={singleProduct.images} firstImg={singleProduct.images[0] || {src: ''}}/>
+                    <ProductImg singleProduct={singleProduct.images} firstImg={singleProduct.images[imgIndex] || {src: ''}}/>
                     <ProductInfoBlock
                         singleProduct={singleProduct}
                         price={totalPrice}
                         getQuantity={getQuantity}
                         related={related}
                     />
+                </div>
+                <div>
+                    <div className={classes.productTabsBlock}>
+                        <MyNormalRegularBtn>Описание</MyNormalRegularBtn>
+                        <MyNormalRegularBtn>Документация</MyNormalRegularBtn>
+                    </div>
+                    {
+                        singleProduct.description
+                        ? <DescriptionTab description={singleProduct.description} />
+                        : <></>
+                    }
                 </div>
             </div>
         </div>
