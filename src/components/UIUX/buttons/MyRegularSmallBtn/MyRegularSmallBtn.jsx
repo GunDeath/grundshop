@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from './MyRegularSmallBtn.module.css'
+import {logDOM} from "@testing-library/react";
 
-const MyRegularSmallBtn = ({children}) => {
+const MyRegularSmallBtn = ({children, change}) => {
     return (
-        <button className={classes.myRegularSmallBtn}>
+        <button onClick={()=>change()} className={classes.myRegularSmallBtn}>
             {children}
         </button>
     );

@@ -3,9 +3,9 @@ import classes from './MyRegularText.module.css'
 
 const RegularText = ({children}) => {
     return (
-        <p className={classes.bodyStyles}>
+        <span className={classes.bodyStyles}>
             {children}
-        </p>
+        </span>
     );
 };
 
