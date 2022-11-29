@@ -12,7 +12,7 @@ const ProductImg = ({singleProduct, firstImg}) => {
             <MainProductImage img={singleProduct[imgIndex] || {src: ''}} />
             <div className={classes.productCarousel}>
                 {singleProduct.map((img, index) =>
-                    <ProductImgCarousel index={index} img={img} key={img.id} changeMainImg={changeMainImg} />
+                    <ProductImgCarousel index={index} mainImg={imgIndex} img={img} key={img.id} changeMainImg={changeMainImg} />
                 )}
             </div>
         </div>

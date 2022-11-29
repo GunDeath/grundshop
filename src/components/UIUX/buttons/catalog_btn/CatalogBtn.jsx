@@ -13,13 +13,11 @@ const CatalogBtn = ({product, quantity}) => {
 
     useEffect(()=>{
         // localStorage.setItem(`cart`, JSON.stringify(cartArray))
-        console.log(cartArray)
     }, [cartArray])
 
     return (
         <div onClick={()=> {
             setCartArray([...cartArray, singleProduct])
-            console.log(cartArray)
         }} className={classes.product_cart__button}>
             В корзину
         </div>

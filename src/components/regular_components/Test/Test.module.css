@@ -1,19 +1,8 @@
-.loaderPageMain{
-    padding-top: 50px;
-    max-width: 1290px;
+.mainContainer{
+    max-width: 960px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 70px;
-}
-.loaderBlock{
-    width: 960px;
-}
-.loaderSingle{
-    width: 300px;
-    height: 436px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
-    border-radius: 2px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+    grid-row-gap: 30px;
+    padding-top: 50px;
 }

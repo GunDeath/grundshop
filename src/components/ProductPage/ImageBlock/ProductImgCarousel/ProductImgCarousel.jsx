@@ -1,10 +1,13 @@
 import React from 'react';
 import classes from './ProductImgCarousel.module.css'
 
-const ProductImgCarousel = ({img, index, changeMainImg}) => {
+const ProductImgCarousel = (props) => {
     return (
-        <div className={classes.singleCarouselImg} onClick={()=>changeMainImg(index)}>
-            <img src={img.src} alt={img.alt} className={classes.img}/>
+        <div
+            className={props.mainImg === props.index  ? classes.activeCarouselImg : classes.singleCarouselImg}
+            onClick={()=>{ props.changeMainImg(props.index) }}
+        >
+            <img src={props.img.src} alt={props.img.alt} className={classes.img}/>
         </div>
     );
 };

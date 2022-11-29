@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './ProductSmallTabs.module.css'
 import MyRegularSmallBtn from "../../../../UIUX/buttons/MyRegularSmallBtn/MyRegularSmallBtn";
 
-const ProductSmallTabs = () => {
+const ProductSmallTabs = ({changeActive, activeTab}) => {
+
     return (
         <div className={classes.productSmallTabs}>
-            <MyRegularSmallBtn>Похожие</MyRegularSmallBtn>
-            <MyRegularSmallBtn>Комплектующие</MyRegularSmallBtn>
+            <MyRegularSmallBtn change={changeActive} activeTab={activeTab}>Похожие</MyRegularSmallBtn>
+            <MyRegularSmallBtn change={changeActive} activeTab={!activeTab}>Комплектующие</MyRegularSmallBtn>
         </div>
     );
 };

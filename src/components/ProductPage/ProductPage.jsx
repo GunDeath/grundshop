@@ -70,7 +70,6 @@ const ProductPage = (props) => {
                 .then(response => {
                     if (response.status === 200) {
                         setRelated(response.data)
-                        console.log(related)
                     }
                 })
                 .catch(error => {
