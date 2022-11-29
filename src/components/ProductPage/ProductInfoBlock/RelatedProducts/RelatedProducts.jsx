@@ -15,6 +15,7 @@ const RelatedProducts = ({product, related}) => {
                 .then(response => { if (response.status === 200) {setUpsell(response.data)} })
                 .catch(error => { })
         }
+
     }
 
     return (
