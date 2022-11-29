@@ -8,12 +8,13 @@ const AttributeBlock = ({singleProduct}) => {
                 <div className={classes.attributesText}>Артикул:</div>
                 <div className={classes.attributesText}>{singleProduct.sku}</div>
             </div>
-            {singleProduct.attributes.map(attr =>
-                <div className={classes.singleAttribute} key={attr.id}>
-                    <div className={classes.attributesText}>{attr.name}</div>
-                    <div className={classes.attributesText}>{attr.options[0]}</div>
-                </div>
-            )}
+            {
+                singleProduct.attributes.map((element, index) =>
+                    index === 0 || index === 1
+                        ? <div className={classes.singleAttribute} key={element.name}> <div className={classes.attributesText}>{element.name}</div> <div className={classes.attributesText}>{element.options[0]}</div> </div>
+                        : <p key={element.name}></p>
+                )
+            }
         </div>
     );
 };

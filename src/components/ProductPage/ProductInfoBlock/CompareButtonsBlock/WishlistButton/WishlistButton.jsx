@@ -3,12 +3,13 @@ import classes from "../CompareButton/CompareButton.module.css";
 import {ReactComponent as WishlistIcon} from "../../../../../assets/icons/header_icons/main-header__wishlist-icon.svg";
 
 const WishlistButton = () => {
+
     return (
         <div className={classes.iconsBlock}>
             <div className={classes.iconStyles}>
-                <WishlistIcon />
+                <WishlistIcon/>
             </div>
-            <span className={classes.actionButton}>Сравнить</span>
+            <span className={classes.actionButton}>Избранное</span>
         </div>
     );
 };

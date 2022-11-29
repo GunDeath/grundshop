@@ -1,0 +1,8 @@
+.attributeCart{
+    width: 440px;
+    height: 200px;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 2px;
+}

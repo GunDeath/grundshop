@@ -12,3 +12,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.myclass{
+    color: red;
+}
+.myclass path {
+    fill: #ff4822;
+    background-color: #ff4822;
+}

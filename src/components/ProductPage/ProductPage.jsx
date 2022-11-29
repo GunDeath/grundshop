@@ -8,6 +8,7 @@ import ProductImg from "./ImageBlock/ProductImg";
 import MyNormalRegularBtn from "../UIUX/buttons/MyNormalRegularBtn/MyNormalRegularBtn";
 import DescriptionBlock from "./ProductTabs/DescriptionBlock/DescriptionBlock";
 import PopularGoods from "../regular_components/HomePage/popular_goods/PopularGoods";
+import ProductAttributes from "./ProductAttributes/ProductAttributes";
 
 const ProductPage = (props) => {
     /*get product id by url*/
@@ -89,7 +90,9 @@ const ProductPage = (props) => {
     return (
             <div className={classes.product_main__layout}>
                 <div className={classes.productWrapper}>
-                    <CatalogAside/>
+                    <div className={classes.asideHeight}>
+                        <CatalogAside/>
+                    </div>
                     <div className={classes.product_cart_main}>
                         <div className={classes.productMainWrapper}>
                             <ProductImg singleProduct={singleProduct.images} firstImg={singleProduct.images[imgIndex] || {src: ''}}/>
@@ -116,6 +119,9 @@ const ProductPage = (props) => {
                                             : <>Bad</>
                                 }
                             </div>
+                        </div>
+                        <div>
+                            <ProductAttributes product={singleProduct}/>
                         </div>
                     </div>
                 </div>
