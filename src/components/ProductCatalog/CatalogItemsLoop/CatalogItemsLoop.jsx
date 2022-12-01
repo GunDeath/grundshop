@@ -11,7 +11,7 @@ const CatalogItemsLoop = (props) => {
         <section className={classes.catalogMainSection}>
             {
                 props.loading
-                    ? loaderContent.map(product => <Skeleton variant="rectangular" width={300} height={440} />)
+                    ? loaderContent.map((product, index) => <Skeleton variant="rectangular" width={300} height={440} key={index} />)
                     : props.currentRecords.map(product => <CatalogSingleProduct key={product.id} product={product} />)
             }
             {props.loading ? '' : <Pagination nPages={props.nPages} currentPage={props.currentPage} setCurrentPage={props.setCurrentPage} />}

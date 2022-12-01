@@ -76,7 +76,7 @@ const ProductPage = (props) => {
             <div className={classes.product_main__layout}>
                 <div className={classes.productWrapper}>
                     <div className={classes.asideHeight}>
-                        <CatalogAside/>
+                        <CatalogAside isCatalog={false}/>
                     </div>
                     <div className={classes.product_cart_main}>
                         <div className={classes.productMainWrapper}>

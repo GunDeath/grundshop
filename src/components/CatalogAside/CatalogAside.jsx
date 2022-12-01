@@ -7,7 +7,7 @@ import MyRegularText from "../UIUX/Text/MyRegularText";
 import {api} from "../../woocommerce_api";
 import {Skeleton} from "@mui/material";
 
-const CatalogAside = (props) => {
+const CatalogAside = (props, {isCatalog}) => {
     const [categoryList, setCategoryList] = useState([categoriesList])
     const [active, setActive] = useState(2)
     const [loading, setLoading] = useState(true)
@@ -27,11 +27,18 @@ const CatalogAside = (props) => {
 
     return (
         <div className={classes.main_container}>
-            <div className={classes.filterSection}>
-                <MyTitleFilter>Фильтр</MyTitleFilter>
-                <MyRegularText>Очистить все</MyRegularText>
-            </div>
-            <div className={classes.categorySection}>
+            {
+                isCatalog
+                    ? (
+                        <div className={classes.filterSection}>
+                            <MyTitleFilter>Фильтр</MyTitleFilter>
+                            <MyRegularText>Очистить все</MyRegularText>
+                        </div>
+                    )
+                    : <></>
+            }
+
+            <div className={isCatalog ? classes.categorySection : ''}>
                 <MyLowTitle>Категории</MyLowTitle>
                 <ul className={classes.list_link}>
                     {

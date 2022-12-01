@@ -36,7 +36,7 @@ const ProductCatalog = () => {
     return (
         <div className={classes.catalogMainLayout}>
             <div className={classes.catalogWrapper}>
-                <CatalogAside change={changeCategory} loading={loading} setLoading={setLoading}/>
+                <CatalogAside isCatalog={true} change={changeCategory} loading={loading} setLoading={setLoading}/>
                 <div className={classes.catalogMainContent}>
                     <CatalogTopMenu subCategory={subCategory} />
                     <CatalogItemsLoop

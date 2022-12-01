@@ -10,7 +10,7 @@ const AttributeCart = ({attributes, defaultCount, index}) => {
         <div className={classes.attributeCart}>
             {
                 currentAttributes.map(attr =>
-                    <div className={classes.attributeString}>
+                    <div className={classes.attributeString} key={attr.name}>
                         <div className={classes.attributeText}>
                             {attr.name}
                         </div>

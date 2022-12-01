@@ -5,6 +5,7 @@ import Layout from "./router_layout/Layout";
 import Delivery from "./components/regular_components/DeliveryPage/Delivery";
 import ProductPage from "./components/ProductPage/ProductPage";
 import ProductCatalog from "./components/ProductCatalog/ProductCatalog";
+import ProductCart from "./components/regular_components/ProductCart/ProductCart";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                 <Route exact path='catalog/:id' element={<ProductCatalog />} />
                 <Route path='catalog/product/:slug' element={<ProductPage/>} />
                 <Route path='dostavka' element={<Delivery/>} />
+                <Route path='cart' element={<ProductCart />}/>
             </Route>
         </Routes>
     </div>

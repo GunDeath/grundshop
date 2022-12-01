@@ -1,0 +1,22 @@
+.mainContainer{
+    display: grid;
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 50px 20px 0 20px;
+}
+.cartWrapper{
+    display: flex;
+    gap: 20px;
+}
+.cartContentMain{
+    width: 960px;
+}
+.breadCrumbs{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 400;
+    font-size: 14px;
+    color: #003767;
+    margin-bottom: 35px;
+}

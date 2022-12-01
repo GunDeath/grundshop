@@ -7,12 +7,8 @@ import AttributeBlock from "./AttributeBlock/AttributeBlock";
 import PriceBlock from "./PriceBlock/PriceBlock";
 import QuantityButtonBlock from "./QuantityButtonBlock/QuantityButtonBlock";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
-import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 
 const ProductInfoBlock = ({singleProduct, price, getQuantity, related}) => {
-    const {cart} = useTypedSelector(state => state)
-    console.log('Cart')
-    console.log(cart)
     return (
         <div>
             <ProductTitle title={singleProduct.name}/>
