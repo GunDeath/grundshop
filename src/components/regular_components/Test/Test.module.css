@@ -1,8 +1,0 @@
-.mainContainer{
-    max-width: 960px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
-    grid-row-gap: 30px;
-    padding-top: 50px;
-}

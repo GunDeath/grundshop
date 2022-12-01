@@ -12,7 +12,7 @@ const AttributeBlock = ({singleProduct}) => {
                 singleProduct.attributes.map((element, index) =>
                     index === 0 || index === 1
                         ? <div className={classes.singleAttribute} key={element.name}> <div className={classes.attributesText}>{element.name}</div> <div className={classes.attributesText}>{element.options[0]}</div> </div>
-                        : <p key={element.name}></p>
+                        : <p key={element.name}/>
                 )
             }
         </div>

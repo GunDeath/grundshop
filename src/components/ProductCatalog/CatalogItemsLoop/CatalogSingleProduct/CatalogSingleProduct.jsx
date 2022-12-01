@@ -2,10 +2,10 @@ import React from 'react';
 import classes from "./CatalogSingleProduct.module.css";
 import {Link} from "react-router-dom";
 import rating_icons from "../../../../assets/icons/product-cart__rating.svg";
-import CatalogBtn from "../../../UIUX/buttons/catalog_btn/CatalogBtn";
 import LoopSaleLabel from "./LoopSaleLabel/LoopSaleLabel";
 import LoopActionButtons from "./LoopActionButtons/LoopActionButtons";
 import LoopProductPrice from "./LoopProductPrice/LoopProductPrice";
+import MyAddToCart from "../../../UIUX/buttons/product_page/AddToCart/MyAddToCart";
 
 const CatalogSingleProduct = ({product}) => {
     return (
@@ -27,7 +27,7 @@ const CatalogSingleProduct = ({product}) => {
                 </div>
                 <div className={classes.product_cart__price_cart}>
                     <LoopProductPrice sale_price={product.sale_price} price={product.price} regular_price={product.regular_price}/>
-                    <CatalogBtn product={product} quantity={1}/>
+                    <MyAddToCart isCatalog={true} product={product} />
                 </div>
             </div>
         </div>

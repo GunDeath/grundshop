@@ -6,7 +6,6 @@ const AttributeCart = ({attributes, defaultCount, index}) => {
     const indexOfLastAttribute = (index + 1) * defaultCount;
     const indexOfFirstAttribute = indexOfLastAttribute - defaultCount;
     const currentAttributes = attributes.slice(indexOfFirstAttribute, indexOfLastAttribute);
-    console.log(currentAttributes)
     return (
         <div className={classes.attributeCart}>
             {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './ProductSmallTabs.module.css'
 import MyRegularSmallBtn from "../../../../UIUX/buttons/MyRegularSmallBtn/MyRegularSmallBtn";
 

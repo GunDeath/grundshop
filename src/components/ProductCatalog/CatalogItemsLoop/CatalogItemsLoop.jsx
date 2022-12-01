@@ -2,8 +2,8 @@ import React from 'react';
 import classes from "./CatalogItemsLoop.module.css";
 import Pagination from "./Pagination/Pagination";
 import CatalogSingleProduct from "./CatalogSingleProduct/CatalogSingleProduct";
-import CatalogLoopLoaderItem from "./CatalogLoopLoaderItem/CatalogLoopLoaderItem";
 import {loaderContent} from "../../../dataArrays";
+import {Skeleton} from "@mui/material";
 
 const CatalogItemsLoop = (props) => {
 
@@ -11,7 +11,7 @@ const CatalogItemsLoop = (props) => {
         <section className={classes.catalogMainSection}>
             {
                 props.loading
-                    ? loaderContent.map(product => <CatalogLoopLoaderItem key={product.id} product={product} />)
+                    ? loaderContent.map(product => <Skeleton variant="rectangular" width={300} height={440} />)
                     : props.currentRecords.map(product => <CatalogSingleProduct key={product.id} product={product} />)
             }
             {props.loading ? '' : <Pagination nPages={props.nPages} currentPage={props.currentPage} setCurrentPage={props.setCurrentPage} />}

@@ -2,11 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import classes from './ProductPage.module.css'
 import CatalogAside from "../CatalogAside/CatalogAside";
-import {apiAcf, api} from "../../woocommerce_api";
+import {api} from "../../woocommerce_api";
 import ProductInfoBlock from "./ProductInfoBlock/ProductInfoBlock";
 import ProductImg from "./ImageBlock/ProductImg";
-import MyNormalRegularBtn from "../UIUX/buttons/MyNormalRegularBtn/MyNormalRegularBtn";
-import DescriptionBlock from "./ProductTabs/DescriptionBlock/DescriptionBlock";
 import PopularGoods from "../regular_components/HomePage/popular_goods/PopularGoods";
 import ProductAttributes from "./ProductAttributes/ProductAttributes";
 import ProductTabs from "./ProductTabs/ProductTabs";
