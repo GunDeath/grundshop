@@ -14,7 +14,7 @@ const TabsContent = ({tabsFlag, product}) => {
                         ? <DescriptionBlock product_description={product.description}/>
                         : <p>Описание отсутствует</p>
                     : product.acf.doc_file !== null
-                        ? <DocumentationTab doc_file={product.acf.doc_file || []} />
+                        ? <DocumentationTab doc_file={product.acf.doc_file} />
                         : <RegularText>Документации к данному товару не обнаружено!</RegularText>
             }
         </div>

@@ -3,7 +3,7 @@ import classes from './AddToCart.module.css'
 import {useActions} from "../../../../../store/hooks/useActions";
 import {useTypedSelector} from "../../../../../store/hooks/useTypedSelector";
 
-const MyAddToCart = ({children, product, isCatalog}) => {
+const MyAddToCart = ({children, product, isCatalog, quantity = 1}) => {
     const {addItem} = useActions()
     const {cart} = useTypedSelector(state => state)
     const isExistsInCart = cart.some(p => p.id === product.id)
@@ -18,7 +18,7 @@ const MyAddToCart = ({children, product, isCatalog}) => {
                 ? classes.addToCartButtonCatalog
                 : classes.addToCartButtonPage
             }
-            onClick={() => !isExistsInCart && addItem(product)}
+            onClick={() => !isExistsInCart && addItem({...product, quantity: quantity})}
         >
             {isExistsInCart ? 'Добавлен' : 'В корзину'}
         </button>

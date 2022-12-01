@@ -19,12 +19,13 @@
     cursor: pointer;
 }
 .img{
-    height: 180px;
+    height: 150px;
     width: 145px;
     padding: 5px;
     object-fit: contain;
 }
 .productInfoBlock{
+    width: 372px;
     height: 100%;
     display: flex;
     flex-direction: column;

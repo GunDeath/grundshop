@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './MyQuantity.module.css'
 
-const MyQuantity = ({getQuantity}) => {
-    const [counter, setCounter] = useState(1)
-    getQuantity(counter)
+const MyQuantity = ({countDecrease, countIncrease, counter}) => {
+
     return (
         <div className={classes.mainMyQuantityBlock}>
             <button
@@ -12,14 +11,14 @@ const MyQuantity = ({getQuantity}) => {
                         ? `${classes.myQuantitySingleBlock}`
                         : `${classes.myQuantitySingleBlock} ${classes.disable}`
                 }
-                onClick={() => setCounter(counter - 1)}
+                onClick={() => countDecrease()}
                 disabled={counter <= 1}
             >-
             </button>
             <div className={`${classes.myQuantitySingleBlock}`}>{counter}</div>
             <button
                 className={`${classes.myQuantitySingleBlock}`}
-                onClick={() => setCounter(counter + 1)}
+                onClick={() => countIncrease()}
             >+
             </button>
         </div>

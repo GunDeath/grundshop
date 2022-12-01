@@ -5,6 +5,7 @@ import CatalogAside from "../CatalogAside/CatalogAside";
 import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
 import {subCategoryFunction} from "../../customFunctions";
 import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
+import {useParams} from "react-router-dom";
 
 const ProductCatalog = () => {
     const [productsByCategory, setProductsByCategory] = useState([]);
@@ -16,20 +17,42 @@ const ProductCatalog = () => {
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 
-    useEffect(()=>{
-        api
-            .get(`products?category=${categoryID}`)
-            .then((response) => {
-                if(response.status === 200){
-                    setProductsByCategory(response.data)
-                    setLoading(false)
-                }
-            })
-            .catch((error) => {});
+    const params = useParams()
+
+    useEffect(() => {
+        params.id
+            ? (
+                api
+                    .get(`products?category=${params.id}`)
+                    .then((response) => {
+                        if (response.status === 200) {
+                            setProductsByCategory(response.data)
+                            setLoading(false)
+                        }
+                    })
+                    .catch((error) => {
+                    })
+                )
+            : (
+                api
+                    .get(`products?category=${categoryID}`)
+                    .then((response) => {
+                        if (response.status === 200) {
+                            setProductsByCategory(response.data)
+                            setLoading(false)
+                        }
+                    })
+                    .catch((error) => {
+                    })
+              )
+
         subCategoryFunction(categoryID, setSubCategory);
     }, [categoryID])
 
-    const changeCategory = (newID) => {setCategoryID(newID)}
+    console.log(categoryID)
+    const changeCategory = (newID) => {
+        setCategoryID(newID)
+    }
     const currentRecords = productsByCategory.slice(indexOfFirstRecord, indexOfLastRecord);
     const nPages = Math.ceil(productsByCategory.length / recordsPerPage)
 
@@ -38,7 +61,7 @@ const ProductCatalog = () => {
             <div className={classes.catalogWrapper}>
                 <CatalogAside isCatalog={true} change={changeCategory} loading={loading} setLoading={setLoading}/>
                 <div className={classes.catalogMainContent}>
-                    <CatalogTopMenu subCategory={subCategory} />
+                    <CatalogTopMenu subCategory={subCategory}/>
                     <CatalogItemsLoop
                         currentRecords={currentRecords}
                         loading={loading}

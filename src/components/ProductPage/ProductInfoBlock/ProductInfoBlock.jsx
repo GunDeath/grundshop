@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from "./ProductInfoBlock.module.css";
 import ProductTitle from "./ProductTitle/ProductTitle";
 import rating_icons from "../../../assets/icons/product-cart__rating.svg";
@@ -8,7 +8,7 @@ import PriceBlock from "./PriceBlock/PriceBlock";
 import QuantityButtonBlock from "./QuantityButtonBlock/QuantityButtonBlock";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 
-const ProductInfoBlock = ({singleProduct, price, getQuantity, related}) => {
+const ProductInfoBlock = ({singleProduct, price, related, countIncrease, countDecrease, counter}) => {
     return (
         <div>
             <ProductTitle title={singleProduct.name}/>
@@ -20,7 +20,7 @@ const ProductInfoBlock = ({singleProduct, price, getQuantity, related}) => {
             </div>
             <AttributeBlock singleProduct={singleProduct}/>
             <PriceBlock regularPrice={price}/>
-            <QuantityButtonBlock getQuantity={getQuantity} product={singleProduct}/>
+            <QuantityButtonBlock countDecrease={countDecrease} countIncrease={countIncrease} product={singleProduct} counter={counter}/>
             <RelatedProducts product={singleProduct} related={related}/>
         </div>
     );

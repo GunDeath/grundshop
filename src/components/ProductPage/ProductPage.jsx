@@ -28,6 +28,8 @@ const ProductPage = (props) => {
     const [loading, setLoading] = useState(true)
     /*main img*/
     const [imgIndex, setImgIndex] = useState(0)
+    /*quantity counter*/
+    const [counter, setCounter] = useState(1)
 
     useEffect(() => {
         if (location.state !== null) {
@@ -64,10 +66,10 @@ const ProductPage = (props) => {
         }
     }, [relatedID])
 
-    /*get quantity counter*/
-    const getQuantity = (quantity) => {
-        setQuantity(quantity);
-    }
+    useEffect(()=>{ setQuantity(counter) }, [counter])
+
+    const countIncrease = () => {setCounter(counter + 1)}
+    const countDecrease = () => {setCounter(counter - 1)}
 
     /*change price if we want more one product*/
     let totalPrice = productPrice * quantity;
@@ -84,7 +86,9 @@ const ProductPage = (props) => {
                             <ProductInfoBlock
                                 singleProduct={singleProduct}
                                 price={totalPrice}
-                                getQuantity={getQuantity}
+                                countIncrease={countIncrease}
+                                countDecrease={countDecrease}
+                                counter={counter}
                                 related={related}
                             />
                         </div>
