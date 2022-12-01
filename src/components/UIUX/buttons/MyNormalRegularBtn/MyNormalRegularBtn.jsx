@@ -1,9 +1,17 @@
 import React from 'react';
 import classes from './MyNormalRegularBtn.module.css'
 
-const MyNormalRegularBtn = ({children}) => {
+const MyNormalRegularBtn = ({children, activeTab, change}) => {
     return (
-        <button className={classes.myNormalRegularBtn}>
+        <button
+            disabled={activeTab}
+            onClick={() => change()}
+            className={
+                activeTab
+                    ? `${classes.myNormalRegularBtn} ${classes.myNormalRegularBtnDisable}`
+                    : `${classes.myNormalRegularBtn}`
+            }
+        >
             {children}
         </button>
     );

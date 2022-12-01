@@ -9,6 +9,7 @@ import MyNormalRegularBtn from "../UIUX/buttons/MyNormalRegularBtn/MyNormalRegul
 import DescriptionBlock from "./ProductTabs/DescriptionBlock/DescriptionBlock";
 import PopularGoods from "../regular_components/HomePage/popular_goods/PopularGoods";
 import ProductAttributes from "./ProductAttributes/ProductAttributes";
+import ProductTabs from "./ProductTabs/ProductTabs";
 
 const ProductPage = (props) => {
     /*get product id by url*/
@@ -29,10 +30,6 @@ const ProductPage = (props) => {
     const [loading, setLoading] = useState(true)
     /*main img*/
     const [imgIndex, setImgIndex] = useState(0)
-    /*content or document flag*/
-    const [tabsFlag, setTabsFlag] = useState(true)
-    /*get documents*/
-    const [productDocument, setProductDocument] = useState([])
 
     useEffect(() => {
         if (location.state !== null) {
@@ -40,15 +37,6 @@ const ProductPage = (props) => {
             setSingleProduct(product)
             setRelatedID(product.related_ids)
             setProductPrice(product.price)
-            apiAcf
-                .get(`posts/${product.id}`)
-                .then((response) => {
-                    if (response.status === 200) {
-                        setProductDocument(response.data.acf)
-                    }
-                })
-                .catch((error) => {
-                });
             setLoading(false)
         } else {
             api.get(`products?slug=${params.slug}`)
@@ -86,7 +74,6 @@ const ProductPage = (props) => {
     /*change price if we want more one product*/
     let totalPrice = productPrice * quantity;
 
-
     return (
             <div className={classes.product_main__layout}>
                 <div className={classes.productWrapper}>
@@ -103,23 +90,7 @@ const ProductPage = (props) => {
                                 related={related}
                             />
                         </div>
-                        <div>
-                            <div className={classes.productTabsBlock}>
-                                <MyNormalRegularBtn>Описание</MyNormalRegularBtn>
-                                <MyNormalRegularBtn>Документация</MyNormalRegularBtn>
-                            </div>
-                            <div className={classes.contentTabs}>
-                                {
-                                    tabsFlag
-                                        ? singleProduct.description
-                                            ? <DescriptionBlock product_description={singleProduct.description}/>
-                                            : <></>
-                                        : productDocument.doc_file !== null
-                                            ? <>Good</>
-                                            : <>Bad</>
-                                }
-                            </div>
-                        </div>
+                        <ProductTabs product={singleProduct} />
                         <div>
                             <ProductAttributes product={singleProduct}/>
                         </div>

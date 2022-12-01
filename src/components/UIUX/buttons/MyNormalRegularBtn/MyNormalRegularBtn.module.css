@@ -9,4 +9,9 @@
     font-size: 16px;
     line-height: 150%;
     color: #003767;
+    cursor: pointer;
+}
+.myNormalRegularBtnDisable{
+    background-color: #dfe1e6;
+    cursor: auto;
 }

@@ -11,7 +11,6 @@ const RelatedProducts = ({product, related}) => {
     const changeActive = () => {
         setActiveTab(!activeTab)
         if(activeTab === true && upsell.length === 0){
-            console.log('good')
             api.get(`products?include=${product.upsell_ids[0]}, ${product.upsell_ids[1]}`)
                 .then(response => { if (response.status === 200) {setUpsell(response.data)} })
                 .catch(error => { })

@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './MyRegularSmallBtn.module.css'
-import {logDOM} from "@testing-library/react";
 
 const MyRegularSmallBtn = ({children, change, activeTab}) => {
     return (

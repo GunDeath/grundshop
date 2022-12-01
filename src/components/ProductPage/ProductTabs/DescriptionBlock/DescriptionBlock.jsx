@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import classes from "../../ProductPage.module.css";
-import DescriptionTab from "../DescriptionTab/DescriptionTab";
+import DescriptionTab from "./DescriptionTab/DescriptionTab";
 import MyRegularSmallBtn from "../../../UIUX/buttons/MyRegularSmallBtn/MyRegularSmallBtn";
 
 const DescriptionBlock = ({product_description}) => {
-    const [shortDescr, setShotDescr] = useState(true)
-    const getShortDescription = () => {setShotDescr(!shortDescr)}
+    const [shortDescription, setShotDescription] = useState(true)
+    const getShortDescription = () => {
+        setShotDescription(!shortDescription)
+    }
     return (
         <div>
             <div className={
-                shortDescr
-                    ?  classes.descriptionHeight
+                shortDescription
+                    ? classes.descriptionHeight
                     : ''
             }>
                 <DescriptionTab description={product_description}/>

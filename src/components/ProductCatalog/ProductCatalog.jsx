@@ -3,7 +3,7 @@ import {api} from "../../woocommerce_api";
 import classes from "./ProductCatalog.module.css";
 import CatalogAside from "../CatalogAside/CatalogAside";
 import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
-import {singleCategory, subCategoryFunction} from "../../customFunctions";
+import {subCategoryFunction} from "../../customFunctions";
 import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
 
 const ProductCatalog = () => {
