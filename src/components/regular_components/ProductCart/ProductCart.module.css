@@ -1,15 +1,16 @@
 .mainContainer{
     display: grid;
-    max-width: 1290px;
+    width: 1290px;
     margin: 0 auto;
-    padding: 50px 20px 0 20px;
+    padding: 50px 0 0 0;
 }
 .cartWrapper{
+    width: 100%;
     display: flex;
     gap: 20px;
 }
 .cartContentMain{
-    width: 960px;
+    width: 100%;
 }
 .breadCrumbs{
     display: flex;

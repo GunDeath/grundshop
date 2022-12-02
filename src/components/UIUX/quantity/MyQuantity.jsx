@@ -1,8 +1,10 @@
 import React from 'react';
 import classes from './MyQuantity.module.css'
+import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 
-const MyQuantity = ({countDecrease, countIncrease, counter}) => {
-
+const MyQuantity = ({product, countDecrease, countIncrease, counter}) => {
+    const {cart} = useTypedSelector(state => state)
+    const isExistsInCart = cart.find(p => p.id === product.id || 0)
     return (
         <div className={classes.mainMyQuantityBlock}>
             <button
@@ -18,7 +20,10 @@ const MyQuantity = ({countDecrease, countIncrease, counter}) => {
             <div className={`${classes.myQuantitySingleBlock}`}>{counter}</div>
             <button
                 className={`${classes.myQuantitySingleBlock}`}
-                onClick={() => countIncrease()}
+                onClick={() => {
+                    countIncrease()
+                    isExistsInCart ? console.log('hello') : console.log('no')
+                }}
             >+
             </button>
         </div>

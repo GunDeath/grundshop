@@ -9,6 +9,7 @@ import QuantityButtonBlock from "./QuantityButtonBlock/QuantityButtonBlock";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 
 const ProductInfoBlock = ({singleProduct, price, related, countIncrease, countDecrease, counter}) => {
+    console.log(singleProduct)
     return (
         <div>
             <ProductTitle title={singleProduct.name}/>

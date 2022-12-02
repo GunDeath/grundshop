@@ -4,6 +4,7 @@ import Pagination from "./Pagination/Pagination";
 import CatalogSingleProduct from "./CatalogSingleProduct/CatalogSingleProduct";
 import {loaderContent} from "../../../dataArrays";
 import {Skeleton} from "@mui/material";
+import default_img from '../../../assets/img/default_img.png'
 
 const CatalogItemsLoop = (props) => {
 
@@ -12,7 +13,7 @@ const CatalogItemsLoop = (props) => {
             {
                 props.loading
                     ? loaderContent.map((product, index) => <Skeleton variant="rectangular" width={300} height={440} key={index} />)
-                    : props.currentRecords.map(product => <CatalogSingleProduct key={product.id} product={product} />)
+                    : props.currentRecords.map(product => <CatalogSingleProduct key={product.id} product={product}/>)
             }
             {props.loading ? '' : <Pagination nPages={props.nPages} currentPage={props.currentPage} setCurrentPage={props.setCurrentPage} />}
         </section>

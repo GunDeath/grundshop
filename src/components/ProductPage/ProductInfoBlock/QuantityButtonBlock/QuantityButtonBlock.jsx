@@ -5,10 +5,11 @@ import MyAddToCart from "../../../UIUX/buttons/product_page/AddToCart/MyAddToCar
 import MyBuyNow from "../../../UIUX/buttons/product_page/BuyNow/MyBuyNow";
 
 const QuantityButtonBlock = ({product, countDecrease, countIncrease, counter}) => {
+    console.log(product)
     return (
         <div className={classes.quantityButtonBlock}>
             <div className={classes.qntButtons}>
-                <MyQuantity counter={counter} countDecrease={countDecrease} countIncrease={countIncrease} />
+                <MyQuantity product={product} counter={counter} countDecrease={countDecrease} countIncrease={countIncrease} />
             </div>
             <div className={classes.cartButtons}>
                 <MyAddToCart product={product} isCatalog={false} quantity={counter}/>

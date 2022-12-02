@@ -6,12 +6,13 @@ import LoopSaleLabel from "./LoopSaleLabel/LoopSaleLabel";
 import LoopActionButtons from "./LoopActionButtons/LoopActionButtons";
 import LoopProductPrice from "./LoopProductPrice/LoopProductPrice";
 import MyAddToCart from "../../../UIUX/buttons/product_page/AddToCart/MyAddToCart";
+import default_img from '../../../../assets/img/default_img.png'
 
 const CatalogSingleProduct = ({product}) => {
     return (
         <div className={classes.product_cart__catalog_loop__single} key={product.id}>
             <div className={classes.product_cart__img_block}>
-                <img src={product.images[0].src} alt="" className={classes.product_cart__img_item}/>
+                <img src={product.images.length !== 0 ? product.images[0].src : default_img} alt="" className={classes.product_cart__img_item}/>
                 {product.sale_price === "" ? "" : <LoopSaleLabel sale_price={product.sale_price} regular_price={product.regular_price} /> }
                 <LoopActionButtons />
             </div>

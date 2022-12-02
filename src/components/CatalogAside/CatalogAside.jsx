@@ -6,11 +6,11 @@ import MyTitleFilter from "../UIUX/titles/MyTitleFilter/MyTitleFilter";
 import MyRegularText from "../UIUX/Text/MyRegularText";
 import {api} from "../../woocommerce_api";
 import {Skeleton} from "@mui/material";
+import CatalogFalseAside from "./CatalogFalseAside/CatalogFalseAside";
 
-const CatalogAside = (props, {isCatalog}) => {
+const CatalogAside = ({isCatalog, change, catalogLoader, loading}) => {
     const [categoryList, setCategoryList] = useState([categoriesList])
     const [active, setActive] = useState(2)
-    const [loading, setLoading] = useState(true)
     const changeActive = (newActive) => {setActive(newActive)}
 
     useEffect(()=>{
@@ -19,7 +19,6 @@ const CatalogAside = (props, {isCatalog}) => {
             .then((response) => {
                 if(response.status === 200){
                     setCategoryList(response.data)
-                    setLoading(false)
                 }
             })
             .catch((error) => {});
@@ -42,27 +41,7 @@ const CatalogAside = (props, {isCatalog}) => {
                 <MyLowTitle>Категории</MyLowTitle>
                 <ul className={classes.list_link}>
                     {
-                        loading
-                            ? <Skeleton variant="rectangular" width={210} height={400}/>
-                            : (
-                                categoryList.map(category =>
-                                    <li
-                                        onClick={()=>{
-                                            props.change(category.id)
-                                            changeActive(category.id)
-                                            props.setLoading(true)
-                                        }}
-                                        key={category.id}
-                                        className={
-                                            category.id === active
-                                                ? classes.active_link
-                                                : classes.link
-                                        }
-                                    >
-                                        {category.name}
-                                    </li>
-                                )
-                            )
+                        <CatalogFalseAside setActive={setActive} categoryList={categoryList} changeActive={changeActive} active={active} catalogLoader={catalogLoader} loading={loading}/>
                     }
                 </ul>
             </div>

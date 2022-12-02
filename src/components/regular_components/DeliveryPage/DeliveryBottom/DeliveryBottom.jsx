@@ -2,6 +2,7 @@ import React from 'react';
 import MyLowTitle from "../../../UIUX/titles/low_title/MyLowTitle";
 import deliveryLogo from '../../../../assets/img/dostavka-002.png'
 import classes from './DeliveryBottom.module.css'
+import {Link} from "react-router-dom";
 
 const DeliveryBottom = () => {
     return (

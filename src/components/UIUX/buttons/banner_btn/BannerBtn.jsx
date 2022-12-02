@@ -1,10 +1,11 @@
 import React from 'react';
 import classes from "./MyBannerBtn.module.css"
+import {Link} from "react-router-dom";
 const BannerBtn = (props) => {
     return (
-        <a href={props.link} className={classes.top_banner__link_button}>
+        <Link to='/catalog' className={classes.top_banner__link_button}>
             Перейти в каталог
-        </a>
+        </Link>
     );
 };
 
