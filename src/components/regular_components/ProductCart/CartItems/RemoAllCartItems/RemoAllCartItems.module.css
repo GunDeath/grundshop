@@ -31,4 +31,11 @@
     font-size: 16px;
     line-height: 150%;
     color: #003767;
+    cursor: pointer;
+}
+.regularTextDisabled{
+    color: #3f4c67;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
 }

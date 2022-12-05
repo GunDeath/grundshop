@@ -1,21 +1,22 @@
-import React, {useState} from 'react';
-import classes from './CartItems.module.css'
+import React, { useState} from 'react';
 import RemoAllCartItems from "./RemoAllCartItems/RemoAllCartItems";
 import CartProductCard from "./CartProductCard/CartProductCard";
 import TotalPriceBlock from "./TotalPriceBlock/TotalPriceBlock";
 
 const CartItems = ({cart}) => {
     const [totalPrice, setTotalPrice] = useState(0)
-    const updateTotalPrice = (price) => setTotalPrice( totalPrice + price)
+    const getTotal = (totalNew) => {setTotalPrice(totalNew)};
+
+    const [selected, setSelected] = useState(false)
+    const checkSelected = () => {
+        setSelected(!selected)
+    }
+    console.log(selected)
 
     return (
         <div>
-            <RemoAllCartItems />
-            {
-                cart.map(product =>
-                    <CartProductCard updateTotalPrice={updateTotalPrice} product={product} key={product.id}/>
-                )
-            }
+            <RemoAllCartItems checkSelected={checkSelected}/>
+            { cart.map(product => <CartProductCard selected={selected} product={product} key={product.id} getTotal={getTotal}/>) }
             <TotalPriceBlock totalPrice={totalPrice} />
         </div>
     );

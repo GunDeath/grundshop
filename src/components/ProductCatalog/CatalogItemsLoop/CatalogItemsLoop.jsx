@@ -4,7 +4,6 @@ import Pagination from "./Pagination/Pagination";
 import CatalogSingleProduct from "./CatalogSingleProduct/CatalogSingleProduct";
 import {loaderContent} from "../../../dataArrays";
 import {Skeleton} from "@mui/material";
-import default_img from '../../../assets/img/default_img.png'
 
 const CatalogItemsLoop = (props) => {
 

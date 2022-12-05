@@ -14,5 +14,9 @@
 }
 
 .mainContent{
-    width: 980px;
+    width: 960px;
+}
+.container{
+    width: 1290px;
+    margin: 0 auto;
 }

@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {useEffect} from "react";
 
 const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'))
 const initialState = cartFromLocalStorage || [];
@@ -12,13 +11,16 @@ export const cartSlice = createSlice({
             state.push(action.payload)
         },
         removeItem: (state, action) => {
-            return state.filter(p => p.id === action.payload.id)
+            return state.filter(p => p.id !== action.payload.id)
+        },
+        masRemoveItems: (state, action) => {
+            return state.filter(p => p.id !== action.payload.id)
         },
         updateItem: (state, action) => {
             let index = state.findIndex((i) => i.id === action.payload.id);
             if (index !== -1) {
                 state[index].quantity = action.payload.quantity
-                state[index].newPrice = action.payload.newPrice
+                // state[index].newPrice = action.payload.newPrice
             }
         }
     }

@@ -5,23 +5,21 @@ import {categoriesList} from "../../dataArrays";
 import MyTitleFilter from "../UIUX/titles/MyTitleFilter/MyTitleFilter";
 import MyRegularText from "../UIUX/Text/MyRegularText";
 import {api} from "../../woocommerce_api";
-import {Skeleton} from "@mui/material";
 import CatalogFalseAside from "./CatalogFalseAside/CatalogFalseAside";
 
-const CatalogAside = ({isCatalog, change, catalogLoader, loading}) => {
-    const [categoryList, setCategoryList] = useState([categoriesList])
+const CatalogAside = ({isCatalog, catalogLoader, loading}) => {
+    const [categoryList, setCategoryList] = useState(categoriesList )
     const [active, setActive] = useState(2)
     const changeActive = (newActive) => {setActive(newActive)}
 
     useEffect(()=>{
-        api
-            .get(`products/categories?parent=0`)
-            .then((response) => {
+        api.get('products/categories?parent=0')
+           .then((response) => {
                 if(response.status === 200){
                     setCategoryList(response.data)
                 }
-            })
-            .catch((error) => {});
+           })
+           .catch((error) => {});
     }, [])
 
     return (

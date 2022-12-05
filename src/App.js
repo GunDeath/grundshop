@@ -15,14 +15,13 @@ function App() {
         <Routes>
             <Route path='/' element={<Layout/>}>
                 <Route index element={<HomePage/>} />
-                <Route path='catalog' element={<ProductCatalog />} />
-                <Route exact path='catalog/:id' element={<ProductCatalog />} />
-                <Route path='catalog/product/:slug' element={<ProductPage/>} />
                 <Route path='dostavka' element={<Delivery/>} />
-                <Route path='cart' element={<ProductCart />}/>
+                <Route path='/cart' element={<ProductCart />}/>
             </Route>
-            <Route path='/testing' element={<ProductLayout />}>
+            <Route path='/catalog' element={<ProductLayout />}>
                 <Route index element={<ProductCatalog />} />
+                <Route exact path=':id' element={<ProductCatalog />} />
+                <Route path='product/:slug' element={<ProductPage/>} />
             </Route>
         </Routes>
     </div>

@@ -5,7 +5,7 @@ a{text-decoration: none; color: var(--main-blue-color)}
 ul, ol, li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-weight: inherit; font-size: inherit;}
-html, body{line-height: 1;font-size: 14px; background-color: #dfe1e6; font-family: 'Manrope', 'Roboto', "Roboto Light", sans-serif}
+html, body{line-height: 1;font-size: 14px; background-color: #f4f4f4; font-family: 'Manrope', 'Roboto', "Roboto Light", sans-serif}
 .wrapper{padding: 30px;min-height: 100%}
 .title{font-size: 30px;font-weight: 700;color: #fff;margin: 0 0 30px 0;}
 

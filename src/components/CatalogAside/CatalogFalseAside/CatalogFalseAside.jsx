@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import classes from "./CatalogFalseAside.module.css";
 
-const CatalogFalseAside = ({categoryList, changeActive, active, catalogLoader, loading}) => {
+const CatalogFalseAside = ({categoryList, changeActive, active}) => {
     return (
         <div className={classes.list_link}>
             {
@@ -10,7 +10,6 @@ const CatalogFalseAside = ({categoryList, changeActive, active, catalogLoader, l
                     <Link to={`/catalog/${category.id}`} key={category.id}
                           onClick={() => {
                               changeActive(category.id)
-                              // catalogLoader(false)
                           }}
                           className={
                               category.id === active

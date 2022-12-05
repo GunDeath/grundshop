@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import classes from './ProductPage.module.css'
-import CatalogAside from "../CatalogAside/CatalogAside";
 import {api} from "../../woocommerce_api";
 import ProductInfoBlock from "./ProductInfoBlock/ProductInfoBlock";
 import ProductImg from "./ImageBlock/ProductImg";
-import PopularGoods from "../regular_components/HomePage/popular_goods/PopularGoods";
 import ProductAttributes from "./ProductAttributes/ProductAttributes";
 import ProductTabs from "./ProductTabs/ProductTabs";
 
@@ -54,7 +52,7 @@ const ProductPage = (props) => {
     }, [params.slug])
 
     useEffect(() => {
-        if(!loading){
+        if (!loading) {
             api.get(`products?include=${relatedID[0]}, ${relatedID[1]}`)
                 .then(response => {
                     if (response.status === 200) {
@@ -66,40 +64,39 @@ const ProductPage = (props) => {
         }
     }, [relatedID])
 
-    useEffect(()=>{ setQuantity(counter) }, [counter])
+    useEffect(() => {
+        setQuantity(counter)
+    }, [counter])
 
-    const countIncrease = () => {setCounter(counter + 1)}
-    const countDecrease = () => {setCounter(counter - 1)}
+    const countIncrease = () => {
+        setCounter(counter + 1)
+    }
+    const countDecrease = () => {
+        setCounter(counter - 1)
+    }
 
     /*change price if we want more one product*/
     let totalPrice = productPrice * quantity;
 
     return (
-            <div className={classes.product_main__layout}>
-                <div className={classes.productWrapper}>
-                    <div className={classes.asideHeight}>
-                        <CatalogAside isCatalog={false}/>
-                    </div>
-                    <div className={classes.product_cart_main}>
-                        <div className={classes.productMainWrapper}>
-                            <ProductImg singleProduct={singleProduct.images} firstImg={singleProduct.images[imgIndex] || {src: ''}}/>
-                            <ProductInfoBlock
-                                singleProduct={singleProduct}
-                                price={totalPrice}
-                                countIncrease={countIncrease}
-                                countDecrease={countDecrease}
-                                counter={counter}
-                                related={related}
-                            />
-                        </div>
-                        <ProductTabs product={singleProduct} />
-                        <div>
-                            <ProductAttributes product={singleProduct}/>
-                        </div>
-                    </div>
-                </div>
-                <PopularGoods />
+        <>
+            <div className={classes.productMainWrapper}>
+                <ProductImg singleProduct={singleProduct.images}
+                            firstImg={singleProduct.images[imgIndex] || {src: ''}}/>
+                <ProductInfoBlock
+                    singleProduct={singleProduct}
+                    price={totalPrice}
+                    countIncrease={countIncrease}
+                    countDecrease={countDecrease}
+                    counter={counter}
+                    related={related}
+                />
             </div>
+            <ProductTabs product={singleProduct}/>
+            <div>
+                <ProductAttributes product={singleProduct}/>
+            </div>
+        </>
     );
 };
 

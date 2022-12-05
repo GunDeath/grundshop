@@ -1,9 +1,11 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "@reduxjs/toolkit";
 import {cartActions} from "../cart/Cart";
+import {cartMasActions} from "../cart/CartMassRemove";
 
 const allActions = {
-    ...cartActions
+    ...cartActions,
+    ...cartMasActions
 }
 
 export const useActions = () => {

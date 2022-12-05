@@ -9,7 +9,7 @@ const ProductCartItemInfo = ({product}) => {
         <div className={classes.productInfoBlock}>
             <ProductCartInfoTitle product={product} />
             <ProductCartInfoSku productSku={product.sku}/>
-            <ProductCartInfoButtons />
+            <ProductCartInfoButtons product={product} />
         </div>
     );
 };

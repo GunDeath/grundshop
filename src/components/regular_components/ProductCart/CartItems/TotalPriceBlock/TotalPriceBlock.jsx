@@ -1,19 +1,19 @@
 import React from 'react';
 import classes from './TotalPriceBlock.module.css'
-import MyNormalRegularBtn from "../../../../UIUX/buttons/MyNormalRegularBtn/MyNormalRegularBtn";
+import MyGetOrder from "../../../../UIUX/NEW_UI/MyGetOrder/MyGetOrder";
 
 const TotalPriceBlock = ({totalPrice}) => {
 
     return (
         <div className={classes.totalPriceBlock}>
-            <div>
+            <div className={classes.totalText}>
                 Итого:
             </div>
             <div className={classes.totalPriceRightBlock}>
                 <div className={classes.totalPrice}>
                     {Math.round(totalPrice)} руб.
                 </div>
-                <MyNormalRegularBtn>Оформить заказ</MyNormalRegularBtn>
+                <MyGetOrder>Оформить заказ</MyGetOrder>
             </div>
         </div>
     );

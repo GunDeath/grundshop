@@ -1,6 +1,6 @@
 .catalogMainSection{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(231px, 1fr));
     grid-column-gap: 20px;
     grid-row-gap: 30px;
     margin-top: 16px;

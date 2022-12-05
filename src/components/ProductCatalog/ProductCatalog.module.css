@@ -1,15 +1,4 @@
-.catalogMainLayout{
-    display: grid;
-    max-width: 1290px;
-    margin: 0 auto;
-    padding: 50px 20px 0 20px;
-}
-.catalogWrapper{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-.catalogMainContent{width: 930px;}
+.catalogMainContent{width: 100%;}
 
 /*query*/
 @media screen and (max-width: 1200px) { .catalogMainLayout{margin: 0;}  .catalogMainContent{width: 100%;}  }
