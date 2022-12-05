@@ -5,7 +5,8 @@ import {cartMasActions} from "../cart/CartMassRemove";
 
 const allActions = {
     ...cartActions,
-    ...cartMasActions
+    ...cartMasActions,
+    ...
 }
 
 export const useActions = () => {

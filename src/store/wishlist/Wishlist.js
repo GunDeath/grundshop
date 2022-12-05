@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {cartMasRemoveSlice} from "../cart/CartMassRemove";
 
 const wishlistLocalStorage = JSON.parse(localStorage.getItem('wishlist'))
 const initialState = wishlistLocalStorage || []
@@ -15,3 +16,6 @@ export const wishlistSlice = createSlice({
         }
     }
 })
+
+export const wishlistReducer = wishlistSlice.reducer
+export const wishlistActions = wishlistSlice.actions
