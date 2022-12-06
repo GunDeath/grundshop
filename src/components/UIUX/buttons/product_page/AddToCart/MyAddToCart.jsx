@@ -3,7 +3,7 @@ import classes from './AddToCart.module.css'
 import {useActions} from "../../../../../store/hooks/useActions";
 import {useTypedSelector} from "../../../../../store/hooks/useTypedSelector";
 
-const MyAddToCart = ({product, isCatalog, quantity = 1}) => {
+const MyAddToCart = ({product, isCatalog = false, quantity = 1}) => {
     const {addItem} = useActions()
     const {cart} = useTypedSelector(state => state)
     const isExistsInCart = cart.some(p => p.id === product.id)

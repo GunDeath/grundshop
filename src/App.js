@@ -7,6 +7,8 @@ import ProductPage from "./components/ProductPage/ProductPage";
 import ProductCatalog from "./components/ProductCatalog/ProductCatalog";
 import ProductCart from "./components/regular_components/ProductCart/ProductCart";
 import ProductLayout from "./router_layout/ProductLayout/ProductLayout";
+import Error from "./components/regular_components/ErrorPage/Error";
+import WishlistPage from "./components/regular_components/WishlistPage/WishlistPage";
 
 function App() {
 
@@ -22,7 +24,9 @@ function App() {
                 <Route index element={<ProductCatalog />} />
                 <Route exact path=':id' element={<ProductCatalog />} />
                 <Route path='product/:slug' element={<ProductPage/>} />
+                <Route path='wishlist' element={<WishlistPage />} />
             </Route>
+            <Route path='*' element={<Error />}/>
         </Routes>
     </div>
   );

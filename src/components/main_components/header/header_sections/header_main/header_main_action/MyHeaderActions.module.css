@@ -1,12 +1,27 @@
 .main_header__actions_block{
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 .action_button{
     width: 25px;
     height: 25px;
-    margin-right: 30px;
 }
 .action_button:last-child{
     margin-right: 0;
+}
+
+.linkBlock{
+    position: relative;
+}
+.countSpan{
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    border-radius: 50%;
+    width: 20px;
+    line-height: 20px;
+    background-color: #ff4822;
+    color: #ffffff;
+    text-align: center;
 }

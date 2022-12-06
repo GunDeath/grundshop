@@ -14,7 +14,7 @@ const CatalogSingleProduct = ({product}) => {
             <div className={classes.product_cart__img_block}>
                 <img src={product.images.length !== 0 ? product.images[0].src : default_img} alt="" className={classes.product_cart__img_item}/>
                 {product.sale_price === "" ? "" : <LoopSaleLabel sale_price={product.sale_price} regular_price={product.regular_price} /> }
-                <LoopActionButtons />
+                <LoopActionButtons product={product} />
             </div>
             <div className={classes.product_cart__information_block}>
                 <div className={classes.product_cart__title_element}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './TotalPriceBlock.module.css'
-import MyGetOrder from "../../../../UIUX/NEW_UI/MyGetOrder/MyGetOrder";
+import MyGetOrder from "../../../../UIUX/NEW_UI/MyButtons/MyGetOrder/MyGetOrder";
 
 const TotalPriceBlock = ({totalPrice}) => {
 

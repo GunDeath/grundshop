@@ -1,0 +1,24 @@
+.horizontalProductCartWrapper{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    background-color: #ffffff;
+    margin-top: 16px;
+    padding: 20px;
+}
+.horizontalProductCartWrapper:first-child{
+    margin-top: 0;
+}
+
+/*img block*/
+.img{
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.imgBlock{
+    height: 100%;
+}
