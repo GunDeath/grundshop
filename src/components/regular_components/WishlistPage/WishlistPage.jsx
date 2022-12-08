@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './WishlistPage.module.css'
 import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 import FullWishlist from "./FullWishlist/FullWishlist";
 import EmptyWishlist from "./EmptyWishlist/EmptyWishlist";

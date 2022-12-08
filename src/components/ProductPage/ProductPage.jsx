@@ -6,6 +6,7 @@ import ProductInfoBlock from "./ProductInfoBlock/ProductInfoBlock";
 import ProductImg from "./ImageBlock/ProductImg";
 import ProductAttributes from "./ProductAttributes/ProductAttributes";
 import ProductTabs from "./ProductTabs/ProductTabs";
+import {useTypedSelector} from "../../store/hooks/useTypedSelector";
 
 const ProductPage = (props) => {
     /*get product id by url*/
@@ -28,6 +29,8 @@ const ProductPage = (props) => {
     const [imgIndex, setImgIndex] = useState(0)
     /*quantity counter*/
     const [counter, setCounter] = useState(1)
+    const {cart} = useTypedSelector(state => state)
+    const [isExistsInCart, setIsExistsInCart] = useState(true);
 
     useEffect(() => {
         if (location.state !== null) {
@@ -35,6 +38,7 @@ const ProductPage = (props) => {
             setSingleProduct(product)
             setRelatedID(product.related_ids)
             setProductPrice(product.price)
+            setIsExistsInCart(cart.some(p => p.id === product.id))
             setLoading(false)
         } else {
             api.get(`products?slug=${params.slug}`)
@@ -64,8 +68,13 @@ const ProductPage = (props) => {
         }
     }, [relatedID])
 
+
+
     useEffect(() => {
         setQuantity(counter)
+        console.log(isExistsInCart)
+        console.log(cart)
+        console.log(cart.some(p => p.id === singleProduct.id))
     }, [counter])
 
     const countIncrease = () => {
@@ -78,6 +87,7 @@ const ProductPage = (props) => {
     /*change price if we want more one product*/
     let totalPrice = productPrice * quantity;
 
+
     return (
         <>
             <div className={classes.productMainWrapper}>
@@ -88,6 +98,7 @@ const ProductPage = (props) => {
                     price={totalPrice}
                     countIncrease={countIncrease}
                     countDecrease={countDecrease}
+                    isExistsInCart={isExistsInCart}
                     counter={counter}
                     related={related}
                 />

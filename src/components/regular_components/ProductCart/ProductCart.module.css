@@ -1,14 +1,3 @@
-.mainContainer{
-    display: grid;
-    width: 1290px;
-    margin: 0 auto;
-    padding: 50px 0 0 0;
-}
-.cartWrapper{
-    width: 100%;
-    display: flex;
-    gap: 20px;
-}
 .cartContentMain{
     width: 100%;
 }

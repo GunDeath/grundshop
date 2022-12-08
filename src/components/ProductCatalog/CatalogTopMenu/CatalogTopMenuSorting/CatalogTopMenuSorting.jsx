@@ -13,7 +13,7 @@ const CatalogTopMenuSorting = () => {
                 </div>
                 <div className={classes.breadcrumbs}>Главная > Церкуляционные > Повысительные</div>
             </div>
-            <div className={classes.sortingRightSection}>Сортировка: по популярности</div>
+            <div className={classes.sortingRightSection}>Сортировка: по названию</div>
         </div>
     );
 };

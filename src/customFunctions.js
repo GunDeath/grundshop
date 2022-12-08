@@ -1,5 +1,6 @@
 /*get sub category*/
 import {api} from "./woocommerce_api";
+
 /*get sub category*/
 export const subCategoryFunction = (id, setCategory) => {
     api.get(`products/categories?parent=${id}`)

@@ -5,6 +5,8 @@ import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
 import {subCategoryFunction} from "../../customFunctions";
 import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
 import {useParams} from "react-router-dom";
+import {useTypedSelector} from "../../store/hooks/useTypedSelector";
+import MyBreadCrumbs from "../UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
 
 const ProductCatalog = () => {
     const params = useParams()
@@ -16,6 +18,7 @@ const ProductCatalog = () => {
     const [recordsPerPage] = useState(9)
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+    const {goodsList} = useTypedSelector(state => state)
 
     useEffect(() => {
         setCategoryID(params.id)
@@ -24,20 +27,28 @@ const ProductCatalog = () => {
     useEffect(() => {
         setLoading(true)
         if (categoryID !== undefined) {
-            api.get(`products?category=${categoryID}`)
-                .then((response) => {
-                    if (response.status === 200) {
-                        setProductsByCategory(response.data)
-                        setLoading(false)
-                    }
-                })
-                .catch((error) => {
-                })
+            if(goodsList.length !== 0){
+                setProductsByCategory(goodsList.filter(product => product.categories[0].id === Number(categoryID)))
+                setLoading(false)
+            }
+            else{
+                api.get(`products?category=${categoryID}&orderby=title`)
+                    .then((response) => {
+                        if (response.status === 200) {
+                            setProductsByCategory(response.data)
+                            setLoading(false)
+                        }
+                    })
+                    .catch((error) => {
+                    })
+            }
             subCategoryFunction(categoryID, setSubCategory);
+        }else{
+            setCategoryID(16)
         }
     }, [categoryID])
 
-    const currentRecords = productsByCategory.slice(indexOfFirstRecord, indexOfLastRecord);
+    const currentRecords = productsByCategory.slice(indexOfFirstRecord, indexOfLastRecord).sort((a, b) => a.name.localeCompare(b.name));
     const nPages = Math.ceil(productsByCategory.length / recordsPerPage)
 
     return (
@@ -49,6 +60,7 @@ const ProductCatalog = () => {
                 nPages={nPages}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
+                categoryID={categoryID}
             />
         </div>
     );

@@ -9,7 +9,7 @@ const HeaderActions = () => {
     const {wishlist} = useTypedSelector(state => state)
     return (
         <div className={classes.main_header__actions_block}>
-            <Link to='/catalog/wishlist' className={classes.linkBlock}>
+            <Link to='/wishlist' className={classes.linkBlock}>
                 <img src={wishlist_icon} alt="" className={classes.action_button}/>
                 <span className={classes.countSpan}>
                     {wishlist.length}

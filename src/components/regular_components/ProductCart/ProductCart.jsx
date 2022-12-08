@@ -8,18 +8,13 @@ import CartItems from "./CartItems/CartItems";
 const ProductCart = () => {
     const {cart} = useTypedSelector(state => state)
     return (
-        <div className={classes.mainContainer}>
-            <div className={classes.cartWrapper}>
-                <CatalogAside isCatalog={false}/>
-                <div className={classes.cartContentMain}>
-                    <div className={classes.breadCrumbs}>Главная > Корзина</div>
-                    {
-                        cart.length !== 0
-                            ? <CartItems cart={cart}/>
-                            : <EmptyCart />
-                    }
-                </div>
-            </div>
+        <div className={classes.cartContentMain}>
+            <div className={classes.breadCrumbs}>Главная > Корзина</div>
+            {
+                cart.length !== 0
+                    ? <CartItems cart={cart}/>
+                    : <EmptyCart/>
+            }
         </div>
     );
 };

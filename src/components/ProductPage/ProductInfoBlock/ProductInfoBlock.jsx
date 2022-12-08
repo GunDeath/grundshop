@@ -8,8 +8,7 @@ import PriceBlock from "./PriceBlock/PriceBlock";
 import QuantityButtonBlock from "./QuantityButtonBlock/QuantityButtonBlock";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 
-const ProductInfoBlock = ({singleProduct, price, related, countIncrease, countDecrease, counter}) => {
-    console.log(singleProduct)
+const ProductInfoBlock = ({singleProduct, price, related, countIncrease, countDecrease, counter, isExistsInCart}) => {
     return (
         <div>
             <ProductTitle title={singleProduct.name}/>
@@ -17,11 +16,11 @@ const ProductInfoBlock = ({singleProduct, price, related, countIncrease, countDe
                 <div>
                     <img src={rating_icons} alt=""/>
                 </div>
-                <CompareButtonsBlock/>
+                <CompareButtonsBlock product={singleProduct}/>
             </div>
             <AttributeBlock singleProduct={singleProduct}/>
             <PriceBlock regularPrice={price}/>
-            <QuantityButtonBlock countDecrease={countDecrease} countIncrease={countIncrease} product={singleProduct} counter={counter}/>
+            <QuantityButtonBlock countDecrease={countDecrease} countIncrease={countIncrease} product={singleProduct} counter={counter} isExistsInCart={isExistsInCart}/>
             <RelatedProducts product={singleProduct} related={related}/>
         </div>
     );

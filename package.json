@@ -23,6 +23,7 @@
     "react-spinners": "^0.13.6",
     "redux": "^4.2.0",
     "swiper": "^8.4.4",
+    "use-react-router-breadcrumbs": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

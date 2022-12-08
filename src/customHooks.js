@@ -56,3 +56,30 @@ export const useNewGoods = () => {
     }
     return newGoods;
 }
+/*get all published categories*/
+export const usePublishedCategories = () => {
+    const [timedStore, setTimedStore] = useState([])
+    useEffect(()=>{
+        getCategories();
+    }, [])
+    const getCategories = async () => {
+        await api.get('products/categories?per_page=100&parent=0&orderby=name')
+            .then((response) => { if(response.status === 200){ setTimedStore(response.data) } })
+            .catch((error) => {})
+    }
+    return timedStore;
+}
+
+/*get all products*/
+export const usePublishedGoods = () => {
+    const [goods, setGoods] = useState([])
+    useEffect(()=>{
+        getGoods();
+    }, [])
+    const getGoods = async () => {
+        await api.get('products?status=publish')
+            .then((response) => { if(response.status === 200){ setGoods(response.data) } })
+            .catch((error) => {})
+    }
+    return goods;
+}

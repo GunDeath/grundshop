@@ -1,16 +1,22 @@
 import React from 'react';
 import classes from './MyCategoriesList.module.css'
-import {useCategories} from "../../../../customHooks";
+import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
 import CategoryItem from "./CategoryItem/CategoryItem";
 
 const CategoriesList = () => {
-    let categories = useCategories();
+    const {categories} = useTypedSelector(state => state)
     return (
         <div className={classes.categories_list_block}>
             <ul className={classes.categories_list}>
-                {categories.slice(0).reverse().map(category =>
-                    <CategoryItem category={category} key={category.id}/>
-                )}
+                {
+                    categories.map(category =>
+                        category.acf.main_category
+                            ? (
+                                <CategoryItem category={category} key={Math.random()}/>
+                            )
+                            : <></>
+                    )
+                }
             </ul>
         </div>
     );

@@ -1,35 +1,83 @@
 import React, {useEffect} from "react";
 import HomePage from "./components/regular_components/HomePage/HomePage";
 import {Route, Routes} from "react-router-dom";
-import Layout from "./router_layout/Layout";
+import Layout from "./router_layout/Layout/Layout";
 import Delivery from "./components/regular_components/DeliveryPage/Delivery";
 import ProductPage from "./components/ProductPage/ProductPage";
 import ProductCatalog from "./components/ProductCatalog/ProductCatalog";
-import ProductCart from "./components/regular_components/ProductCart/ProductCart";
 import ProductLayout from "./router_layout/ProductLayout/ProductLayout";
 import Error from "./components/regular_components/ErrorPage/Error";
-import WishlistPage from "./components/regular_components/WishlistPage/WishlistPage";
+import {useTypedSelector} from "./store/hooks/useTypedSelector";
+import {useActions} from "./store/hooks/useActions";
+import Test from "./components/Test/Test";
+import {usePublishedCategories, usePublishedGoods} from './customHooks'
+import CatalogLayout from "./router_layout/CatalogLayout/CatalogLayout";
+import WishListLayout from "./router_layout/ActionsLayout/WishListlayout/WishListLayout";
+import CartLayout from "./router_layout/ActionsLayout/CartLayout/CartLayout";
 
 function App() {
+    /*get products categories*/
+    const {categories, goodsList} = useTypedSelector(state => state)
+    const {categoryAddItem, addProducts} = useActions()
+    const categoriesList = usePublishedCategories()
+    const goodsListArray = usePublishedGoods()
 
-  return (
-    <div className="App">
-        <Routes>
-            <Route path='/' element={<Layout/>}>
-                <Route index element={<HomePage/>} />
-                <Route path='dostavka' element={<Delivery/>} />
-                <Route path='/cart' element={<ProductCart />}/>
-            </Route>
-            <Route path='/catalog' element={<ProductLayout />}>
-                <Route index element={<ProductCatalog />} />
-                <Route exact path=':id' element={<ProductCatalog />} />
-                <Route path='product/:slug' element={<ProductPage/>} />
-                <Route path='wishlist' element={<WishlistPage />} />
-            </Route>
-            <Route path='*' element={<Error />}/>
-        </Routes>
-    </div>
-  );
+    useEffect(() => {
+        if (categoriesList.length !== 0) {
+            if (localStorage.getItem("categories") !== null) {
+                if (localStorage.getItem('categories').length > 2 || typeof (localStorage.getItem('categories')) !== 'undefined') {
+                    localStorage.getItem('categories').length > 2 ? console.log('categories') : categoryAddItem(categoriesList)
+                }
+            } else {
+                categoryAddItem(categoriesList)
+            }
+        }
+    }, [categoriesList])
+
+    useEffect(() => {
+        localStorage.setItem('categories', JSON.stringify(categories))
+    }, [categories])
+
+
+    useEffect(() => {
+        if (goodsListArray.length !== 0) {
+            if (localStorage.getItem('goods') !== null) {
+                if (localStorage.getItem('goods').length > 2 || typeof (localStorage.getItem('goods')) !== 'undefined') {
+                    localStorage.getItem('goods').length > 2 ? console.log('goods') : addProducts(goodsListArray)
+                }
+            } else {
+                addProducts(goodsListArray)
+            }
+        }
+    }, [goodsListArray])
+
+    useEffect(() => {
+        localStorage.setItem('goods', JSON.stringify(goodsList))
+    }, [goodsList])
+
+    return (
+        <div className="App">
+            {/*<Wrapper>*/}
+                <Routes>
+                    <Route path='/' element={<Layout/>}>
+                        <Route index element={<HomePage/>}/>
+                        <Route path='dostavka' element={<Delivery/>} breadcrumb='Доставка'/>
+                        <Route  path='wishlist' element={<WishListLayout/>}/>
+                        <Route  path='cart' element={<CartLayout/>}/>
+                    </Route>
+                    <Route path='/catalog' element={<CatalogLayout/>}>
+                        <Route index element={<ProductCatalog/>}/>
+                        <Route path=':id' element={<ProductCatalog/>}/>
+                    </Route>
+                    <Route path='/catalog/product/:slug' element={<ProductLayout/>}>
+                        <Route index element={<ProductPage/>}/>
+                    </Route>
+                    <Route path='*' element={<Error/>}/>
+                    <Route path='/test' element={<Test/>}/>
+                </Routes>
+            {/*</Wrapper>*/}
+        </div>
+    );
 }
 
 export default App;

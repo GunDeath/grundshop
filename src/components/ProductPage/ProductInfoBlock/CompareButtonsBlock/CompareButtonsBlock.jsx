@@ -1,17 +1,13 @@
 import React from 'react';
 import classes from './CompareButtonsBlock.module.css'
-import CompareButton from "./CompareButton/CompareButton";
-import WishlistButton from "./WishlistButton/WishlistButton";
+import MyCompare from "../../../UIUX/NEW_UI/MyActionButtons/MyCompare/MyCompare";
+import MyWishlist from "../../../UIUX/NEW_UI/MyActionButtons/MyWishlist/MyWishlist";
 
-const CompareButtonsBlock = () => {
+const CompareButtonsBlock = ({product}) => {
     return (
         <div className={classes.actionButtonsBlock}>
-            <div>
-                <CompareButton />
-            </div>
-            <div>
-                <WishlistButton />
-            </div>
+            <MyCompare product={product} extended={true} />
+            <MyWishlist product={product} extended={true} />
         </div>
     );
 };

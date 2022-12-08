@@ -1,13 +1,15 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import classes from "./CatalogFalseAside.module.css";
+import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 
-const CatalogFalseAside = ({categoryList, changeActive, active}) => {
+const CatalogFalseAside = ({changeActive, active}) => {
+    const {categories} = useTypedSelector(state => state)
     return (
         <div className={classes.list_link}>
             {
-                categoryList.map(category =>
-                    <Link to={`/catalog/${category.id}`} key={category.id}
+                categories.map(category =>
+                    <Link to={`/catalog/${category.id}`} key={Math.random()}
                           onClick={() => {
                               changeActive(category.id)
                           }}
