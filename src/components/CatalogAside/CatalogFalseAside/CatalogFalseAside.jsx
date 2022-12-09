@@ -9,7 +9,7 @@ const CatalogFalseAside = ({changeActive, active}) => {
         <div className={classes.list_link}>
             {
                 categories.map(category =>
-                    <Link to={`/catalog/${category.id}`} key={Math.random()}
+                    <Link to={`/catalog/${category.slug}`}  state={{category}} key={Math.random()}
                           onClick={() => {
                               changeActive(category.id)
                           }}

@@ -59,7 +59,7 @@ function App() {
         <div className="App">
             {/*<Wrapper>*/}
                 <Routes>
-                    <Route path='/' element={<Layout/>}>
+                    <Route path='/' state={{rus: 'Главная'}} element={<Layout/>}>
                         <Route index element={<HomePage/>}/>
                         <Route path='dostavka' element={<Delivery/>} breadcrumb='Доставка'/>
                         <Route  path='wishlist' element={<WishListLayout/>}/>
@@ -67,9 +67,9 @@ function App() {
                     </Route>
                     <Route path='/catalog' element={<CatalogLayout/>}>
                         <Route index element={<ProductCatalog/>}/>
-                        <Route path=':id' element={<ProductCatalog/>}/>
+                        <Route path=':category_slug' element={<ProductCatalog/>}/>
                     </Route>
-                    <Route path='/catalog/product/:slug' element={<ProductLayout/>}>
+                    <Route path='/catalog/:category_slug/:slug' element={<ProductLayout/>}>
                         <Route index element={<ProductPage/>}/>
                     </Route>
                     <Route path='*' element={<Error/>}/>

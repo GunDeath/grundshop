@@ -7,6 +7,7 @@ import ProductImg from "./ImageBlock/ProductImg";
 import ProductAttributes from "./ProductAttributes/ProductAttributes";
 import ProductTabs from "./ProductTabs/ProductTabs";
 import {useTypedSelector} from "../../store/hooks/useTypedSelector";
+import MyBreadCrumbs from "../UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
 
 const ProductPage = (props) => {
     /*get product id by url*/
@@ -90,6 +91,10 @@ const ProductPage = (props) => {
 
     return (
         <>
+            <div className={classes.breadCrumbs}>
+                <MyBreadCrumbs />
+            </div>
+
             <div className={classes.productMainWrapper}>
                 <ProductImg singleProduct={singleProduct.images}
                             firstImg={singleProduct.images[imgIndex] || {src: ''}}/>

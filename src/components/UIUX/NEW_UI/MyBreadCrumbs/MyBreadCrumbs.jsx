@@ -1,19 +1,13 @@
 import React from 'react';
-import useBreadcrumbs from "use-react-router-breadcrumbs";
-import {NavLink} from "react-router-dom";
+import {useParams} from "react-router-dom";
+import SimpleBreadCrumbs from "./SimpleBreadCrumbs/SimpleBreadCrumbs";
+import SlugBreadCrumbs from "./SlugBreadCrumbs/SlugBreadCrumbs";
 
-const MyBreadCrumbs = () => {
-    const breadcrumbs = useBreadcrumbs();
+const MyBreadCrumbs = ({url, title}) => {
+    const params = useParams()
     return (
         <React.Fragment>
-            {breadcrumbs.map(({ breadcrumb, match }, index) => (
-                <>
-                    <NavLink key={match.pathname} to={match.pathname}>
-                        {breadcrumb}
-                    </NavLink>
-                    {index !== breadcrumbs.length - 1 && '/'}
-                </>
-            ))}
+            { params.category_slug ? <SlugBreadCrumbs catSlug={params.category_slug} slug={params.slug}/> : <SimpleBreadCrumbs url={url} title={title}/> }
         </React.Fragment>
     );
 };

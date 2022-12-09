@@ -13,12 +13,10 @@ const MyWishlist = ({product, extended = false}) => {
     useEffect(() => { localStorage.setItem('wishlist', JSON.stringify(wishlist))}, [wishlist])
 
     return (
-        <div className={classes.wishlistBlock}>
+        <div className={classes.wishlistBlock} onClick={() => { isExistsInWishlist ? wishlistRemoveItem(product) : wishlistAddItem(product)}}>
             <img
                 src={isExistsInWishlist ? active_wishlist : wishlist_icons}
-                onClick={() => { isExistsInWishlist ? wishlistRemoveItem(product) : wishlistAddItem(product)}}
                 alt="Избранное"
-                className={classes.wishlistBtn}
             />
             {
                 extended ? 'Избранное' : ''

@@ -4,14 +4,14 @@ import classes from "./ProductCatalog.module.css";
 import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
 import {subCategoryFunction} from "../../customFunctions";
 import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useTypedSelector} from "../../store/hooks/useTypedSelector";
-import MyBreadCrumbs from "../UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
 
 const ProductCatalog = () => {
     const params = useParams()
+    const location = useLocation();
     const [productsByCategory, setProductsByCategory] = useState([]);
-    const [categoryID, setCategoryID] = useState(params.id || 16)
+    const [categoryID, setCategoryID] = useState(params.slug || 'cirkulyacionnye')
     const [loading, setLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(1)
     const [subCategory, setSubCategory] = useState([])
@@ -20,19 +20,17 @@ const ProductCatalog = () => {
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const {goodsList} = useTypedSelector(state => state)
 
-    useEffect(() => {
-        setCategoryID(params.id)
-    }, [params.id])
+    useEffect(() => { setCategoryID(params.category_slug) }, [params.category_slug])
 
     useEffect(() => {
         setLoading(true)
         if (categoryID !== undefined) {
             if(goodsList.length !== 0){
-                setProductsByCategory(goodsList.filter(product => product.categories[0].id === Number(categoryID)))
+                setProductsByCategory(goodsList.filter(product => product.categories[0].slug === categoryID))
                 setLoading(false)
             }
             else{
-                api.get(`products?category=${categoryID}&orderby=title`)
+                api.get(`products?categories=${categoryID}&orderby=title`)
                     .then((response) => {
                         if (response.status === 200) {
                             setProductsByCategory(response.data)
@@ -42,9 +40,12 @@ const ProductCatalog = () => {
                     .catch((error) => {
                     })
             }
-            subCategoryFunction(categoryID, setSubCategory);
+            if(location.state !== null){
+                const {category} = location.state
+                subCategoryFunction(category.id, setSubCategory);
+            }
         }else{
-            setCategoryID(16)
+            setCategoryID('cirkulyacionnye')
         }
     }, [categoryID])
 

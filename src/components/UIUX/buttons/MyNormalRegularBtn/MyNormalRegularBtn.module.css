@@ -10,8 +10,14 @@
     line-height: 150%;
     color: #003767;
     cursor: pointer;
+    transition: transform 1s, color 0.25s, background-color 0.25s;
 }
 .myNormalRegularBtnDisable{
     background-color: #dfe1e6;
     cursor: auto;
+}
+.myNormalRegularBtn:hover{
+    background-color: #003767;
+    color: #ffffff;
+    transform: scale(1.01);
 }

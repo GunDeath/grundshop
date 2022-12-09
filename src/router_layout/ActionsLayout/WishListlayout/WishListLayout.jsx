@@ -6,6 +6,7 @@ import MyPageTitle from "../../../components/UIUX/NEW_UI/MyTitles/MyPageTitle/My
 import PopularGoods from "../../../components/regular_components/HomePage/popular_goods/PopularGoods";
 import FullWishlist from "../../../components/regular_components/WishlistPage/FullWishlist/FullWishlist";
 import EmptyWishlist from "../../../components/regular_components/WishlistPage/EmptyWishlist/EmptyWishlist";
+import MyBreadCrumbs from "../../../components/UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
 
 const WishListLayout = () => {
     const {wishlist} = useTypedSelector(state => state)
@@ -18,6 +19,7 @@ const WishListLayout = () => {
                 <div className={classes.contentWrapper}>
                     <CatalogAside/>
                     <div className={classes.contentSection}>
+                        <MyBreadCrumbs url='/wishlist' title='Избранное'/>
                         { wishlist.length !== 0 ? <FullWishlist /> : <EmptyWishlist />}
                     </div>
                 </div>

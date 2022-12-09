@@ -18,7 +18,7 @@ const CatalogSingleProduct = ({product}) => {
             </div>
             <div className={classes.product_cart__information_block}>
                 <div className={classes.product_cart__title_element}>
-                    <Link to={`/catalog/product/${product.slug}`} state={{product}} >{product.name}</Link>
+                    <Link to={`/catalog/${product.categories[0].slug}/${product.slug}`} state={{product}} >{product.name}</Link>
                 </div>
                 <div className={classes.product_cart__rating_element}>
                     <img src={rating_icons} alt=""/>

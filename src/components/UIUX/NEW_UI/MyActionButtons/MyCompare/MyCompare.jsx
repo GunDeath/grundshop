@@ -11,12 +11,10 @@ const MyCompare = ({product, extended = false}) => {
     const isExistsInComparelist = compare.some(p => p.id === product.id)
 
     return (
-        <div className={classes.compareBlock}>
+        <div className={classes.compareBlock} onClick={() => { isExistsInComparelist ? comparelistRemoveItem(product) : comparelistAddItem(product)}}>
             <img
                 src={isExistsInComparelist ? active_compare : compare_icon}
-                onClick={() => { isExistsInComparelist ? comparelistRemoveItem(product) : comparelistAddItem(product)}}
                 alt="Сравнение"
-                className={classes.myCompare}
             />
             {
                 extended ? 'Сравнить' : ''

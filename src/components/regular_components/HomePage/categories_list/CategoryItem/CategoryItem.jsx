@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const CategoryItem = ({category}) => {
     return (
         <li>
-            <Link to={`catalog/${category.id}`} className={classes.category_list_single_item}>
+            <Link to={`catalog/${category.slug}`} state={{category}} className={classes.category_list_single_item}>
                 <div className={classes.category_item_img_block}>
                     <img src={category.image.src} alt="" className={classes.category_img}/>
                 </div>
