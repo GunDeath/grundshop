@@ -14,7 +14,7 @@ const CategoriesList = () => {
                             ? (
                                 <CategoryItem category={category} key={Math.random()}/>
                             )
-                            : <></>
+                            : <React.Fragment key={Math.random()}></React.Fragment>
                     )
                 }
             </ul>

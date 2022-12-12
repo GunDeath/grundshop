@@ -46,6 +46,7 @@ function App() {
                     localStorage.getItem('goods').length > 2 ? console.log('goods') : addProducts(goodsListArray)
                 }
             } else {
+                console.log('empty')
                 addProducts(goodsListArray)
             }
         }

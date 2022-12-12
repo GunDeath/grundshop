@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {api} from "../../woocommerce_api";
 import classes from "./ProductCatalog.module.css";
 import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
-import {subCategoryFunction} from "../../customFunctions";
+import {addProductReviews, subCategoryFunction} from "../../customFunctions";
 import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
 import {useLocation, useParams} from "react-router-dom";
 import {useTypedSelector} from "../../store/hooks/useTypedSelector";
@@ -19,13 +19,18 @@ const ProductCatalog = () => {
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const {goodsList} = useTypedSelector(state => state)
+    /*change product layout*/
+    const [grid, setGrid] = useState(true)
+    const changeGrid = (value) => {
+        setGrid(value)
+    }
 
     useEffect(() => { setCategoryID(params.category_slug) }, [params.category_slug])
 
     useEffect(() => {
         setLoading(true)
         if (categoryID !== undefined) {
-            if(goodsList.length !== 0){
+            if(Array.isArray(goodsList) && goodsList.length){
                 setProductsByCategory(goodsList.filter(product => product.categories[0].slug === categoryID))
                 setLoading(false)
             }
@@ -54,8 +59,9 @@ const ProductCatalog = () => {
 
     return (
         <div className={classes.catalogMainContent}>
-            <CatalogTopMenu subCategory={subCategory}/>
+            <CatalogTopMenu changeGrid={changeGrid} grid={grid} subCategory={subCategory}/>
             <CatalogItemsLoop
+                grid={grid}
                 currentRecords={currentRecords}
                 loading={loading}
                 nPages={nPages}

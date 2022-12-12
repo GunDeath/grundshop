@@ -11,7 +11,6 @@ const CartItems = ({cart}) => {
     const checkSelected = () => {
         setSelected(!selected)
     }
-    console.log(selected)
 
     return (
         <div>

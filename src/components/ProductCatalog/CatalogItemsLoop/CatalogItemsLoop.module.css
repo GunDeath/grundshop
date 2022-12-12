@@ -5,6 +5,13 @@
     grid-row-gap: 30px;
     margin-top: 16px;
 }
+
+.catalogMainSectionHorizontal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 16px;
+}
 /*query*/
 @media screen and (max-width: 1200px) {
     .catalogMainSection{grid-column-gap: 15px; grid-row-gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));}

@@ -7,7 +7,7 @@ const HorizontalProductCardAttributes = ({attributes}) => {
         <div className={classes.attributesBlock}>
             {
                 attributes.map(attribute =>
-                    <div className={classes.attributeRowLayout}>
+                    <div key={Math.random()} className={classes.attributeRowLayout}>
                         <MyAttributeText> {attribute.name} </MyAttributeText>
                         <MyAttributeText> {attribute.options[0]} </MyAttributeText>
                     </div>

@@ -25,6 +25,23 @@ const Test = () => {
 
     })
 
+    // useEffect(()=>{
+    //     const config = {
+    //         auth: {
+    //             username: 'ck_cefbcaa40e47276dc6064169c20751350a5365d3',
+    //             password: 'cs_bd901cab6cdfd1bf119befce7fdd291bcdd352d2'
+    //         }
+    //     }
+    //
+    //     const apiData = async () => {
+    //         await axios.get('https://mybackend.rusgetter.store/wp-json/wc/v3/products', config)
+    //             .then((response) => {
+    //                 console.log(response);
+    //             })
+    //     }
+    //     apiData()
+    // }, [])
+
     return (
         <div>
             {/*<form>*/}
