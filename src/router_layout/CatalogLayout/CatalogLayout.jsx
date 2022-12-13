@@ -4,12 +4,10 @@ import classes from './CatalogLayout.module.css'
 import Footer from "../../components/main_components/footer/Footer";
 import Header from "../../components/main_components/header/Header";
 import CatalogAside from "../../components/CatalogAside/CatalogAside";
-import PopularGoods from "../../components/regular_components/HomePage/popular_goods/PopularGoods";
 import MyCatalogBanner from "../../components/UIUX/NEW_UI/MyBlocks/MyCatalogBanner/MyCatalogBanner";
+import PopularGoods from "../../components/regular_components/PopularGoods/PopularGoods";
 
 const CatalogLayout = () => {
-    const params = useParams()
-    console.log(params.core)
     return (
         <div className={classes.catalogLayoutBlock}>
             <Header />

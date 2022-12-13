@@ -5,6 +5,7 @@ import {wishlistReducer} from "./wishlist/Wishlist";
 import {comparelistReducer} from "./compare/Compare";
 import {categoriesReducer} from "./categories/useCategories";
 import {goodsListReducer} from "./products/Products";
+import {singleCategoryReducer} from "./categories/singleCategory";
 
 export const store = configureStore({
     reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
         wishlist: wishlistReducer,
         compare: comparelistReducer,
         categories: categoriesReducer,
-        goodsList: goodsListReducer
+        goodsList: goodsListReducer,
+        singleCategory: singleCategoryReducer
     },
 })
 

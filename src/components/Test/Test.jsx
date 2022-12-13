@@ -1,29 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import {api} from "../../woocommerce_api";
 import MyCatalogBanner from "../UIUX/NEW_UI/MyBlocks/MyCatalogBanner/MyCatalogBanner";
+import GridProductCard from "../UIUX/NEW_UI/MyBlocks/GridProductCard/GridProductCard";
+import MySelectElement from "../UIUX/NEW_UI/MyLayoutElements/MySelectElement/MySelectElement";
+import MyAccordion from "../UIUX/NEW_UI/MyLayoutElements/MyAccordion/MyAccordion";
 
 const Test = () => {
     const [countries, setCountries] = useState([])
     const [loading, setLoading] = useState(true)
     const getCountries = () => {
-        api.get('products?status=publish')
+        api.get('products/577')
             .then((response) => {
+                console.log(response.data)
                 setCountries(response.data)
                 setLoading(!loading)
             })
     }
 
-    const [value, setValue] = useState('')
-    const filteredCountries = countries.filter(country => {
-        if(country.name.toLowerCase().includes(value.toLowerCase())){
-            return country.name.toLowerCase().includes(value.toLowerCase())
-        }else if(country.sku.toLowerCase().includes(value.toLowerCase())){
-            return country.name.toLowerCase()
-        }else if(country.slug.toLowerCase().includes(value.toLowerCase())){
-            return country.name.toLowerCase()
-        }
 
-    })
+    // const [value, setValue] = useState('')
+    // const filteredCountries = countries.filter(country => {
+    //     if(country.name.toLowerCase().includes(value.toLowerCase())){
+    //         return country.name.toLowerCase().includes(value.toLowerCase())
+    //     }else if(country.sku.toLowerCase().includes(value.toLowerCase())){
+    //         return country.name.toLowerCase()
+    //     }else if(country.slug.toLowerCase().includes(value.toLowerCase())){
+    //         return country.name.toLowerCase()
+    //     }
+    //
+    // })
 
     // useEffect(()=>{
     //     const config = {
@@ -43,7 +48,7 @@ const Test = () => {
     // }, [])
 
     return (
-        <div>
+        <div >
             {/*<form>*/}
             {/*    <input*/}
             {/*        type="text"*/}
@@ -63,6 +68,7 @@ const Test = () => {
             {/*        )*/}
             {/*}*/}
             <MyCatalogBanner />
+            <MyAccordion />
         </div>
     );
 };

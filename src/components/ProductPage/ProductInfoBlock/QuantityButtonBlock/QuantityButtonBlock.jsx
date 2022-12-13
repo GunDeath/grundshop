@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './QuantityButtonBlock.module.css'
 import MyQuantity from "../../../UIUX/quantity/MyQuantity";
-import MyAddToCart from "../../../UIUX/buttons/product_page/AddToCart/MyAddToCart";
 import MyBuyNow from "../../../UIUX/buttons/product_page/BuyNow/MyBuyNow";
+import MyAddToCart from "../../../UIUX/NEW_UI/MyButtons/MyAddToCart/MyAddToCart";
 
 const QuantityButtonBlock = ({product, countDecrease, countIncrease, counter, isExistsInCart}) => {
     return (

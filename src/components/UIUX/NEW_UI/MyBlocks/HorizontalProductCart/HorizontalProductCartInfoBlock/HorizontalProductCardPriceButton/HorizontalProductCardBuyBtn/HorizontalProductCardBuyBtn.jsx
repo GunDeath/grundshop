@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './HorizontalProductCardBuyBtn.module.css'
-import MyAddToCart from "../../../../../../buttons/product_page/AddToCart/MyAddToCart";
 import MyWishlist from "../../../../../MyActionButtons/MyWishlist/MyWishlist";
 import MyCompare from "../../../../../MyActionButtons/MyCompare/MyCompare";
+import MyAddToCart from "../../../../../MyButtons/MyAddToCart/MyAddToCart";
 
 const HorizontalProductCardBuyBtn = ({product}) => {
     return (

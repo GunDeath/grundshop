@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import classes from './HorizontalProductCard.module.css'
 import HorizontalProductCardInfoBlock from "./HorizontalProductCartInfoBlock/HorizontalProductCardInfoBlock";
 import HorizontalProductCardImgBlock from "./HorizontalProductCardImgBlock/HorizontalProductCardImgBlock";

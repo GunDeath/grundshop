@@ -3,7 +3,7 @@ import classes from "./Delivery.module.css";
 import DeliveryTopPost from "./DeliveryTopPost/DeliveryTopPost";
 import DeliveryMiddlePost from "./DeliveryMiddle/DeliveryMiddlePost";
 import DeliveryBottom from "./DeliveryBottom/DeliveryBottom";
-import PopularGoods from "../HomePage/popular_goods/PopularGoods";
+import PopularGoods from "../PopularGoods/PopularGoods";
 
 const Delivery = () => {
         return (

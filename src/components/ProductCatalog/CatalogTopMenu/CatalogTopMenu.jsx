@@ -2,10 +2,10 @@ import React from 'react';
 import CatalogSubCategories from "./CatalogSubCategories/CatalogSubCategories";
 import CatalogTopMenuSorting from "./CatalogTopMenuSorting/CatalogTopMenuSorting";
 
-const CatalogTopMenu = ({subCategory, changeGrid, grid}) => {
+const CatalogTopMenu = ({changeGrid, grid}) => {
     return (
         <div>
-            <CatalogSubCategories subCategory={subCategory} />
+            <CatalogSubCategories />
             <CatalogTopMenuSorting changeGrid={changeGrid} grid={grid}/>
         </div>
     );

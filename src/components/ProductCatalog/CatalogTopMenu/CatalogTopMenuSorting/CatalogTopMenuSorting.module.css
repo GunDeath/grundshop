@@ -4,13 +4,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     padding-inline: 2px;
-    margin-top: 35px;
 }
-.sortingLeftSection{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 /*layout buttons*/
 .catalogLayoutButtons{
     display: flex;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import {addProductReviews} from "../../../../customFunctions";

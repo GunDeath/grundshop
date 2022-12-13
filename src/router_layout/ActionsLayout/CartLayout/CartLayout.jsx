@@ -2,8 +2,8 @@ import React from 'react';
 import classes from './CartLayout.module.css'
 import MyPageTitle from "../../../components/UIUX/NEW_UI/MyTitles/MyPageTitle/MyPageTitle";
 import CatalogAside from "../../../components/CatalogAside/CatalogAside";
-import PopularGoods from "../../../components/regular_components/HomePage/popular_goods/PopularGoods";
 import ProductCart from "../../../components/regular_components/ProductCart/ProductCart";
+import PopularGoods from "../../../components/regular_components/PopularGoods/PopularGoods";
 
 const CartLayout = () => {
     return (

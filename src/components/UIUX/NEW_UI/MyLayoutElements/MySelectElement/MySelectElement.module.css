@@ -1,0 +1,31 @@
+.selectStyling{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #003767;
+    background-color: transparent;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+select:focus{
+    border: none;
+    outline: none;
+}
+
+option{
+    outline: none;
+    background-color: transparent;
+}
+.selectStyling *
+{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}

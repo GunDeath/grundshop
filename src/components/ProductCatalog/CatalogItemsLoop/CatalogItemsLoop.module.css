@@ -12,6 +12,12 @@
     width: 100%;
     margin-top: 16px;
 }
+.paginationBlock{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /*query*/
 @media screen and (max-width: 1200px) {
     .catalogMainSection{grid-column-gap: 15px; grid-row-gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));}

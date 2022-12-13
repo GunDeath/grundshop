@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import classes from './MyHomePage.module.css'
 import MainPostComponent from "./posts_component/main_post_component/MainPostComponent";
 import TopSlider from "./posts_component/main_top_slider/TopSlider";
@@ -7,7 +7,7 @@ import MainAboutBlock from "./main_block_banner/MainAboutBlock";
 import NewGoods from "./news_goods/NewGoods";
 import SimpleMap from "./map_block/MapBlock";
 import BottomPosts from "./posts_component/bottom_posts/BottomPosts";
-import PopularGoods from "./popular_goods/PopularGoods";
+import PopularGoods from "../PopularGoods/PopularGoods";
 
 const HomePage = () => {
 

@@ -4,7 +4,7 @@ import Header from "../../components/main_components/header/Header";
 import Footer from "../../components/main_components/footer/Footer";
 import CatalogAside from "../../components/CatalogAside/CatalogAside";
 import {Outlet} from 'react-router-dom';
-import PopularGoods from "../../components/regular_components/HomePage/popular_goods/PopularGoods";
+import PopularGoods from "../../components/regular_components/PopularGoods/PopularGoods";
 
 const ProductLayout = () => {
     return (

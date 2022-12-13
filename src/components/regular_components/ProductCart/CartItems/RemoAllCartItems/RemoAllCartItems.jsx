@@ -14,10 +14,8 @@ const RemoAllCartItems = ({checkSelected}) => {
             removeItem(prod)
             removeCartList(prod)
         })
-        console.log(cart)
         localStorage.removeItem('cart');
     }
-    console.log(cartRemove)
     return (
         <div className={classes.removeAll}>
             <div className={classes.leftPart}>

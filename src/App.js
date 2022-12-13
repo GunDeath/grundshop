@@ -35,6 +35,8 @@ function App() {
     }, [categoriesList])
 
     useEffect(() => {
+        console.log(categories)
+        localStorage.setItem('singleCategory', JSON.stringify(categories.filter(cat => cat.acf.default_catalog_category === true)))
         localStorage.setItem('categories', JSON.stringify(categories))
     }, [categories])
 

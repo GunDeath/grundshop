@@ -10,7 +10,7 @@ const HeaderMainMenu = () => {
         <div className={classes.main_header__menu_block}>
             <ul className={classes['main-header__menu-section']}>
                 <li className={classes.active_menu_element}>
-                    <NavLink to='/catalog' className={classes.catalog_icon}>
+                    <NavLink to='/catalog/cirkulyacionnye' className={classes.catalog_icon}>
                         <img src={catalog_icon} alt="" className={classes.catalog_icon}/>
                         Каталог
                     </NavLink>

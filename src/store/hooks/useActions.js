@@ -6,6 +6,7 @@ import {wishlistActions} from "../wishlist/Wishlist";
 import {comparelistActions} from "../compare/Compare";
 import {categoriesActions} from "../categories/useCategories";
 import {goodsListActions} from "../products/Products";
+import {singleCategoryActions} from "../categories/singleCategory";
 
 const allActions = {
     ...cartActions,
@@ -13,7 +14,8 @@ const allActions = {
     ...wishlistActions,
     ...comparelistActions,
     ...categoriesActions,
-    ...goodsListActions
+    ...goodsListActions,
+    ...singleCategoryActions
 }
 
 export const useActions = () => {

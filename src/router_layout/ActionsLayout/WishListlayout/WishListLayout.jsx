@@ -3,10 +3,10 @@ import classes from './WishListLayout.module.css'
 import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 import CatalogAside from "../../../components/CatalogAside/CatalogAside";
 import MyPageTitle from "../../../components/UIUX/NEW_UI/MyTitles/MyPageTitle/MyPageTitle";
-import PopularGoods from "../../../components/regular_components/HomePage/popular_goods/PopularGoods";
 import FullWishlist from "../../../components/regular_components/WishlistPage/FullWishlist/FullWishlist";
 import EmptyWishlist from "../../../components/regular_components/WishlistPage/EmptyWishlist/EmptyWishlist";
 import MyBreadCrumbs from "../../../components/UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
+import PopularGoods from "../../../components/regular_components/PopularGoods/PopularGoods";
 
 const WishListLayout = () => {
     const {wishlist} = useTypedSelector(state => state)
