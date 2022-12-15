@@ -1,5 +1,5 @@
 import React from 'react';
-import MyQuantity from "../../../../../UIUX/quantity/MyQuantity";
+import MyQuantity from "../../../../quantity/MyQuantity";
 
 const ProductCartItemQtn = (props) => {
     return (

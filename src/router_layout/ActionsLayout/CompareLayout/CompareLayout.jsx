@@ -1,22 +1,26 @@
 import React from 'react';
-import classes from './WishListLayout.module.css'
-import CatalogAside from "../../../components/CatalogAside/CatalogAside";
+import classes from './CompareLayout.module.css'
+import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 import MyPageTitle from "../../../components/UIUX/NEW_UI/MyTitles/MyPageTitle/MyPageTitle";
+import CatalogAside from "../../../components/CatalogAside/CatalogAside";
 import MyBreadCrumbs from "../../../components/UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
+import FullWishlist from "../../../components/regular_components/WishlistPage/FullWishlist/FullWishlist";
+import EmptyWishlist from "../../../components/regular_components/WishlistPage/EmptyWishlist/EmptyWishlist";
 import PopularGoods from "../../../components/regular_components/PopularGoods/PopularGoods";
 
-const WishListLayout = () => {
+const CompareLayout = () => {
+    const {compare} = useTypedSelector(state => state)
     return (
         <div className={classes.actionsLayoutBlock}>
             <div className={classes.contentAsideAndSection}>
                 <div className={classes.pageTitle}>
-                    <MyPageTitle> Избранное </MyPageTitle>
+                    <MyPageTitle> Сравнение </MyPageTitle>
                 </div>
                 <div className={classes.contentWrapper}>
                     <CatalogAside/>
                     <div className={classes.contentSection}>
-                        <MyBreadCrumbs url='/wishlist' title='Избранное'/>
-                        <WishListLayout />
+                        <MyBreadCrumbs url='/compare' title='Сравнение'/>
+                        { compare.length !== 0 ? <FullWishlist /> : <EmptyWishlist />}
                     </div>
                 </div>
             </div>
@@ -27,4 +31,4 @@ const WishListLayout = () => {
     );
 };
 
-export default WishListLayout;
+export default CompareLayout;

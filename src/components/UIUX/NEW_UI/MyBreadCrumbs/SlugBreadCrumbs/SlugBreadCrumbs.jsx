@@ -3,9 +3,8 @@ import classes from './SlugBreadCrumbs.module.css'
 import {NavLink} from "react-router-dom";
 import {useTypedSelector} from "../../../../../store/hooks/useTypedSelector";
 
-const SlugBreadCrumbs = ({catSlug, slug}) => {
-    const {categories, goodsList} = useTypedSelector(state => state)
-    const singleCategory = categories.filter(cat => cat.slug === catSlug)
+const SlugBreadCrumbs = ({slug}) => {
+    const {goodsList, singleCategory} = useTypedSelector(state => state)
     const singleProduct = goodsList.filter(prod => prod.slug === slug)
     return (
         <div className={classes.breadCrumbsLayout}>
@@ -13,7 +12,7 @@ const SlugBreadCrumbs = ({catSlug, slug}) => {
             <div>></div>
             <NavLink to='/catalog'>Каталог</NavLink>
             <div>></div>
-            <NavLink to={`/catalog/${catSlug}`}>{singleCategory[0].name}</NavLink>
+            <NavLink to={`/catalog/${singleCategory[0].slug}`}>{singleCategory[0].name}</NavLink>
             {
                 slug
                     ? (

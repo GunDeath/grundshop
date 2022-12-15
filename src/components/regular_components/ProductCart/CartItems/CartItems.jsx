@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import RemoAllCartItems from "./RemoAllCartItems/RemoAllCartItems";
-import CartProductCard from "./CartProductCard/CartProductCard";
+import CartProductCard from "../../../UIUX/NEW_UI/MyBlocks/CartProductCard/CartProductCard";
 import TotalPriceBlock from "./TotalPriceBlock/TotalPriceBlock";
 
 const CartItems = ({cart}) => {

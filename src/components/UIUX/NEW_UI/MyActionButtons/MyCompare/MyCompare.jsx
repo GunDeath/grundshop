@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './MyCompare.module.css'
 import {useActions} from "../../../../../store/hooks/useActions";
 import {useTypedSelector} from "../../../../../store/hooks/useTypedSelector";
@@ -9,6 +9,8 @@ const MyCompare = ({product, extended = false}) => {
     const {comparelistAddItem,comparelistRemoveItem} = useActions()
     const {compare} = useTypedSelector(state => state)
     const isExistsInComparelist = compare.some(p => p.id === product.id)
+
+    useEffect(() => { localStorage.setItem('compare', JSON.stringify(compare))}, [compare])
 
     return (
         <div className={classes.compareBlock} onClick={() => { isExistsInComparelist ? comparelistRemoveItem(product) : comparelistAddItem(product)}}>

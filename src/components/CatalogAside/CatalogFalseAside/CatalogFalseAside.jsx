@@ -5,7 +5,6 @@ import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 
 const CatalogFalseAside = () => {
     const {categories, singleCategory} = useTypedSelector(state => state)
-    console.log(singleCategory)
     return (
         <div className={classes.list_link}>
             {

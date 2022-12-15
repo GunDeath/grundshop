@@ -7,7 +7,7 @@ const MyBreadCrumbs = ({url, title}) => {
     const params = useParams()
     return (
         <React.Fragment>
-            { params.category_slug ? <SlugBreadCrumbs catSlug={params.category_slug} slug={params.slug}/> : <SimpleBreadCrumbs url={url} title={title}/> }
+            { params.category_slug ? <SlugBreadCrumbs slug={params.slug}/> : <SimpleBreadCrumbs url={url} title={title}/> }
         </React.Fragment>
     );
 };

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../../../../../store/hooks/useTypedSelector";
 
 const HeaderActions = () => {
-    const {wishlist} = useTypedSelector(state => state)
+    const {wishlist, compare} = useTypedSelector(state => state)
     return (
         <div className={classes.main_header__actions_block}>
             <Link to='/wishlist' className={classes.linkBlock}>

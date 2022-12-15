@@ -14,6 +14,7 @@ import {usePublishedCategories, usePublishedGoods} from './customHooks'
 import CatalogLayout from "./router_layout/CatalogLayout/CatalogLayout";
 import WishListLayout from "./router_layout/ActionsLayout/WishListlayout/WishListLayout";
 import CartLayout from "./router_layout/ActionsLayout/CartLayout/CartLayout";
+import CompareLayout from "./router_layout/ActionsLayout/CompareLayout/CompareLayout";
 
 function App() {
     /*get products categories*/
@@ -60,25 +61,24 @@ function App() {
 
     return (
         <div className="App">
-            {/*<Wrapper>*/}
-                <Routes>
-                    <Route path='/' state={{rus: 'Главная'}} element={<Layout/>}>
-                        <Route index element={<HomePage/>}/>
-                        <Route path='dostavka' element={<Delivery/>} breadcrumb='Доставка'/>
-                        <Route  path='wishlist' element={<WishListLayout/>}/>
-                        <Route  path='cart' element={<CartLayout/>}/>
-                    </Route>
-                    <Route path='/catalog' element={<CatalogLayout/>}>
-                        <Route index element={<ProductCatalog/>}/>
-                        <Route path=':category_slug' element={<ProductCatalog/>}/>
-                    </Route>
-                    <Route path='/catalog/:category_slug/:slug' element={<ProductLayout/>}>
-                        <Route index element={<ProductPage/>}/>
-                    </Route>
-                    <Route path='*' element={<Error/>}/>
-                    <Route path='/test' element={<Test/>}/>
-                </Routes>
-            {/*</Wrapper>*/}
+            <Routes>
+                <Route path='/' state={{rus: 'Главная'}} element={<Layout/>}>
+                    <Route index element={<HomePage/>}/>
+                    <Route path='dostavka' element={<Delivery/>} breadcrumb='Доставка'/>
+                    <Route path='wishlist' element={<WishListLayout/>}/>
+                    <Route path='compare' element={<CompareLayout/>}/>
+                    <Route path='cart' element={<CartLayout/>}/>
+                </Route>
+                <Route path='/catalog' element={<CatalogLayout/>}>
+                    <Route index element={<ProductCatalog/>}/>
+                    <Route path=':category_slug' element={<ProductCatalog/>}/>
+                </Route>
+                <Route path='/catalog/:category_slug/:slug' element={<ProductLayout/>}>
+                    <Route index element={<ProductPage/>}/>
+                </Route>
+                <Route path='*' element={<Error/>}/>
+                <Route path='/test' element={<Test/>}/>
+            </Routes>
         </div>
     );
 }
