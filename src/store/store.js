@@ -2,20 +2,28 @@ import {configureStore} from "@reduxjs/toolkit";
 import {cartReducer} from "./cart/Cart";
 import {cartMasReducer} from "./cart/CartMassRemove";
 import {wishlistReducer} from "./wishlist/Wishlist";
-import {comparelistReducer} from "./compare/Compare";
 import {categoriesReducer} from "./categories/useCategories";
 import {goodsListReducer} from "./products/Products";
 import {singleCategoryReducer} from "./categories/singleCategory";
+import {wishlistMassReducer} from "./wishlist/WishlistMassRemove";
+import {compareMassReducer} from "./compare/CompareMassRemove";
+import {comparelistReducer} from "./compare/Compare";
+import {attributesReducer} from "./attributes/Attributes";
+import {subCategoriesReducer} from "./categories/SubCategories";
 
 export const store = configureStore({
     reducer: {
         cart: cartReducer,
         cartRemove: cartMasReducer,
         wishlist: wishlistReducer,
+        wishlistMassRemove: wishlistMassReducer,
         compare: comparelistReducer,
+        compareMassRemove: compareMassReducer,
         categories: categoriesReducer,
         goodsList: goodsListReducer,
-        singleCategory: singleCategoryReducer
+        singleCategory: singleCategoryReducer,
+        attributesReducer: attributesReducer,
+        subCategories: subCategoriesReducer
     },
 })
 

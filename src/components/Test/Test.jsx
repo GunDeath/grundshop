@@ -4,8 +4,10 @@ import MyCatalogBanner from "../UIUX/NEW_UI/MyBlocks/MyCatalogBanner/MyCatalogBa
 import GridProductCard from "../UIUX/NEW_UI/MyBlocks/GridProductCard/GridProductCard";
 import MySelectElement from "../UIUX/NEW_UI/MyLayoutElements/MySelectElement/MySelectElement";
 import MyAccordion from "../UIUX/NEW_UI/MyLayoutElements/MyAccordion/MyAccordion";
+import {useTypedSelector} from "../../store/hooks/useTypedSelector";
 
 const Test = () => {
+    const {goodsList} = useTypedSelector(state => state)
     const [countries, setCountries] = useState([])
     const [loading, setLoading] = useState(true)
     const getCountries = () => {
@@ -16,19 +18,19 @@ const Test = () => {
                 setLoading(!loading)
             })
     }
+    console.log(goodsList)
 
+    const [value, setValue] = useState('')
+    const filteredCountries = goodsList.filter(goodsList => {
+        if(goodsList.name.toLowerCase().includes(value.toLowerCase())){
+            return goodsList.name.toLowerCase().includes(value.toLowerCase())
+        }else if(goodsList.sku.toLowerCase().includes(value.toLowerCase())){
+            return goodsList.name.toLowerCase()
+        }else if(goodsList.slug.toLowerCase().includes(value.toLowerCase())){
+            return goodsList.name.toLowerCase()
+        }
 
-    // const [value, setValue] = useState('')
-    // const filteredCountries = countries.filter(country => {
-    //     if(country.name.toLowerCase().includes(value.toLowerCase())){
-    //         return country.name.toLowerCase().includes(value.toLowerCase())
-    //     }else if(country.sku.toLowerCase().includes(value.toLowerCase())){
-    //         return country.name.toLowerCase()
-    //     }else if(country.slug.toLowerCase().includes(value.toLowerCase())){
-    //         return country.name.toLowerCase()
-    //     }
-    //
-    // })
+    })
 
     // useEffect(()=>{
     //     const config = {
@@ -49,26 +51,23 @@ const Test = () => {
 
     return (
         <div >
-            {/*<form>*/}
-            {/*    <input*/}
-            {/*        type="text"*/}
-            {/*        placeholder='Search'*/}
-            {/*        onChange={(event) => setValue(event.target.value)}*/}
-            {/*    />*/}
-            {/*</form>*/}
-            {/*{*/}
-            {/*    loading*/}
-            {/*        ? <div>loading...</div>*/}
-            {/*        : (*/}
-            {/*            filteredCountries.map((country, index) => {*/}
-            {/*                return (*/}
-            {/*                    <div key={index}>{country.name}</div>*/}
-            {/*                )*/}
-            {/*            })*/}
-            {/*        )*/}
-            {/*}*/}
-            <MyCatalogBanner />
-            <MyAccordion />
+            <form>
+                <input
+                    type="text"
+                    placeholder='Search'
+                    onChange={(event) => setValue(event.target.value)}
+                />
+            </form>
+            {
+
+                        filteredCountries.map((country, index) => {
+                            return (
+                                <div key={index}>{country.name}</div>
+                            )
+                        })
+            }
+            {/*<MyCatalogBanner />*/}
+            {/*<MyAccordion />*/}
         </div>
     );
 };

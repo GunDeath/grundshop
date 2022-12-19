@@ -7,7 +7,7 @@ const GridActionBlock = ({product}) => {
     return (
         <div className={classes.gridActionBlock}>
             <MyCompare product={product}/>
-            <MyWishlist product={product} />
+            <MyWishlist product={product} headerIcon={false}/>
         </div>
     );
 };

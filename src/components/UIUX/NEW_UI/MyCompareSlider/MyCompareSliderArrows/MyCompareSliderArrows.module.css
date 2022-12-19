@@ -1,0 +1,12 @@
+.myCompareSliderArrows{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+.myCompareSliderArrowsBlock:last-child:after{
+    content: url("../../../../../assets/icons/about_banner/slider_about_arrow_next.svg");
+}
+.myCompareSliderArrowsBlock:first-child:after{
+    content: url("../../../../../assets/icons/about_banner/slider_about_arrow_prev.svg");
+}

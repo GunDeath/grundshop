@@ -11,7 +11,7 @@ const CatalogFalseAside = () => {
                 categories.map(category =>
                     <Link to={`/catalog/${category.slug}`}  state={{category}} key={Math.random()}
                           className={
-                              category.id === singleCategory[0].id
+                              category.id === (singleCategory[0].id || 16)
                                   ? classes.active_link
                                   : classes.link
                           }

@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import classes from './CartProductCard.module.css'
 import {useTypedSelector} from "../../../../../store/hooks/useTypedSelector";
 import {useActions} from "../../../../../store/hooks/useActions";
-import ProductCartCheckbox from "./ProductCartCheckbox/ProductCartCheckbox";
 import ProductCartItemImg from "./ProductCartItemImg/ProductCartItemImg";
 import ProductCartItemInfo from "./ProductCartItemInfo/ProductCartItemInfo";
 import ProductCartItemPrice from "./ProductCartItemPrice/ProductCartItemPrice";
 import ProductCartItemQtn from "./ProductCartItemQtn/ProductCartItemQtn";
+import MyCheckboxRemove from "../../MyFunctionalComponents/MyCheckboxRemove/MyCheckboxRemove";
 
 const CartProductCard = ({product, getTotal, selected}) => {
     const {cart} = useTypedSelector(state => state)
@@ -15,7 +15,7 @@ const CartProductCard = ({product, getTotal, selected}) => {
     const [counter, setCounter] = useState(singleProduct.quantity || 1)
     const counterIncrease = () => setCounter((prevState => prevState + 1))
     const counterDecrease = () => setCounter((prevState => prevState - 1))
-    const {updateItem} = useActions()
+    const {updateItem, addCartItem} = useActions()
 
     useEffect(() => {
         const newProduct = {id: product.id, quantity: counter}
@@ -30,7 +30,7 @@ const CartProductCard = ({product, getTotal, selected}) => {
 
     return (
         <div className={classes.productCard}>
-            <ProductCartCheckbox product={product} selected={selected}/>
+            <MyCheckboxRemove product={product} selected={selected} stateMassAddItemsObject={addCartItem}/>
             <ProductCartItemImg productImg={product.images[0]} />
             <ProductCartItemInfo product={product} />
             <ProductCartItemPrice newPrice={singleProduct.price * singleProduct.quantity} />

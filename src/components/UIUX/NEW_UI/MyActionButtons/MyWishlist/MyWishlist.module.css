@@ -5,3 +5,16 @@
     gap: 10px;
     cursor: pointer;
 }
+.wishlistBlockPosition{position: relative}
+.actionButton{width: 25px; height: 25px;}
+.countSpan{
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    border-radius: 50%;
+    width: 20px;
+    line-height: 20px;
+    background-color: #ff4822;
+    color: #ffffff;
+    text-align: center;
+}

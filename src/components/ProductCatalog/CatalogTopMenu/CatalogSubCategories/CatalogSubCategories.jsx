@@ -1,32 +1,45 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import classes from "./CatalogSubCategories.module.css";
 import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
-import {subCategoryFunction} from "../../../../customFunctions";
+import {api} from "../../../../woocommerce_api";
+import {useActions} from "../../../../store/hooks/useActions";
 
 const CatalogSubCategories = () => {
-    const {singleCategory} = useTypedSelector(state => state);
-    const [subCategory, setSubCategory] = useState([]);
-    useEffect(()=>{
-        setSubCategory([])
-        if(singleCategory.length !== 0){ subCategoryFunction(singleCategory[0].id, setSubCategory) }
+    const {singleCategory, subCategories} = useTypedSelector(state => state);
+    const {subCategoryAddItem} = useActions()
+
+    useEffect(() => {
+        if (singleCategory.length !== 0) {
+            api.get(`products/categories?parent=${singleCategory[0].id}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        console.log('input data')
+                        console.log(response.data)
+                        subCategoryAddItem(response.data)
+                    }
+                })
+                .catch(error => {
+                })
+        }
     }, [singleCategory]);
 
+    useEffect(() => { localStorage.setItem('subCategories', JSON.stringify(subCategories)) }, [subCategories])
+
     return (
-        <div className={subCategory.length !== 0 ? classes.mb : ''}>
+        <div className={subCategories.length !== 0 ? classes.mb : ''}>
             <ul className={classes.catalogMainTopMenu}>
                 {
-                    subCategory.length !== 0
-                    ?
-                        subCategory.map(category =>
-                            <li key={category.id}>
-                                <Link to={`/catalog/${category.id}`} >
-                                    {category.name}
-                                </Link>
-                            </li>
-                        )
-                    :
-                        <></>
+                    subCategories.length !== 0
+                        ?
+                        subCategories.map(category =>
+                            Number(category.parent) === Number(singleCategory[0].id) ? (
+                                <li key={Math.random()}>
+                                    <Link to={`/catalog/${category.slug}`}>
+                                        {category.name}
+                                    </Link>
+                                </li> ) : ( <></> )
+                        )  :  <></>
                 }
             </ul>
         </div>

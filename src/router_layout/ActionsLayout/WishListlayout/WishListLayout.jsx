@@ -4,6 +4,7 @@ import CatalogAside from "../../../components/CatalogAside/CatalogAside";
 import MyPageTitle from "../../../components/UIUX/NEW_UI/MyTitles/MyPageTitle/MyPageTitle";
 import MyBreadCrumbs from "../../../components/UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
 import PopularGoods from "../../../components/regular_components/PopularGoods/PopularGoods";
+import WishlistPage from "../../../components/regular_components/WishlistPage/WishlistPage";
 
 const WishListLayout = () => {
     return (
@@ -16,7 +17,7 @@ const WishListLayout = () => {
                     <CatalogAside/>
                     <div className={classes.contentSection}>
                         <MyBreadCrumbs url='/wishlist' title='Избранное'/>
-                        <WishListLayout />
+                        <WishlistPage />
                     </div>
                 </div>
             </div>

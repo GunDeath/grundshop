@@ -4,18 +4,15 @@ import wishlist_icon from '../../../../../../assets/icons/header_icons/main-head
 import compare_icon from '../../../../../../assets/icons/header_icons/main-header__compare-icon.svg'
 import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../../../../../store/hooks/useTypedSelector";
+import MyWishlist from "../../../../../UIUX/NEW_UI/MyActionButtons/MyWishlist/MyWishlist";
+import MyCompare from "../../../../../UIUX/NEW_UI/MyActionButtons/MyCompare/MyCompare";
 
 const HeaderActions = () => {
     const {wishlist, compare} = useTypedSelector(state => state)
     return (
         <div className={classes.main_header__actions_block}>
-            <Link to='/wishlist' className={classes.linkBlock}>
-                <img src={wishlist_icon} alt="" className={classes.action_button}/>
-                <span className={classes.countSpan}>
-                    {wishlist.length}
-                </span>
-            </Link>
-            <img src={compare_icon} alt="" className={classes.action_button}/>
+            <MyWishlist headerIcon={true} />
+            <MyCompare headerIcon={true}/>
         </div>
     );
 };

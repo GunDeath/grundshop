@@ -1,19 +1,21 @@
 /*get sub category*/
 import {api, consumerKey, consumerSecret} from "./woocommerce_api";
 import axios from "axios";
+import {useActions} from "./store/hooks/useActions";
+
 
 /*get sub category*/
-export const subCategoryFunction = (id, setCategory) => {
-    api.get(`products/categories?parent=${id}`)
-        .then(response => {
-            if (response.status === 200) {
-                setCategory(response.data)
-            }
-        })
-        .catch(error => {
-        })
-}
-/*get single category*/
+// export const subCategoryFunction = (id) => {
+//     api.get(`products/categories?parent=${id}`)
+//         .then(response => {
+//             if (response.status === 200) {
+//                 subCategoryAddItem(response.data)
+//             }
+//         })
+//         .catch(error => {
+//         })
+// }
+// /*get single category*/
 export const singleCategory = (categoryID, setProductsByCategory, setLoading) => {
     api
         .get(`products?category=${categoryID}`)

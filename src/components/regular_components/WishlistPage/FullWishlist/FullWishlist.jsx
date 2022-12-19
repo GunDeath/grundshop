@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
 import HorizontalProductCard from "../../../UIUX/NEW_UI/MyBlocks/HorizontalProductCart/HorizontalProductCard";
+import {useActions} from "../../../../store/hooks/useActions";
+import MyRemoveAllItems from "../../../UIUX/NEW_UI/MyFunctionalComponents/MyRemoveAllItems/MyRemoveAllItems";
 
 const FullWishlist = () => {
-    const {wishlist} = useTypedSelector(state => state)
+    const [selected, setSelected] = useState(false)
+    const checkSelected = () => { setSelected(!selected) }
+
+    const {wishlist, wishlistMassRemove} = useTypedSelector(state => state)
+    const {wishlistRemoveItem, removeMassWishlist, addManyMassWishlist, massRemoveMassWishlist} = useActions()
+    const stateName = 'wishlist'
+
     return (
         <>
-            { wishlist.map(product => <HorizontalProductCard product={product} /> )}
+            <MyRemoveAllItems
+                checkSelected={checkSelected}
+                stateName={stateName}
+                stateObject={wishlist}
+                stateRemoveObject={wishlistRemoveItem}
+                stateMassObject={wishlistMassRemove}
+                stateMassRemoveObject={removeMassWishlist}
+                stateMassAddItemsObject={addManyMassWishlist}
+                stateMassRemoveAllObject={massRemoveMassWishlist}
+            />
+            { wishlist.map(product => <HorizontalProductCard product={product} selected={selected} key={product.id}/> )}
         </>
     );
 };

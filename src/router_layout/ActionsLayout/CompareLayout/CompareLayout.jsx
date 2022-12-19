@@ -1,15 +1,14 @@
 import React from 'react';
 import classes from './CompareLayout.module.css'
-import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
 import MyPageTitle from "../../../components/UIUX/NEW_UI/MyTitles/MyPageTitle/MyPageTitle";
 import CatalogAside from "../../../components/CatalogAside/CatalogAside";
 import MyBreadCrumbs from "../../../components/UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
-import FullWishlist from "../../../components/regular_components/WishlistPage/FullWishlist/FullWishlist";
-import EmptyWishlist from "../../../components/regular_components/WishlistPage/EmptyWishlist/EmptyWishlist";
 import PopularGoods from "../../../components/regular_components/PopularGoods/PopularGoods";
+import ComparePage from "../../../components/regular_components/ComparePage/ComparePage";
+import MyCompareAttributesBlock
+    from "../../../components/UIUX/NEW_UI/MyBlocks/MyCompareAttributesBlock/MyCompareAttributesBlock";
 
 const CompareLayout = () => {
-    const {compare} = useTypedSelector(state => state)
     return (
         <div className={classes.actionsLayoutBlock}>
             <div className={classes.contentAsideAndSection}>
@@ -20,10 +19,11 @@ const CompareLayout = () => {
                     <CatalogAside/>
                     <div className={classes.contentSection}>
                         <MyBreadCrumbs url='/compare' title='Сравнение'/>
-                        { compare.length !== 0 ? <FullWishlist /> : <EmptyWishlist />}
+                        <ComparePage />
                     </div>
                 </div>
             </div>
+            <MyCompareAttributesBlock />
             <div className={classes.popularGood}>
                 <PopularGoods/>
             </div>

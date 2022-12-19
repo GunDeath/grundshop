@@ -15,6 +15,9 @@ export const cartMasRemoveSlice = createSlice({
         addCartItems: (state, action) => {
             state.push(...action.payload)
         },
+        massRemoveCartItems: (state, action) => {
+            return []
+        }
     }
 })
 
