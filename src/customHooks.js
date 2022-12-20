@@ -62,9 +62,11 @@ export const usePublishedCategories = () => {
     useEffect(()=>{
         getCategories();
     }, [])
-    const getCategories = async () => {
-        await api.get('products/categories?per_page=100&parent=0&orderby=name')
-            .then((response) => { if(response.status === 200){ setTimedStore(response.data) } })
+    const getCategories = () => {
+         api.get('products/categories?per_page=100&orderby=name')
+            .then((response) => { if(response.status === 200){
+                setTimedStore(response.data)
+            } })
             .catch((error) => {})
     }
     return timedStore;

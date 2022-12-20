@@ -1,0 +1,14 @@
+.myCheckbox{
+    display: flex;
+    flex-direction: column;
+}
+.radiaBlockSubText{
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    flex-direction: column;
+}
+.radiaBlock{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

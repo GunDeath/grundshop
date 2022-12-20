@@ -12,18 +12,19 @@ const MyAddToCart = ({product, isCatalog = false, quantity = 1}) => {
     useEffect(() => {localStorage.setItem('cart', JSON.stringify(cart))}, [cart])
     const handleClick = () => {setAlertOpen(true)};
     const openChange = (value) => {setAlertOpen(value)}
-    const isExistsInCart = cart.some(element => element.id === product.id)
+
+
 
     return (
         <>
             <button
                 className={ isCatalog ? classes.buttonAddToCartCatalog : classes.buttonAddToCartPage }
                 onClick={() => {
-                    !isExistsInCart && addItem({...product, quantity: quantity})
+                    addItem({...product, quantity: quantity})
                     handleClick()
                 }}
             >
-                {isExistsInCart ? 'Добавлен' : 'В корзину'}
+             В корзину
             </button>
             <MyAddToCartAlert alertOpen={alertOpen} openChange={openChange}/>
         </>

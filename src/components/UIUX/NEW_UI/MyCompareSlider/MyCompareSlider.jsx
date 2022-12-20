@@ -6,15 +6,24 @@ import 'swiper/swiper-bundle.min.css';
 import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
 import MySmallProductCardSlider from "../MyBlocks/MySmallProductCardSlider/MySmallProductCardSlider";
 
-const MyCompareSlider = () => {
+const MyCompareSlider = ({setSliderCounter, sliderCounter, subarray}) => {
     const {compare} = useTypedSelector(state => state)
     return (
         <div className={classes.myRegularSliderBlock}>
             <Swiper
                 modules={[Navigation]}
-                spaceBetween={50}
+                spaceBetween={5}
                 slidesPerView={2}
+                slidesPerGroup={2}
                 navigation
+                onSlideChange={(e) => {
+                    if(e.realIndex !== 0){
+                        setSliderCounter(e.realIndex - 1)
+                    }else{
+                        setSliderCounter(e.realIndex)
+                    }
+                }
+            }
             >
                 {compare.map(product =>
                     <SwiperSlide key={product.id}>

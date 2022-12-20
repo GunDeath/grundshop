@@ -9,6 +9,10 @@ html, body{line-height: 1;font-size: 14px; background-color: #f4f4f4; font-famil
 .wrapper{padding: 30px;min-height: 100%}
 .title{font-size: 30px;font-weight: 700;color: #fff;margin: 0 0 30px 0;}
 
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}
 .image-slider{padding: 30px 0 70px 0;}
 .image-slider__wrapper{}
 .image-slider__slide{}

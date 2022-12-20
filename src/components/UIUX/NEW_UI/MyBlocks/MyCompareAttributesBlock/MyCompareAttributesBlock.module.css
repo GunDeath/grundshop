@@ -8,9 +8,8 @@
     height: 204px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 90px;
-    padding-inline: 20px;
 }
 .compareBlockTitle{
     width: 200px;
@@ -21,7 +20,7 @@
     color: #ff4822;
 }
 .sliderBlock{
-    width: 75%;
+    width: 845px;
     display: flex;
     align-items: center;
     justify-content: center;

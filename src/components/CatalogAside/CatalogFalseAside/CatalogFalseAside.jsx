@@ -1,25 +1,13 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import classes from "./CatalogFalseAside.module.css";
 import {useTypedSelector} from "../../../store/hooks/useTypedSelector";
+import CatalogAsideLink from "./CatalogAsideLink/CatalogAsideLink";
 
 const CatalogFalseAside = () => {
-    const {categories, singleCategory} = useTypedSelector(state => state)
+    const {categories} = useTypedSelector(state => state)
     return (
         <div className={classes.list_link}>
-            {
-                categories.map(category =>
-                    <Link to={`/catalog/${category.slug}`}  state={{category}} key={Math.random()}
-                          className={
-                              category.id === (singleCategory[0].id || 16)
-                                  ? classes.active_link
-                                  : classes.link
-                          }
-                    >
-                        {category.name}
-                    </Link>
-                )
-            }
+            { categories.map(category => category.parent === 0 ? <CatalogAsideLink category={category} key={Math.random()}/> :  <React.Fragment key={Math.random()}/> ) }
         </div>
     );
 };

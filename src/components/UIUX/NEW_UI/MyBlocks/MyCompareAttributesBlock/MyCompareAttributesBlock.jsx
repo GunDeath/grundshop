@@ -1,22 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import classes from './MyCompareAttributesBlock.module.css'
 import {useTypedSelector} from "../../../../../store/hooks/useTypedSelector";
 import MyCompareSlider from "../../MyCompareSlider/MyCompareSlider";
-import {useActions} from "../../../../../store/hooks/useActions";
 
-const MyCompareAttributesBlock = () => {
-    const {compare, attributesReducer} = useTypedSelector(state => state)
-    const {addAttributes} = useActions()
-
-    useEffect(() => {
-        if(compare.length !== 0){
-            compare.map(item => {
-                addAttributes([...item.attributes])
-            })
-        }
-    }, [compare])
-
-    console.log(attributesReducer)
+const MyCompareAttributesBlock = ({setSliderCounter, sliderCounter, subarray}) => {
+    const {compare} = useTypedSelector(state => state)
 
     return (
         <>
@@ -29,22 +17,11 @@ const MyCompareAttributesBlock = () => {
                                     Сравниваемые товары
                                 </div>
                                 <div className={classes.sliderBlock}>
-                                    <MyCompareSlider />
+                                    <MyCompareSlider subarray={subarray} sliderCounter={sliderCounter} setSliderCounter={setSliderCounter}/>
                                 </div>
                             </div>
-                            <div className={classes.attributesBlock}>
-                                {
-                                    attributesReducer.map(attr =>
-                                        <>
-                                            <div key={Math.random()}>{attr.name}</div>
-                                        </>
-                                    )
-                                }
-                            </div>
                         </div>
-                    ) : (
-                        <></>
-                    )
+                    ) : (<></>)
             }
         </>
     );

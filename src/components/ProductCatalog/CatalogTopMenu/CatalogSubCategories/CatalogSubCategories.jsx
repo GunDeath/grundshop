@@ -12,15 +12,8 @@ const CatalogSubCategories = () => {
     useEffect(() => {
         if (singleCategory.length !== 0) {
             api.get(`products/categories?parent=${singleCategory[0].id}`)
-                .then(response => {
-                    if (response.status === 200) {
-                        console.log('input data')
-                        console.log(response.data)
-                        subCategoryAddItem(response.data)
-                    }
-                })
-                .catch(error => {
-                })
+                .then(response => { if (response.status === 200) { subCategoryAddItem(response.data) } })
+                .catch(error => console.log(error.message))
         }
     }, [singleCategory]);
 
@@ -39,7 +32,7 @@ const CatalogSubCategories = () => {
                                         {category.name}
                                     </Link>
                                 </li> ) : ( <></> )
-                        )  :  <></>
+                        )  :  <React.Fragment key={Math.random()}/>
                 }
             </ul>
         </div>

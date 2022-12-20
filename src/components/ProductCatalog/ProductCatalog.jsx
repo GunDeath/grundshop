@@ -6,6 +6,7 @@ import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../store/hooks/useTypedSelector";
 import {getDefaultProducts} from "../../customFunctions";
 import {useActions} from "../../store/hooks/useActions";
+import MyEmptyComponent from "../UIUX/NEW_UI/MyBlocks/MyEmptyComponent/MyEmptyComponent";
 
 const ProductCatalog = () => {
     const params = useParams()
@@ -24,7 +25,11 @@ const ProductCatalog = () => {
 
     useEffect(() => {
         const newCategory = categories.filter(cat => cat.slug === params.category_slug)
-        singleCategoryAddItem(...newCategory)
+        if(newCategory.length !== 0){
+            singleCategoryAddItem(...newCategory)
+        }else{
+            singleCategoryAddItem(categories[categories.length - 1]);
+        }
     }, [params.category_slug])
 
     useEffect(() => {
@@ -42,17 +47,16 @@ const ProductCatalog = () => {
     const currentRecords = productsByCategory.slice(indexOfFirstRecord, indexOfLastRecord).sort((a, b) => a.name.localeCompare(b.name));
     const nPages = Math.ceil(productsByCategory.length / recordsPerPage)
 
+    console.log(currentRecords)
+
     return (
         <div className={classes.catalogMainContent}>
             <CatalogTopMenu changeGrid={changeGrid} grid={grid}/>
-            <CatalogItemsLoop
-                grid={grid}
-                currentRecords={currentRecords}
-                loading={loading}
-                nPages={nPages}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-            />
+            {
+                currentRecords.length !== 0 ? (
+                    <CatalogItemsLoop  grid={grid}  currentRecords={currentRecords}  loading={loading}  nPages={nPages}  currentPage={currentPage}  setCurrentPage={setCurrentPage} />
+                ): <MyEmptyComponent pageTitle='Товары для данной категории отсутствуют' />
+            }
         </div>
     );
 };

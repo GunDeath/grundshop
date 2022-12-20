@@ -15,6 +15,7 @@ import CatalogLayout from "./router_layout/CatalogLayout/CatalogLayout";
 import WishListLayout from "./router_layout/ActionsLayout/WishListlayout/WishListLayout";
 import CartLayout from "./router_layout/ActionsLayout/CartLayout/CartLayout";
 import CompareLayout from "./router_layout/ActionsLayout/CompareLayout/CompareLayout";
+import OrderLayout from "./router_layout/OrderLayout/OrderLayout";
 
 function App() {
     /*get products categories*/
@@ -66,6 +67,7 @@ function App() {
                     <Route path='dostavka' element={<Delivery/>} breadcrumb='Доставка'/>
                     <Route path='wishlist' element={<WishListLayout/>}/>
                     <Route path='compare' element={<CompareLayout/>}/>
+                    <Route path='order' element={<OrderLayout/>}/>
                     <Route path='cart' element={<CartLayout/>}/>
                 </Route>
                 <Route path='/catalog' element={<CatalogLayout/>}>
