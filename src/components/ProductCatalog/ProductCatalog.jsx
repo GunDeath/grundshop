@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import classes from "./ProductCatalog.module.css";
-import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
 import CatalogItemsLoop from "./CatalogItemsLoop/CatalogItemsLoop";
 import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../store/hooks/useTypedSelector";
-import {getDefaultProducts} from "../../customFunctions";
 import {useActions} from "../../store/hooks/useActions";
-import MyEmptyComponent from "../UIUX/NEW_UI/MyBlocks/MyEmptyComponent/MyEmptyComponent";
+import CatalogTopMenu from "./CatalogTopMenu/CatalogTopMenu";
+import {useSortingProductInCatalog} from "../../customHooks";
 
 const ProductCatalog = () => {
     const params = useParams()
@@ -16,49 +15,47 @@ const ProductCatalog = () => {
     const [recordsPerPage] = useState(9)
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-
-    const {goodsList, singleCategory, categories} = useTypedSelector(state => state)
+    /*create products array*/
+    const {goodsList, singleCategory, categories, productFilterList} = useTypedSelector(state => state)
     const {singleCategoryAddItem} = useActions();
     /*change product layout*/
     const [grid, setGrid] = useState(true)
     const changeGrid = (value) => { setGrid(value) }
+    /*sorting element in catalog*/
+    const [selectedSort, setSelectedSort] = useState('nameTop')
 
     useEffect(() => {
         const newCategory = categories.filter(cat => cat.slug === params.category_slug)
-        if(newCategory.length !== 0){
-            singleCategoryAddItem(...newCategory)
-        }else{
-            singleCategoryAddItem(categories[categories.length - 1]);
-        }
-    }, [params.category_slug])
+        newCategory.length !== 0 ? singleCategoryAddItem(...newCategory) : singleCategoryAddItem(categories[categories.length - 1])
+    }, [params.category_slug, categories])
 
-    useEffect(() => {
-        localStorage.setItem('singleCategory', JSON.stringify(singleCategory))
+    useEffect(()=>{
+        if(singleCategory.length !== 0 ){
+            localStorage.setItem('singleCategory', JSON.stringify(singleCategory))
+        }
         setLoading(true)
-        if (Array.isArray(singleCategory) && singleCategory.length !== 0) {
-            if(Array.isArray(goodsList) && goodsList.length){
+        if (Array.isArray(singleCategory) && singleCategory.length !== 0 && singleCategory[0] !== undefined) {
+            if(Array.isArray(goodsList) && goodsList.length !==0 ){
                 setProductsByCategory(goodsList.filter(product => product.categories[0].slug === singleCategory[0].slug))
                 setLoading(false)
             }
-            else{ getDefaultProducts(setProductsByCategory, setLoading, singleCategory[0].id) }
-        }else{ getDefaultProducts(setProductsByCategory, setLoading, 16) }
-    }, [singleCategory])
+        }
+    }, [singleCategory, goodsList])
 
-    const currentRecords = productsByCategory.slice(indexOfFirstRecord, indexOfLastRecord).sort((a, b) => a.name.localeCompare(b.name));
+    const sorting = useSortingProductInCatalog(productFilterList, selectedSort)
+
+    const currentRecords = sorting.slice(indexOfFirstRecord, indexOfLastRecord);
     const nPages = Math.ceil(productsByCategory.length / recordsPerPage)
-
-    console.log(currentRecords)
 
     return (
         <div className={classes.catalogMainContent}>
-            <CatalogTopMenu changeGrid={changeGrid} grid={grid}/>
-            {
-                currentRecords.length !== 0 ? (
-                    <CatalogItemsLoop  grid={grid}  currentRecords={currentRecords}  loading={loading}  nPages={nPages}  currentPage={currentPage}  setCurrentPage={setCurrentPage} />
-                ): <MyEmptyComponent pageTitle='Товары для данной категории отсутствуют' />
-            }
+            <CatalogTopMenu selectedSort={selectedSort} setSelectedSort={setSelectedSort} changeGrid={changeGrid} grid={grid}/>
+            <CatalogItemsLoop  grid={grid}  currentRecords={currentRecords}  loading={loading}  nPages={nPages}  currentPage={currentPage}  setCurrentPage={setCurrentPage} />
         </div>
     );
 };
 
+
+
 export default ProductCatalog;
+

@@ -1,73 +1,67 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {api} from "../../woocommerce_api";
-import MyCatalogBanner from "../UIUX/NEW_UI/MyBlocks/MyCatalogBanner/MyCatalogBanner";
-import GridProductCard from "../UIUX/NEW_UI/MyBlocks/GridProductCard/GridProductCard";
-import MySelectElement from "../UIUX/NEW_UI/MyLayoutElements/MySelectElement/MySelectElement";
-import MyAccordion from "../UIUX/NEW_UI/MyLayoutElements/MyAccordion/MyAccordion";
+import axios from "axios";
+import classes from './Test.module.css'
 import {useTypedSelector} from "../../store/hooks/useTypedSelector";
+import search_icon from "../../assets/icons/header_icons/main-header__search-icon.svg";
+
 
 const Test = () => {
-    const {goodsList} = useTypedSelector(state => state)
-    const [countries, setCountries] = useState([])
-    const [loading, setLoading] = useState(true)
-    const getCountries = () => {
-        api.get('products/577')
-            .then((response) => {
-                console.log(response.data)
-                setCountries(response.data)
-                setLoading(!loading)
-            })
-    }
-    console.log(goodsList)
 
-    const [value, setValue] = useState('')
-    const filteredCountries = goodsList.filter(goodsList => {
-        if(goodsList.name.toLowerCase().includes(value.toLowerCase())){
-            return goodsList.name.toLowerCase().includes(value.toLowerCase())
-        }else if(goodsList.sku.toLowerCase().includes(value.toLowerCase())){
-            return goodsList.name.toLowerCase()
-        }else if(goodsList.slug.toLowerCase().includes(value.toLowerCase())){
-            return goodsList.name.toLowerCase()
-        }
 
-    })
-
-    // useEffect(()=>{
-    //     const config = {
-    //         auth: {
-    //             username: 'ck_cefbcaa40e47276dc6064169c20751350a5365d3',
-    //             password: 'cs_bd901cab6cdfd1bf119befce7fdd291bcdd352d2'
-    //         }
-    //     }
-    //
-    //     const apiData = async () => {
-    //         await axios.get('https://mybackend.rusgetter.store/wp-json/wc/v3/products', config)
-    //             .then((response) => {
-    //                 console.log(response);
-    //             })
-    //     }
-    //     apiData()
-    // }, [])
+        // const config = {
+        //     auth: {
+        //         username: 'ck_cefbcaa40e47276dc6064169c20751350a5365d3',
+        //         password: 'cs_bd901cab6cdfd1bf119befce7fdd291bcdd352d2'
+        //     }
+        // }
+        //
+        // const apiData = async () => {
+        //     await axios.get(`https://mybackend.rusgetter.store/wp-json/wc/v3/products?search=${value}`, config)
+        //         .then((response) => {
+        //             console.log(response.data);
+        //         })
+        // }
 
     return (
         <div >
-            <form>
-                <input
-                    type="text"
-                    placeholder='Search'
-                    onChange={(event) => setValue(event.target.value)}
-                />
-            </form>
-            {
-
-                        filteredCountries.map((country, index) => {
-                            return (
-                                <div key={index}>{country.name}</div>
-                            )
-                        })
-            }
-            {/*<MyCatalogBanner />*/}
-            {/*<MyAccordion />*/}
+            {/*<div className={classes.header_main__search_form}>*/}
+            {/*    <input*/}
+            {/*        value={value}*/}
+            {/*        onChange={(event) => setValue(event.target.value)}*/}
+            {/*        type="text"*/}
+            {/*        className={classes.header_main__search_input}*/}
+            {/*        placeholder="Поиск по сайту"*/}
+            {/*    />*/}
+            {/*    <button className={classes.search_form__button} onClick={()=>console.log('hello')}>*/}
+            {/*        <img src={search_icon} alt="" className="search_button" />*/}
+            {/*    </button>*/}
+            {/*</div>*/}
+            {/*{*/}
+            {/*    value !== ''*/}
+            {/*        ?(*/}
+            {/*            <div className={classes.searchArea}>*/}
+            {/*                {*/}
+            {/*                    filteredCountries.length !== 0 ? (*/}
+            {/*                        filteredCountries.map((country, index) => {*/}
+            {/*                            return (*/}
+            {/*                                <div key={index} className={classes.searchAnswer}>*/}
+            {/*                                    <div className={classes.searchName}>*/}
+            {/*                                        {country.name}*/}
+            {/*                                            </div>*/}
+            {/*                                            <div className={classes.searchPrice}>*/}
+            {/*                                        {country.price} руб.*/}
+            {/*                                    </div>*/}
+            {/*                                </div>*/}
+            {/*                                )*/}
+            {/*                        })):(*/}
+            {/*                            console.log('empty')*/}
+            {/*                        )*/}
+            {/*                }*/}
+            {/*            </div>*/}
+            {/*        )*/}
+            {/*        :(<></>)*/}
+            {/*}*/}
         </div>
     );
 };

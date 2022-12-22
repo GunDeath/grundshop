@@ -1,5 +1,7 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useMemo} from "react";
 import {api} from "./woocommerce_api";
+import {useActions} from "./store/hooks/useActions";
+import {useTypedSelector} from "./store/hooks/useTypedSelector";
 
 /*get list of product categories*/
 export const useCategories = () => {
@@ -58,30 +60,57 @@ export const useNewGoods = () => {
 }
 /*get all published categories*/
 export const usePublishedCategories = () => {
-    const [timedStore, setTimedStore] = useState([])
+    const {categoryAddItem, singleCategoryAddItem} = useActions()
+    const {singleCategory} = useTypedSelector(state => state)
     useEffect(()=>{
         getCategories();
     }, [])
     const getCategories = () => {
          api.get('products/categories?per_page=100&orderby=name')
             .then((response) => { if(response.status === 200){
-                setTimedStore(response.data)
+                categoryAddItem(response.data)
+                localStorage.setItem('categories', JSON.stringify(response.data))
+                if(singleCategory.length === 0){
+                    singleCategoryAddItem(...response.data.filter(cat => cat.acf.default_catalog_category === true))
+                    localStorage.setItem('singleCategory', JSON.stringify(response.data.filter(cat => cat.acf.default_catalog_category === true)))
+                }
             } })
             .catch((error) => {})
     }
-    return timedStore;
 }
 
 /*get all products*/
 export const usePublishedGoods = () => {
-    const [goods, setGoods] = useState([])
+    const {addProducts} = useActions()
     useEffect(()=>{
+        console.log('start')
         getGoods();
     }, [])
-    const getGoods = async () => {
-        await api.get('products?status=publish')
-            .then((response) => { if(response.status === 200){ setGoods(response.data) } })
+    const getGoods = () => {
+        api.get('products?status=publish')
+            .then((response) => { if(response.status === 200){
+                addProducts(response.data)
+                localStorage.setItem('goods', JSON.stringify(response.data))
+            } })
             .catch((error) => {})
     }
-    return goods;
+}
+
+export const useSortingProductInCatalog = (productsByCategory, selectedSort) =>{
+    return useMemo(() => {
+        switch (selectedSort) {
+            case 'nameTop':
+                return [...productsByCategory].sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                break;
+            case 'nameBottom':
+                return [...productsByCategory].sort((a, b) => (b.name > a.name) ? 1 : ((a.name > b.name) ? -1 : 0));
+                break;
+            case 'priceTop':
+                return [...productsByCategory].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                break;
+            case 'priceBottom':
+                return [...productsByCategory].sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+                break;
+        }
+    }, [productsByCategory, selectedSort]);
 }

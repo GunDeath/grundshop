@@ -7,6 +7,8 @@ import {Outlet} from 'react-router-dom';
 import PopularGoods from "../../components/regular_components/PopularGoods/PopularGoods";
 
 const ProductLayout = () => {
+
+
     return (
         <div className={classes.mainBlockLayout}>
             <Header />

@@ -77,3 +77,10 @@ export const coreParams = [
     {id: 2, slug: 'compare', title: 'Сравнение товаров'},
     {id: 3, slug: 'cart', title: 'Корзина'},
 ]
+
+export const optionsArray = [
+    {id: 1, value: 'nameTop', name: 'По названию от А до Я'},
+    {id: 2, value: 'nameBottom', name: 'По названию от Я до А'},
+    {id: 3, value: 'priceTop', name: 'По возрастанию цены'},
+    {id: 4, value: 'priceBottom', name: 'По убыванию цены'},
+]

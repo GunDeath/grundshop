@@ -1,5 +1,5 @@
 import React from 'react';
-import {Outlet, useParams} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import classes from './CatalogLayout.module.css'
 import Footer from "../../components/main_components/footer/Footer";
 import Header from "../../components/main_components/header/Header";
@@ -8,6 +8,7 @@ import MyCatalogBanner from "../../components/UIUX/NEW_UI/MyBlocks/MyCatalogBann
 import PopularGoods from "../../components/regular_components/PopularGoods/PopularGoods";
 
 const CatalogLayout = () => {
+
     return (
         <div className={classes.catalogLayoutBlock}>
             <Header />

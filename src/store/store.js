@@ -9,7 +9,7 @@ import {wishlistMassReducer} from "./wishlist/WishlistMassRemove";
 import {compareMassReducer} from "./compare/CompareMassRemove";
 import {comparelistReducer} from "./compare/Compare";
 import {attributesReducer} from "./attributes/Attributes";
-import {subCategoriesReducer} from "./categories/SubCategories";
+import {productFilterListReducer} from './filter/Filter'
 
 export const store = configureStore({
     reducer: {
@@ -23,7 +23,7 @@ export const store = configureStore({
         goodsList: goodsListReducer,
         singleCategory: singleCategoryReducer,
         attributesReducer: attributesReducer,
-        subCategories: subCategoriesReducer
+        productFilterList: productFilterListReducer
     },
 })
 

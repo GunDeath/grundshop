@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './CatalogTopMenuGridSortingSection.module.css'
-import CatalogTopMenuSortingGridButtons from "../CatalogTopMenuSortingGridButtons/CatalogTopMenuSortingGridButtons";
+import CatalogTopMenuSortingGridButtons from "./CatalogTopMenuSortingGridButtons/CatalogTopMenuSortingGridButtons";
 import MyBreadCrumbs from "../../../../UIUX/NEW_UI/MyBreadCrumbs/MyBreadCrumbs";
 
 const CatalogTopMenuGridSortingSection = ({changeGrid, grid}) => {

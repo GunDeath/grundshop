@@ -10,7 +10,7 @@ import {singleCategoryActions} from "../categories/singleCategory";
 import {wishlistMassActions} from "../wishlist/WishlistMassRemove";
 import {compareMassActions} from "../compare/CompareMassRemove";
 import {attributesActions} from "../attributes/Attributes";
-import {subCategoriesActions} from "../categories/SubCategories";
+import {productFilterListActions} from "../filter/Filter";
 
 const allActions = {
     ...cartActions,
@@ -23,7 +23,7 @@ const allActions = {
     ...wishlistMassActions,
     ...compareMassActions,
     ...attributesActions,
-    ...subCategoriesActions
+    ...productFilterListActions
 }
 
 export const useActions = () => {

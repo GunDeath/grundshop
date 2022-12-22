@@ -6,9 +6,9 @@ import CatalogAsideLink from "./CatalogAsideLink/CatalogAsideLink";
 const CatalogFalseAside = () => {
     const {categories} = useTypedSelector(state => state)
     return (
-        <div className={classes.list_link}>
+        <li className={classes.list_link}>
             { categories.map(category => category.parent === 0 ? <CatalogAsideLink category={category} key={Math.random()}/> :  <React.Fragment key={Math.random()}/> ) }
-        </div>
+        </li>
     );
 };
 

@@ -1,0 +1,11 @@
+.MyPriceFilterInput{
+    width: 88px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid #94979C;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #667085;
+}

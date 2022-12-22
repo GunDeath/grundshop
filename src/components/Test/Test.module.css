@@ -27,19 +27,12 @@
     opacity: 0.4;
     padding: 5px;
 }
-.mainSearch{
-    position: relative;
-}
+
 .searchArea{
-    position: absolute;
-    top: 33px;
-    right: 0;
     width: 360px;
-    border: 1px solid #003767;
+    border: 1px solid #000;
     max-height: 200px;
     overflow: auto;
-    background-color: #ffffff;
-    z-index: 100;
 }
 .searchAnswer{
     font-weight: 400;

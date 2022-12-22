@@ -5,10 +5,16 @@ import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
 
 const CatalogAsideLink = ({category}) => {
     const {singleCategory} = useTypedSelector(state => state)
+
     return (
-        <Link to={`/catalog/${category.slug}`} state={{category}} className = {category.id === singleCategory[0].id ? classes.active_link : classes.link}>
-            {category.name}
-        </Link>
+        <>
+            {
+                <Link to={`/catalog/${category.slug}`} state={{category}}
+                      className={category.id === singleCategory[0].id ? classes.active_link : classes.link}>
+                    {category.name}
+                </Link>
+            }
+        </>
     );
 };
 

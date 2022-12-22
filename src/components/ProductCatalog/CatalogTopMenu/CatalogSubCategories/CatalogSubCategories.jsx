@@ -1,38 +1,30 @@
-import React, {useEffect} from 'react';
+import React, {useState ,useEffect} from 'react';
 import classes from "./CatalogSubCategories.module.css";
 import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
-import {api} from "../../../../woocommerce_api";
-import {useActions} from "../../../../store/hooks/useActions";
 
 const CatalogSubCategories = () => {
-    const {singleCategory, subCategories} = useTypedSelector(state => state);
-    const {subCategoryAddItem} = useActions()
+    const {singleCategory, categories} = useTypedSelector(state => state);
+    const [currentCategory, setCurrentCategory] = useState([{id: ''}])
 
     useEffect(() => {
-        if (singleCategory.length !== 0) {
-            api.get(`products/categories?parent=${singleCategory[0].id}`)
-                .then(response => { if (response.status === 200) { subCategoryAddItem(response.data) } })
-                .catch(error => console.log(error.message))
+        if(singleCategory[0] !== undefined){
+            setCurrentCategory(...singleCategory)
         }
-    }, [singleCategory]);
-
-    useEffect(() => { localStorage.setItem('subCategories', JSON.stringify(subCategories)) }, [subCategories])
+    }, [singleCategory])
 
     return (
-        <div className={subCategories.length !== 0 ? classes.mb : ''}>
+        <div>
             <ul className={classes.catalogMainTopMenu}>
                 {
-                    subCategories.length !== 0
-                        ?
-                        subCategories.map(category =>
-                            Number(category.parent) === Number(singleCategory[0].id) ? (
-                                <li key={Math.random()}>
-                                    <Link to={`/catalog/${category.slug}`}>
-                                        {category.name}
-                                    </Link>
-                                </li> ) : ( <></> )
-                        )  :  <React.Fragment key={Math.random()}/>
+                    categories.map(category =>
+                        Number(category.parent) === Number(currentCategory.id) ? (
+                            <li key={Math.random()} className={classes.mb}>
+                                <Link to={`/catalog/${category.slug}`}>
+                                    {category.name}
+                                </Link>
+                            </li>) : (<React.Fragment key={Math.random()}></React.Fragment>)
+                    )
                 }
             </ul>
         </div>
