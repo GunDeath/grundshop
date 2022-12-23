@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {useActions} from "../../../../store/hooks/useActions";
 import {useTypedSelector} from "../../../../store/hooks/useTypedSelector";
 import MyPriceFilter from "./MyPriceFilter/MyPriceFilter";
 
 const MyFilters = ({filterProductsList}) => {
-    const {attributesReducer} = useTypedSelector(state => state)
+    const {attributeProducts} = useTypedSelector(state => state)
     const [attributesListAll, setAttributeListAll] = useState([])
     const [attributeList, setAttributeList] = useState([])
-    const {addAttributes} = useActions()
 
     const attributeCount = (attributesListAll) => {
         if (attributesListAll.length !== 0) {
@@ -24,7 +22,6 @@ const MyFilters = ({filterProductsList}) => {
     useEffect(() => {
         if (filterProductsList.length !== 0) {
             filterProductsList.map(item => {
-                addAttributes([...item.attributes])
                 setAttributeListAll(prev => [...prev, item.attributes])
             })
         }
@@ -35,19 +32,27 @@ const MyFilters = ({filterProductsList}) => {
     }, [attributesListAll])
     useEffect(() => {
         let uniqueNameAndCount = {}
+        let uniqueOptionAndCount = []
         attributeList.map(el => { uniqueNameAndCount[el.name] = (uniqueNameAndCount[el.name] || 0) + 1 })
-        console.log(uniqueNameAndCount)
-        console.log([...new Set(attributeList.map(item => item.option))])
+        uniqueOptionAndCount.push(...[...new Set(attributeList.map(item => item.option))])
     }, [attributeList])
 
     return (
         <div>
             <MyPriceFilter filterProductsList={filterProductsList}/>
             {
-                attributesReducer.length !== 0
+                attributeProducts.length !== 0
                     ? (
-                        attributesReducer.map(attrFilter =>
-                            <div key={attrFilter.name}>{attrFilter.name}</div>
+                        attributeProducts.map(attrFilter => (
+                                <>
+                                    <div key={Math.random()}>{attrFilter.name}</div>
+                                    {
+                                        attrFilter.option.map(singleOption => (
+                                            <div key={Math.random()}>{singleOption.name}</div>
+                                        ))
+                                    }
+                                </>
+                            )
                         )
                     ) : (
                         <></>

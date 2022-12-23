@@ -10,6 +10,7 @@ import {compareMassReducer} from "./compare/CompareMassRemove";
 import {comparelistReducer} from "./compare/Compare";
 import {attributesReducer} from "./attributes/Attributes";
 import {productFilterListReducer} from './filter/Filter'
+import {attributeProductsReducer} from "./product_attributes/ProductAttributes";
 
 export const store = configureStore({
     reducer: {
@@ -23,7 +24,8 @@ export const store = configureStore({
         goodsList: goodsListReducer,
         singleCategory: singleCategoryReducer,
         attributesReducer: attributesReducer,
-        productFilterList: productFilterListReducer
+        productFilterList: productFilterListReducer,
+        attributeProducts: attributeProductsReducer
     },
 })
 

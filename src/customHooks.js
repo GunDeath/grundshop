@@ -114,3 +114,39 @@ export const useSortingProductInCatalog = (productsByCategory, selectedSort) =>{
         }
     }, [productsByCategory, selectedSort]);
 }
+
+export const useAttributes = () => {
+    const [localState, setLocalState] = useState([])
+    const [attributeTerms, setAttributeTerms] = useState([])
+    const {addAttributeProductsList} = useActions()
+    useEffect(()=>{ getAttributes(); }, [])
+
+    const getAttributes = () => {
+        api.get('products/attributes/')
+            .then((response) => { if(response.status === 200){
+                response.data.map(item => {
+                    setLocalState(prev => [...prev, {id: item.id, name: item.name, slug: item.slug}])
+                })
+            } })
+            .catch((error) => {})
+    }
+
+    useEffect(() => {
+            getAttributeTerms(localState)
+    }, [localState])
+
+    const getAttributeTerms = (localState) => {
+
+        localState.map(singleAttr => {
+            api.get(`products/attributes/${singleAttr.id}/terms`)
+                .then((response) => { if(response.status === 200){
+                    setAttributeTerms(prev => [...prev, {...singleAttr, option: response.data}])
+                } })
+                .catch((error) => {})
+        })
+    }
+
+    useEffect(()=>{
+        addAttributeProductsList(attributeTerms)
+    }, [attributeTerms])
+}

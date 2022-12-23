@@ -8,7 +8,7 @@ import ProductCatalog from "./components/ProductCatalog/ProductCatalog";
 import ProductLayout from "./router_layout/ProductLayout/ProductLayout";
 import Error from "./components/regular_components/ErrorPage/Error";
 import Test from "./components/Test/Test";
-import {usePublishedCategories, usePublishedGoods} from './customHooks'
+import {useAttributes, usePublishedCategories, usePublishedGoods} from './customHooks'
 import CatalogLayout from "./router_layout/CatalogLayout/CatalogLayout";
 import WishListLayout from "./router_layout/ActionsLayout/WishListlayout/WishListLayout";
 import CartLayout from "./router_layout/ActionsLayout/CartLayout/CartLayout";
@@ -18,6 +18,7 @@ import OrderLayout from "./router_layout/OrderLayout/OrderLayout";
 function App() {
     /*get products categories*/
     usePublishedCategories()
+    useAttributes()
     usePublishedGoods()
 
     return (

@@ -11,6 +11,7 @@ import {wishlistMassActions} from "../wishlist/WishlistMassRemove";
 import {compareMassActions} from "../compare/CompareMassRemove";
 import {attributesActions} from "../attributes/Attributes";
 import {productFilterListActions} from "../filter/Filter";
+import {attributeProductsActions} from "../product_attributes/ProductAttributes";
 
 const allActions = {
     ...cartActions,
@@ -23,7 +24,8 @@ const allActions = {
     ...wishlistMassActions,
     ...compareMassActions,
     ...attributesActions,
-    ...productFilterListActions
+    ...productFilterListActions,
+    ...attributeProductsActions
 }
 
 export const useActions = () => {
